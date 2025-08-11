@@ -1,5 +1,4 @@
 import React from 'react';
-import BorderBox from './BorderBox';
 
 interface SkillProgressProps {
   skill: string;
@@ -8,8 +7,11 @@ interface SkillProgressProps {
 }
 
 /**
- * 技能进度条组件
- * 使用边框样式显示技能熟练度
+ * LinkedIn风格的技能进度条组件
+ * 用于展示技能熟练度的可视化进度条
+ * @param skill - 技能名称
+ * @param percentage - 熟练度百分比 (0-100)
+ * @param className - 自定义样式类名
  */
 const SkillProgress: React.FC<SkillProgressProps> = ({
   skill,
@@ -17,18 +19,18 @@ const SkillProgress: React.FC<SkillProgressProps> = ({
   className = ''
 }) => {
   return (
-    <BorderBox variant="skill" padding="small" margin="small" className={className}>
-      <div className="flex justify-between mb-2">
-        <span className="text-gray-700">{skill}</span>
-        <span className="text-gray-600">{percentage}%</span>
+    <div className={`mb-4 ${className}`}>
+      <div className="flex justify-between items-center mb-2">
+        <span className="linkedin-text-primary font-medium text-sm">{skill}</span>
+        <span className="linkedin-text-secondary text-xs">{percentage}%</span>
       </div>
-      <div className="w-full border border-gray-400 h-2 mt-2">
+      <div className="w-full bg-gray-200 rounded-full h-2">
         <div
-          className="border-r-4 border-gray-600 h-2"
+          className="bg-blue-500 h-2 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
-        ></div>
+        />
       </div>
-    </BorderBox>
+    </div>
   );
 };
 

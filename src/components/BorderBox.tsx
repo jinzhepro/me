@@ -2,7 +2,14 @@ import React from "react";
 
 interface BorderBoxProps {
   children: React.ReactNode;
-  variant?: "default" | "thick" | "section" | "skill" | "contact";
+  variant?:
+    | "default"
+    | "thick"
+    | "section"
+    | "skill"
+    | "email"
+    | "phone"
+    | "location";
   className?: string;
   padding?: "none" | "small" | "medium" | "large";
   margin?: "none" | "small" | "medium" | "large";
@@ -25,7 +32,9 @@ const BorderBox: React.FC<BorderBoxProps> = ({
     thick: "border-2 border-gray-400",
     section: "border border-gray-300",
     skill: "border border-gray-300",
-    contact: "border border-gray-400 hover:border-gray-600 transition-colors",
+    email: "border border-gray-400 hover:border-gray-600 transition-colors",
+    phone: "border border-gray-400 hover:border-gray-600 transition-colors",
+    location: "border border-gray-400 hover:border-gray-600 transition-colors",
   };
 
   // 内边距样式
@@ -49,11 +58,29 @@ const BorderBox: React.FC<BorderBoxProps> = ({
     paddingStyles[padding],
     marginStyles[margin],
     className,
+    "rounded-lg p-1",
   ]
     .filter(Boolean)
     .join(" ");
 
-  return <div className={combinedClassName}>{children}</div>;
+  return (
+    <div
+      className={combinedClassName}
+      onClick={() => {
+        if (variant === "email") {
+          window.open("mailto:jinzhepro@qq.com");
+        } else if (variant === "phone") {
+          window.open("tel:17669675323");
+        } else if (variant === "location") {
+          window.open(
+            "https://nominatim.openstreetmap.org/ui/search.html?city=%E9%9D%92%E5%B2%9B"
+          );
+        }
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default BorderBox;

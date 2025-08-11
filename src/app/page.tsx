@@ -10,318 +10,269 @@ import {
   ExternalLink,
   Calendar,
   Award,
-  User,
 } from "lucide-react";
+import Image from "next/image";
 import Navigation from "@/components/Navigation";
-import BorderBox from "@/components/BorderBox";
+import LinkedInCard from "@/components/LinkedInCard";
 import SkillProgress from "@/components/SkillProgress";
+import WorkExperience from "@/components/WorkExperience";
+import PersonalInfo from "@/components/PersonalInfo";
 
 /**
- * 主页面组件 - 在线简历
- * 线框风格设计，专注于结构和内容展示
+ * 主页面组件 - LinkedIn风格在线简历
+ * 现代化卡片设计，专注于专业展示和用户体验
  */
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: "var(--linkedin-gray-100)" }}
+    >
       <Navigation />
 
       {/* 个人信息区域 */}
-      <header
-        id="home"
-        className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 border-b border-gray-300 flex justify-center"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full text-center">
-          <div className="mb-8">
-            <BorderBox variant="thick" padding="small" className="w-32 h-32 mx-auto mb-6 border-gray-900">
-              <BorderBox variant="default" padding="none" className="w-full h-full border-gray-400 flex items-center justify-center">
-                <User className="w-16 h-16 text-gray-600" />
-              </BorderBox>
-            </BorderBox>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 border-b border-gray-300 pb-4">
-              张三
-            </h1>
-            <p className="text-xl sm:text-2xl text-gray-700 mb-6 border-l-4 border-gray-300 pl-4">
-              全栈开发工程师 | React & Node.js 专家
-            </p>
-            <BorderBox variant="default" padding="medium" className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              专注于现代Web技术，拥有5年+开发经验，擅长React、Node.js、TypeScript等技术栈
-            </BorderBox>
-          </div>
-
-          {/* 联系方式 */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8 border-t border-gray-300 pt-6">
-            <BorderBox variant="contact" padding="small" className="flex items-center gap-2 text-gray-700">
-              <Mail className="w-4 h-4" />
-              zhangsan@example.com
-            </BorderBox>
-            <BorderBox variant="contact" padding="small" className="flex items-center gap-2 text-gray-700">
-              <Phone className="w-4 h-4" />
-              138-0013-8000
-            </BorderBox>
-            <BorderBox variant="contact" padding="small" className="flex items-center gap-2 text-gray-700">
-              <MapPin className="w-4 h-4" />
-              北京市
-            </BorderBox>
-          </div>
-
-          {/* 社交链接 */}
-          <div className="flex justify-center gap-4">
-            <BorderBox variant="contact" padding="small" className="text-gray-700">
-              <Github className="w-5 h-5" />
-            </BorderBox>
-            <BorderBox variant="contact" padding="small" className="text-gray-700">
-              <Linkedin className="w-5 h-5" />
-            </BorderBox>
-            <BorderBox variant="contact" padding="small" className="text-gray-700">
-              <Mail className="w-5 h-5" />
-            </BorderBox>
-          </div>
-        </BorderBox>
-      </header>
+      <PersonalInfo
+        name="张晋哲"
+        position="全栈开发工程师"
+        description="专注于现代Web技术，拥有8年+开发经验，擅长React、Vue、Next.js、Expo等技术栈"
+        avatarSrc="/logo.JPG"
+        contact={{
+          email: "jinzhepro@qq.com",
+          phone: "176-6967-5323",
+          location: "青岛市",
+        }}
+        socialLinks={{
+          github: "https://github.com/jinzhepro",
+          linkedin: "https://linkedin.com/in/jinzhepro",
+          email: "jinzhepro@qq.com",
+        }}
+      />
 
       {/* 关于我 */}
-      <section
-        id="about"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center border-b border-gray-300 pb-4">
-            关于我
-          </h2>
-          <BorderBox variant="thick" padding="large" margin="medium">
-            <BorderBox variant="default" padding="medium" className="text-gray-700 leading-relaxed text-lg text-center">
+      <section id="about" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <LinkedInCard>
+            <h2 className="linkedin-section-title">关于我</h2>
+            <p className="linkedin-text-primary leading-relaxed">
               我是一名充满激情的前端开发工程师，拥有5年的Web开发经验。专注于创建用户友好、性能优异的现代化Web应用程序。
               熟练掌握React、Vue.js、TypeScript等前端技术栈，对用户体验设计有深入理解。
-            </BorderBox>
-          </BorderBox>
-        </BorderBox>
+            </p>
+          </LinkedInCard>
+        </div>
       </section>
 
       {/* 技能专长 */}
-      <section
-        id="skills"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center border-b border-gray-300 pb-4">
-            技能专长
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 m-4">
-            <BorderBox variant="thick" padding="large">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6 border-b border-gray-300 pb-2">
-                前端技术
-              </h3>
-              <div className="space-y-4">
-                <SkillProgress skill="React/Next.js" percentage={90} />
-                <SkillProgress skill="TypeScript" percentage={85} />
-                <SkillProgress skill="Vue.js" percentage={80} />
+      <section id="skills" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <LinkedInCard>
+            <h2 className="linkedin-section-title">技能专长</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold linkedin-text-primary mb-4">
+                  前端技术
+                </h3>
+                <div className="space-y-4">
+                  <SkillProgress skill="React/Next.js" percentage={90} />
+                  <SkillProgress skill="TypeScript" percentage={85} />
+                  <SkillProgress skill="Vue.js" percentage={80} />
+                </div>
               </div>
-            </BorderBox>
 
-            <BorderBox variant="thick" padding="large">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6 border-b border-gray-300 pb-2">
-                工具与框架
-              </h3>
-              <div className="space-y-4">
-                <SkillProgress skill="Tailwind CSS" percentage={95} />
-                <SkillProgress skill="Git/GitHub" percentage={90} />
-                <SkillProgress skill="Webpack/Vite" percentage={75} />
+              <div>
+                <h3 className="text-lg font-semibold linkedin-text-primary mb-4">
+                  工具与框架
+                </h3>
+                <div className="space-y-4">
+                  <SkillProgress skill="Tailwind CSS" percentage={95} />
+                  <SkillProgress skill="Git/GitHub" percentage={90} />
+                  <SkillProgress skill="Webpack/Vite" percentage={75} />
+                </div>
               </div>
-            </BorderBox>
-          </div>
-        </BorderBox>
+            </div>
+          </LinkedInCard>
+        </div>
       </section>
 
       {/* 工作经验 */}
-      <section
-        id="experience"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center border-b border-gray-300 pb-4">
-            工作经验
-          </h2>
-          <div className="space-y-8 m-4">
-            <BorderBox variant="thick" padding="large">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 border-b border-gray-300 pb-4">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  高级前端开发工程师
-                </h3>
-                <BorderBox variant="default" padding="small" className="text-gray-600 mt-2 md:mt-0">
-                  2021 - 至今
-                </BorderBox>
-              </div>
-              <p className="text-gray-700 mb-4 border-l-4 border-gray-300 pl-4">
-                ABC科技有限公司
-              </p>
-              <ul className="text-gray-700 space-y-2">
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 负责公司主要产品的前端架构设计和开发
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 使用React、TypeScript构建高性能的Web应用
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 优化应用性能，提升用户体验
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 指导初级开发人员，参与代码审查
-                </li>
-              </ul>
-            </BorderBox>
+      <section id="experience" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="linkedin-section-title text-center mb-8">工作经验</h2>
+          <div className="space-y-6">
+            <WorkExperience
+              position="前端开发工程师"
+              duration="2022.08 - 至今"
+              company="经控集团"
+              responsibilities={[
+                "负责公司网站前端开发",
+                "负责领导安排的其他工作",
+                "完成独立网站前端、运营端、商家端的开发工作",
+                "完成网城端的Vue 3升级工作",
+                "完成其他临时的优化工作",
+              ]}
+            />
 
-            <BorderBox variant="thick" padding="large">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 border-b border-gray-300 pb-4">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  前端开发工程师
-                </h3>
-                <BorderBox variant="default" padding="small" className="text-gray-600 mt-2 md:mt-0">
-                  2019 - 2021
-                </BorderBox>
-              </div>
-              <p className="text-gray-700 mb-4 border-l-4 border-gray-300 pl-4">
-                XYZ互联网公司
-              </p>
-              <ul className="text-gray-700 space-y-2">
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 参与多个Web项目的开发和维护
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 使用Vue.js开发响应式用户界面
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 与设计师和后端开发人员密切合作
-                </li>
-                <li className="border-l-2 border-gray-300 pl-3">
-                  • 参与项目需求分析和技术方案制定
-                </li>
-              </ul>
-            </BorderBox>
+            <WorkExperience
+              position="前端开发工程师"
+              duration="时间待定"
+              company="灵犀科技有限公司"
+              responsibilities={[
+                "负责公司web端业务线前端开发，需求评审",
+                "开发运营、精准施策、营销环境等多个后台管理系统",
+                "开发营销大屏，网台大屏等多个大屏系统",
+              ]}
+            />
+
+            <WorkExperience
+              position="前端开发工程师"
+              duration="2020.03 - 2021.04"
+              company="青岛中易万合科技集团股份有限公司"
+              responsibilities={[
+                "负责前端网站的需求评审，接口文档的前端工作",
+                "负责前端的任务期，技术分享等",
+                "负责大部分前端开发",
+                "对商家后台H5的整体改版，增加门店、商品、活动、物流、权限等主要功能",
+                "开发平台合作，帮助公司运营人员管理店家",
+                "开发自成品小程序，总用户50k+，日活5k+",
+                "开发一系列活动：年度账单、抽卡等",
+              ]}
+            />
+
+            <WorkExperience
+              position="前端开发工程师"
+              duration="2017.09 - 2020.01"
+              company="众安在线财产保险股份有限公司"
+              responsibilities={[
+                "主要负责公司前端开发，工具数据封装，需求评审前端工作",
+                "主要负责web页面，H5(hybrid)，小程序的开发及迭代",
+                "后期负责前端测试，技术分享等",
+                "为公司开发了医美保险、微空调、手机险、宠物险、车险等多个险种",
+                "开发中国保险与运动相关的保险产品，超千万用户",
+                "开发医保小程序",
+                "开发多个后台管理系统",
+              ]}
+            />
           </div>
-        </BorderBox>
+        </div>
       </section>
 
       {/* 项目经验 */}
-      <section
-        id="projects"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center border-b border-gray-300 pb-4">
-            项目经验
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 justify-items-center m-4">
-            <BorderBox variant="thick" padding="large">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
-                电商管理系统
+      <section id="projects" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="linkedin-section-title text-center mb-8">项目经验</h2>
+          <div className="space-y-6">
+            <LinkedInCard>
+              <h3 className="text-xl font-semibold linkedin-text-primary mb-2">
+                电商平台前端重构
               </h3>
-              <p className="text-gray-700 mb-4 border-l-4 border-gray-300 pl-4">
-                基于React和Node.js开发的全栈电商管理系统，包含商品管理、订单处理、用户管理等功能。
+              <p className="linkedin-text-secondary mb-4">
+                负责大型电商平台的前端架构重构，提升用户体验和系统性能
               </p>
-              <div className="flex flex-wrap gap-2 mb-4 border-t border-gray-300 pt-4">
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  React
-                </BorderBox>
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  Node.js
-                </BorderBox>
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  MongoDB
-                </BorderBox>
+              <div className="mb-4">
+                <h4 className="font-semibold linkedin-text-primary mb-2">
+                  技术栈：
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    React
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    TypeScript
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Next.js
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Tailwind CSS
+                  </span>
+                </div>
               </div>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-gray-900 transition-colors border-b border-gray-400 hover:border-gray-600"
-              >
-                查看项目 →
-              </a>
-            </BorderBox>
+            </LinkedInCard>
 
-            <BorderBox variant="thick" padding="large">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
-                任务管理应用
+            <LinkedInCard>
+              <h3 className="text-xl font-semibold linkedin-text-primary mb-2">
+                企业管理系统
               </h3>
-              <p className="text-gray-700 mb-4 border-l-4 border-gray-300 pl-4">
-                使用Vue.js开发的团队协作工具，支持任务分配、进度跟踪、团队沟通等功能。
+              <p className="linkedin-text-secondary mb-4">
+                开发企业内部管理系统，包含用户管理、权限控制、数据可视化等功能
               </p>
-              <div className="flex flex-wrap gap-2 mb-4 border-t border-gray-300 pt-4">
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  Vue.js
-                </BorderBox>
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  TypeScript
-                </BorderBox>
-                <BorderBox variant="default" padding="small" className="text-gray-700 text-sm">
-                  Firebase
-                </BorderBox>
+              <div className="mb-4">
+                <h4 className="font-semibold linkedin-text-primary mb-2">
+                  技术栈：
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Vue.js
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Element UI
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Echarts
+                  </span>
+                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
+                    Axios
+                  </span>
+                </div>
               </div>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-gray-900 transition-colors border-b border-gray-400 hover:border-gray-600"
-              >
-                查看项目 →
-              </a>
-            </BorderBox>
+            </LinkedInCard>
           </div>
-        </BorderBox>
+        </div>
       </section>
 
       {/* 教育背景 */}
-      <section
-        id="education"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center border-b border-gray-300 pb-4">
-            教育背景
-          </h2>
-          <BorderBox variant="thick" padding="large" margin="medium">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 border-b border-gray-300 pb-4">
-              <h3 className="text-xl font-semibold text-gray-900">
+      <section id="education" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="linkedin-section-title text-center mb-8">教育背景</h2>
+          <LinkedInCard>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <h3 className="text-xl font-semibold linkedin-text-primary">
                 计算机科学与技术
               </h3>
-              <BorderBox variant="default" padding="small" className="text-gray-600 mt-2 md:mt-0">
+              <div className="flex items-center gap-2 linkedin-text-secondary mt-2 md:mt-0">
+                <Calendar className="w-4 h-4" />
                 2015 - 2019
-              </BorderBox>
+              </div>
             </div>
-            <p className="text-gray-700 mb-4 border-l-4 border-gray-300 pl-4">
-              某某大学 · 本科
-            </p>
-            <BorderBox variant="default" padding="medium" className="text-gray-700">
+            <p className="linkedin-text-secondary mb-4">某某大学 · 本科</p>
+            <p className="linkedin-text-primary">
               主修课程包括数据结构、算法设计、软件工程、数据库系统等。在校期间积极参与编程竞赛和开源项目。
-            </BorderBox>
-          </BorderBox>
-        </BorderBox>
+            </p>
+          </LinkedInCard>
+        </div>
       </section>
 
       {/* 联系我 */}
-      <section
-        id="contact"
-        className="py-20 border-b border-gray-300 flex justify-center px-4 sm:px-6 lg:px-8"
-      >
-        <BorderBox variant="section" padding="large" margin="medium" className="max-w-4xl w-full text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-b border-gray-300 pb-4">
-            联系我
-          </h2>
-          <BorderBox variant="default" padding="medium" margin="medium" className="text-gray-700 text-lg">
-            如果您对我的经历感兴趣，欢迎与我联系！
-          </BorderBox>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center border-t border-gray-300 pt-6 m-4">
-            <BorderBox variant="thick" padding="medium" className="text-white hover:bg-gray-800 transition-colors bg-gray-900">
-              下载简历
-            </BorderBox>
-            <BorderBox variant="thick" padding="medium" className="text-gray-900 hover:border-gray-600 transition-colors">
-              发送邮件
-            </BorderBox>
-          </div>
-        </BorderBox>
+      <section id="contact" className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <LinkedInCard className="text-center">
+            <h2 className="linkedin-section-title mb-6">联系我</h2>
+            <p className="linkedin-text-secondary text-lg mb-6">
+              如果您对我的经历感兴趣，欢迎与我联系！
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-linkedin-blue text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <Download className="w-4 h-4" />
+                下载简历
+              </button>
+              <button className="flex items-center justify-center gap-2 px-6 py-3 border border-linkedin-blue text-linkedin-blue rounded-lg hover:bg-blue-50 transition-colors">
+                <Mail className="w-4 h-4" />
+                发送邮件
+              </button>
+            </div>
+          </LinkedInCard>
+        </div>
       </section>
 
       {/* 页脚 */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-300 flex justify-center">
-        <BorderBox variant="default" padding="medium" margin="medium" className="max-w-4xl w-full text-center">
-          <p className="text-gray-600">© 2024 张三. 保留所有权利.</p>
-        </BorderBox>
+      <footer
+        className="py-8 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: "var(--linkedin-gray-200)" }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="linkedin-text-secondary">
+            © 2024 张晋哲. 保留所有权利.
+          </p>
+        </div>
       </footer>
     </div>
   );
