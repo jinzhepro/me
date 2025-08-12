@@ -5,11 +5,11 @@ import "./globals.css";
  * 页面元数据配置
  */
 export const metadata: Metadata = {
-  title: "张三 - 全栈开发工程师 | 在线简历",
+  title: "张晋哲 - 全栈开发工程师 | 在线简历",
   description:
-    "张三的个人在线简历，全栈开发工程师，专注于React、Next.js、Node.js等现代Web技术栈",
+    "张晋哲的个人在线简历，全栈开发工程师，专注于React、Next.js、Node.js等现代Web技术栈",
   keywords: [
-    "张三",
+    "张晋哲",
     "全栈开发",
     "React",
     "Next.js",
@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "简历",
     "前端工程师",
   ],
-  authors: [{ name: "张三" }],
-  creator: "张三",
+  authors: [{ name: "张晋哲" }],
+  creator: "张晋哲",
   openGraph: {
-    title: "张三 - 全栈开发工程师",
+    title: "张晋哲 - 全栈开发工程师",
     description: "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
     type: "website",
     locale: "zh_CN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "张三 - 全栈开发工程师",
+    title: "张晋哲 - 全栈开发工程师",
     description: "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
   },
   robots: {

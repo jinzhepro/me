@@ -17,6 +17,7 @@ import LinkedInCard from "@/components/LinkedInCard";
 import SkillProgress from "@/components/SkillProgress";
 import WorkExperience from "@/components/WorkExperience";
 import PersonalInfo from "@/components/PersonalInfo";
+import ProjectExperience from "@/components/ProjectExperience";
 
 /**
  * 主页面组件 - LinkedIn风格在线简历
@@ -160,61 +161,55 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="linkedin-section-title text-center mb-8">项目经验</h2>
           <div className="space-y-6">
-            <LinkedInCard>
-              <h3 className="text-xl font-semibold linkedin-text-primary mb-2">
-                电商平台前端重构
-              </h3>
-              <p className="linkedin-text-secondary mb-4">
-                负责大型电商平台的前端架构重构，提升用户体验和系统性能
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold linkedin-text-primary mb-2">
-                  技术栈：
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    React
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    TypeScript
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Next.js
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Tailwind CSS
-                  </span>
-                </div>
-              </div>
-            </LinkedInCard>
+            <ProjectExperience
+              name="外贸独立站"
+              role="前端开发"
+              duration="2022.08-2023.05"
+              description="为海淘集团新区跨境电商企业建造独立站，帮助企业实现9710电商出海，品牌出海，商城端使用vue3+bootstrap 搭建，商家运营端使用管理端使用Rview-design搭建，包含用户、店铺、商品、订单、支付等功能。"
+              achievements={[
+                "为新区近30家企业业务功能建立了独立站。"
+              ]}
+              technologies={["Vue3", "Bootstrap", "Rview-design"]}
+            />
 
-            <LinkedInCard>
-              <h3 className="text-xl font-semibold linkedin-text-primary mb-2">
-                企业管理系统
-              </h3>
-              <p className="linkedin-text-secondary mb-4">
-                开发企业内部管理系统，包含用户管理、权限控制、数据可视化等功能
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold linkedin-text-primary mb-2">
-                  技术栈：
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Vue.js
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Element UI
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Echarts
-                  </span>
-                  <span className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm">
-                    Axios
-                  </span>
-                </div>
-              </div>
-            </LinkedInCard>
+            <ProjectExperience
+              name="运营管理系统"
+              role="前端开发工程师"
+              duration=""
+              description="运营管理系统是一个多用户、分布式系统，主要用于政府业务，维护宇宙，用户，角色，权限相关。提下拥有多个子系统，精准施策，大屏，企业服务等系统，可独立使用。使用saber开发，json配置页面，可快速进行迭代开发。"
+              achievements={[
+                "完成多个专业业务模块(政务表单,树形组件等)",
+                "封装若干组件(sider, tags等)"
+              ]}
+              technologies={["Saber", "JSON配置"]}
+            />
+
+            <ProjectExperience
+              name="商家后台（平台后台）"
+              role="前端开发工程师"
+              duration="2020.04-2021.02"
+              description="该项目是百货优品商家管理后台，可以实现对商品、订单、活动、套餐、权限管理的操作。"
+              achievements={[
+                "使用vue作为框架，组件化开发。",
+                "实现商品sku类网格算法",
+                "实现权限管理模块配置到button级。",
+                "实现自定义的keep-alive"
+              ]}
+              technologies={["Vue", "组件化开发"]}
+            />
+
+            <ProjectExperience
+              name="信贷平台"
+              role="前端开发工程师"
+              duration="2018.10-2019.11"
+              description="金融营销平台的后台管理系统，前后端分离，前端单独部署。使用vue全家桶开发，数据模块使用vuex Modules管理应用状态，所有数据使用vue-router，法院对到组件内部，逻辑层大部分在store里实现，登录权限使用vue-router。"
+              achievements={[
+                "权限管理使用本地的权限和后端的权限对比实现",
+                "使用commonsChunk对第三方库缓存",
+                "区分不同类型使用不同路由配置到同一页面。"
+              ]}
+              technologies={["Vue", "Vuex", "Vue-router"]}
+            />
           </div>
         </div>
       </section>
