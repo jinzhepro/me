@@ -22,22 +22,30 @@ export default function Home() {
       {/* 主要内容 */}
       <main className="container mx-auto px-4 py-8">
         {/* 个人信息卡片 */}
-        <ProfileCard />
+        <section id="about">
+          <ProfileCard />
+        </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 左侧列 */}
           <div className="lg:col-span-2 space-y-8">
             {/* 工作经历 */}
-            <WorkExperience />
+            <section id="experience">
+              <WorkExperience />
+            </section>
 
             {/* 项目经验 */}
-            <ProjectExperience />
+            <section id="projects">
+              <ProjectExperience />
+            </section>
           </div>
 
           {/* 右侧列 */}
           <div className="space-y-8">
             {/* 技能 */}
-            <Skills />
+            <section id="skills">
+              <Skills />
+            </section>
 
             {/* 教育背景 */}
             <Education />
@@ -45,7 +53,9 @@ export default function Home() {
         </div>
 
         {/* 联系方式 */}
-        <Contact />
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
 
       {/* 页脚 */}
