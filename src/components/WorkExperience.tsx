@@ -21,7 +21,6 @@ export default function WorkExperience() {
         "完成商城端的 Vue 3升级工作",
         "完成其他端的优化工作"
       ],
-      skills: ["Vue.js", "Vue 3", "独立站开发", "电商系统"]
     },
     {
       title: "前端工程师",
@@ -32,7 +31,6 @@ export default function WorkExperience() {
         "开发青岛大屏、烟台大屏等多个大屏系统",
         "开发灵犀超链，一个工商查询系统"
       ],
-      skills: ["Vue.js", "后台管理", "数据大屏", "工商查询"]
     },
     {
       title: "前端组长",
@@ -44,7 +42,6 @@ export default function WorkExperience() {
         "开发百成优品小程序，总用户50k+，日活5k+",
         "对商家后台从0到1的整体改版，增加订单、商品、活动等功能"
       ],
-      skills: ["小程序开发", "团队管理", "后台系统", "需求评审"]
     },
     {
       title: "前端开发",
@@ -56,7 +53,6 @@ export default function WorkExperience() {
         "负责web页面、H5(hybrid)、小程序的开发及迭代",
         "后期负责前端面试、技术分享工作"
       ],
-      skills: ["保险产品", "H5开发", "小程序", "千万用户"]
     }
   ];
 
@@ -83,11 +79,6 @@ export default function WorkExperience() {
                     <li key={idx}>• {responsibility}</li>
                   ))}
                 </ul>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {exp.skills.map((skill, idx) => (
-                    <Badge key={idx} variant="outline">{skill}</Badge>
-                  ))}
-                </div>
               </div>
               {index < experiences.length - 1 && <Separator className="mt-6" />}
             </div>
