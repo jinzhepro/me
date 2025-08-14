@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Github, Linkedin, Mail, Phone, MapPin, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, Download, BookOpen } from "lucide-react";
 
 /**
  * 个人信息卡片组件
@@ -40,13 +40,11 @@ export default function ProfileCard() {
               </div>
             </div>
             <div className="flex gap-3 mt-4">
-              <Button variant="outline" size="sm">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </Button>
-              <Button variant="outline" size="sm">
-                <Linkedin className="h-4 w-4 mr-2" />
-                LinkedIn
+              <Button variant="outline" size="sm" asChild>
+                <a href="https://github.com/jinzhepro" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4 mr-2" />
+                  GitHub
+                </a>
               </Button>
               <Button variant="outline" size="sm">
                 <Download className="h-4 w-4 mr-2" />
