@@ -41,6 +41,12 @@ export default function ProfileCard() {
             </div>
             <div className="flex gap-3 mt-4">
               <Button variant="outline" size="sm" asChild>
+                <a href="https://jinzhepro.github.io/" target="_blank" rel="noopener noreferrer">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  博客
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
                 <a href="https://github.com/jinzhepro" target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4 mr-2" />
                   GitHub
