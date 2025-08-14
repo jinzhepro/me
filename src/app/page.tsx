@@ -18,7 +18,89 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+/**
+ * 自定义Hook - 滚动渐显效果
+ * 检测元素是否进入视口，用于触发动画
+ */
+function useScrollReveal() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // 一旦显示就不再隐藏
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1, // 当元素10%可见时触发
+        rootMargin: '0px 0px -50px 0px' // 提前50px触发
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return { ref, isVisible };
+}
+
+/**
+ * 自定义Hook - 多元素渐显效果
+ * 为多个子元素提供依次渐显的动画效果
+ */
+function useStaggeredReveal(itemCount: number) {
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(itemCount).fill(false));
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // 依次显示每个元素，间隔200ms
+          for (let i = 0; i < itemCount; i++) {
+            setTimeout(() => {
+              setVisibleItems(prev => {
+                const newState = [...prev];
+                newState[i] = true;
+                return newState;
+              });
+            }, i * 200);
+          }
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [itemCount]);
+
+  return { ref, visibleItems };
+}
 
 /**
  * 主页面组件 - 个人简历网站
@@ -27,6 +109,16 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  
+  // 滚动渐显效果
+  const aboutSection = useScrollReveal();
+  const skillsSection = useScrollReveal();
+  const experienceSection = useScrollReveal();
+  const projectsSection = useScrollReveal();
+  const contactSection = useScrollReveal();
+  
+  // 项目卡片渐显效果（3个项目）
+  const projectCards = useStaggeredReveal(3);
 
   // 监听滚动事件
   useEffect(() => {
@@ -132,7 +224,15 @@ export default function Home() {
         </section>
 
         {/* 关于我 */}
-        <section id="about" className="py-20 bg-white">
+        <section 
+          id="about" 
+          ref={aboutSection.ref}
+          className={`py-20 bg-white transition-all duration-1000 ${
+            aboutSection.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">关于我</h2>
@@ -207,7 +307,15 @@ export default function Home() {
         </section>
 
         {/* 技能 */}
-        <section id="skills" className="py-20 bg-gray-50">
+        <section 
+          id="skills" 
+          ref={skillsSection.ref}
+          className={`py-20 bg-gray-50 transition-all duration-1000 ${
+            skillsSection.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">我的技能</h2>
@@ -322,7 +430,15 @@ export default function Home() {
         </section>
 
         {/* 工作经历 */}
-        <section id="experience" className="py-20 bg-white">
+        <section 
+          id="experience" 
+          ref={experienceSection.ref}
+          className={`py-20 bg-white transition-all duration-1000 ${
+            experienceSection.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">工作经历</h2>
@@ -459,7 +575,15 @@ export default function Home() {
         </section>
 
         {/* 项目 */}
-        <section id="projects" className="py-20 bg-gray-50">
+        <section 
+          id="projects" 
+          ref={projectsSection.ref}
+          className={`py-20 bg-gray-50 transition-all duration-1000 ${
+            projectsSection.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">我的项目</h2>
@@ -469,9 +593,13 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div ref={projectCards.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* 项目1 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 hover:-translate-y-2 ${
+                projectCards.visibleItems[0] 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}>
                 <div className="h-56 overflow-hidden">
                   <Image 
                     src="https://picsum.photos/seed/project1/600/400" 
@@ -503,7 +631,11 @@ export default function Home() {
               </div>
               
               {/* 项目2 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 hover:-translate-y-2 ${
+                projectCards.visibleItems[1] 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}>
                 <div className="h-56 overflow-hidden">
                   <Image 
                     src="https://picsum.photos/seed/project2/600/400" 
@@ -535,7 +667,11 @@ export default function Home() {
               </div>
               
               {/* 项目3 */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 hover:-translate-y-2 ${
+                projectCards.visibleItems[2] 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}>
                 <div className="h-56 overflow-hidden">
                   <Image 
                     src="https://picsum.photos/seed/project3/600/400" 
@@ -576,7 +712,15 @@ export default function Home() {
         </section>
 
         {/* 联系 */}
-        <section id="contact" className="py-20 bg-gray-50">
+        <section 
+          id="contact" 
+          ref={contactSection.ref}
+          className={`py-20 bg-gray-50 transition-all duration-1000 ${
+            contactSection.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
