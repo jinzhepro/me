@@ -20,21 +20,21 @@ export default function ProfileCard() {
           </Avatar>
           <div className="flex-1">
             <h1 className="text-3xl font-bold mb-2">张晋哲</h1>
-            <p className="text-xl text-gray-600 mb-4">全栈工程师</p>
-            <p className="text-gray-700 mb-6 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-4">全栈工程师</p>
+            <p className="text-foreground mb-6 leading-relaxed">
               拥有8年以上软件开发经验的全栈工程师，专注于前端技术栈和用户体验设计。
               熟练掌握现代Web开发技术，致力于构建高质量、可维护的软件产品。
             </p>
             <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
                 <span>jinzhepro@qq.com</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
                 <span>中国青岛</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
                 <span>微信: jinzhepro</span>
               </div>

@@ -73,8 +73,8 @@ export default function WorkExperience() {
                   <h3 className="font-semibold">{exp.title}</h3>
                   <Badge variant="secondary">{exp.period}</Badge>
                 </div>
-                <p className="text-gray-600 mb-2">{exp.company}</p>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <p className="text-muted-foreground mb-2">{exp.company}</p>
+                <ul className="text-sm text-muted-foreground space-y-1">
                   {exp.responsibilities.map((responsibility, idx) => (
                     <li key={idx}>• {responsibility}</li>
                   ))}

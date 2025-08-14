@@ -52,7 +52,7 @@ export default function ProjectExperience() {
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-semibold">{project.title}</h3>
               </div>
-              <p className="text-sm text-gray-700 mb-3">
+              <p className="text-sm text-muted-foreground mb-3">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">

@@ -44,10 +44,10 @@ export default function Contact() {
               const IconComponent = contact.icon;
               return (
                 <div key={index} className="flex items-center gap-3 p-4 border rounded-lg">
-                  <IconComponent className="h-5 w-5 text-gray-600" />
-                  <div>
-                    <p className="text-sm font-medium">{contact.label}</p>
-                    <p className="text-sm text-gray-600">{contact.value}</p>
+                  <IconComponent className="h-5 w-5 text-muted-foreground" />
+                <div>
+                  <h3 className="font-semibold">{contact.label}</h3>
+                  <p className="text-sm text-muted-foreground">{contact.value}</p>
                   </div>
                 </div>
               );

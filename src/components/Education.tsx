@@ -33,8 +33,8 @@ export default function Education() {
         {educations.map((education, index) => (
           <div key={index} className="border-l-2 border-gray-200 pl-4">
             <h3 className="font-semibold">{education.degree}</h3>
-            <p className="text-sm text-gray-600">{education.school}</p>
-            <p className="text-sm text-gray-600">{education.period}</p>
+            <p className="text-sm text-muted-foreground">{education.school}</p>
+                <p className="text-sm text-muted-foreground">{education.period}</p>
           </div>
         ))}
       </CardContent>

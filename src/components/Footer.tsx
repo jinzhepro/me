@@ -5,9 +5,9 @@ import React from 'react';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50 py-8 mt-16">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <p className="text-gray-600">
+    <footer className="bg-muted py-8 mt-16">
+      <div className="container mx-auto px-4 text-center">
+        <p className="text-muted-foreground">
           © 2024 张晋哲. All rights reserved.
         </p>
       </div>
