@@ -1,135 +1,75 @@
-import React from "react";
-import { Calendar, Edit, Trash2 } from "lucide-react";
-import LinkedInCard from "./LinkedInCard";
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Code } from "lucide-react";
 
 /**
- * 项目经历组件的属性接口
+ * 项目经验组件
+ * 展示个人参与的重要项目和技术实现
  */
-interface ProjectExperienceProps {
-  /** 项目名称 */
-  name: string;
-  /** 项目角色 */
-  role: string;
-  /** 项目时间 */
-  duration: string;
-  /** 项目描述 */
-  description: string;
-  /** 项目业绩/成果 */
-  achievements?: string[];
-  /** 使用的技术栈 */
-  technologies?: string[];
-  /** 是否显示编辑和删除按钮 */
-  showActions?: boolean;
-  /** 自定义类名 */
-  className?: string;
-}
-
-/**
- * 项目经历组件
- * 展示单个项目的详细信息，包括项目名称、角色、时间、描述、成果和技术栈
- */
-const ProjectExperience: React.FC<ProjectExperienceProps> = ({
-  name,
-  role,
-  duration,
-  description,
-  achievements = [],
-  technologies = [],
-  showActions = false,
-  className = "",
-}) => {
-  /**
-   * 处理编辑按钮点击事件
-   */
-  const handleEdit = () => {
-    console.log(`编辑项目: ${name}`);
-    // 这里可以添加编辑逻辑
-  };
-
-  /**
-   * 处理删除按钮点击事件
-   */
-  const handleDelete = () => {
-    console.log(`删除项目: ${name}`);
-    // 这里可以添加删除逻辑
-  };
+export default function ProjectExperience() {
+  const projects = [
+    {
+      title: "texhub",
+      period: "2024",
+      description: "负责texhub的latex编辑器、编译器、反馈信息、用户管理的开发。项目整体对标overleaf，实现了latex的在线编辑、编译、分享等功能。",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Docker"]
+    },
+    {
+      title: "国贸集团内部匿名投票系统",
+      period: "2023",
+      description: "负责投票系统的设计与开发，实现匿名投票功能，保护用户隐私。提供实时投票结果统计和分析功能，集成导出投票结果功能。",
+      technologies: ["Next.js", "Tailwind CSS", "Redis", "匿名投票"]
+    },
+    {
+      title: "国贸集团内部出库管理系统",
+      period: "2023",
+      description: "负责出库管理系统的设计与开发，实现扫码出库、库存查询等功能。提供实时库存状态展示和报警功能，集成导出库存数据功能。",
+      technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "库存管理"]
+    },
+    {
+      title: "国贸集团青云e购小程序",
+      period: "2022-2023",
+      description: "负责青云e购小程序的设计与开发，实现商品展示、订单管理、支付功能等。提供用户友好的界面和操作流程，确保小程序的稳定性和性能。",
+      technologies: ["Uniapp", "Vue2", "小程序", "电商平台"]
+    },
+    {
+      title: "国贸集团青云e购后台",
+      period: "2022-2023",
+      description: "负责青云e购后台的设计与开发，实现商品管理、订单管理、用户管理、主页装修等功能。为电商平台提供完整的后台管理解决方案。",
+      technologies: ["Vue2", "iView", "后台管理", "电商系统"]
+    }
+  ];
 
   return (
-    <LinkedInCard className={className}>
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold linkedin-text-primary mb-1">
-            {name}
-          </h3>
-          <p className="text-lg linkedin-text-secondary mb-2">{role}</p>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 linkedin-text-secondary text-sm">
-            <Calendar className="w-4 h-4" />
-            {duration}
-          </div>
-
-          {showActions && (
-            <div className="flex gap-2">
-              <button
-                onClick={handleEdit}
-                className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
-                aria-label="编辑项目"
-              >
-                <Edit className="w-4 h-4" />
-              </button>
-              <button
-                onClick={handleDelete}
-                className="p-2 text-gray-500 hover:text-red-600 transition-colors"
-                aria-label="删除项目"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
+    <section id="projects">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Code className="h-5 w-5" />
+            项目经验
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {projects.map((project, index) => (
+            <div key={index} className="border rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="font-semibold">{project.title}</h3>
+                <Badge>{project.period}</Badge>
+              </div>
+              <p className="text-sm text-gray-700 mb-3">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, idx) => (
+                  <Badge key={idx} variant="outline">{tech}</Badge>
+                ))}
+              </div>
             </div>
-          )}
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <h4 className="font-semibold linkedin-text-primary mb-2">内容：</h4>
-        <p className="linkedin-text-secondary leading-relaxed">{description}</p>
-      </div>
-
-      {achievements.length > 0 && (
-        <div className="mb-4">
-          <h4 className="font-semibold linkedin-text-primary mb-2">业绩：</h4>
-          <ul className="space-y-1">
-            {achievements.map((achievement, index) => (
-              <li
-                key={index}
-                className="linkedin-text-secondary text-sm flex items-start"
-              >
-                <span className="text-linkedin-blue mr-2">•</span>
-                {achievement}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {technologies.length > 0 && (
-        <div>
-          <h4 className="font-semibold linkedin-text-primary mb-2">技术栈：</h4>
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-linkedin-blue text-white rounded-full text-sm bg-blue-600"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-    </LinkedInCard>
+          ))}
+        </CardContent>
+      </Card>
+    </section>
   );
-};
-
-export default ProjectExperience;
+}
