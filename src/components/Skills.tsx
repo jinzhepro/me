@@ -15,7 +15,8 @@ export default function Skills() {
     { name: "React / Vue.js / Next.js", level: 90 },
     { name: "JavaScript / TypeScript", level: 90 },
     { name: "HTML5 / CSS3", level: 85 },
-    { name: "Sass / Tailwind CSS", level: 85 }
+    { name: "Sass / Tailwind CSS", level: 85 },
+    { name: "Expo", level: 80 }
   ];
 
   const backendSkills = [
