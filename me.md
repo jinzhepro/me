@@ -122,3 +122,21 @@
 **2014-2017**
 
 ---
+
+## 工作环境
+
+### 硬件设备
+- **电脑：** Mac Mini M4 32G
+- **鼠标：** Logitech MX Master 3s
+- **键盘：** Logitech K380
+### 开发工具
+- **编辑器：** Trae
+- **node版本管理：** Volta
+- **环境部署：** Docker
+### 软件
+- **剪切板工具：** Maccy
+- **截图录屏工具：** Longshot
+- **浏览器：** Edge
+    - **插件：** 豆包、ADGuard、iCloud密码、React Developer Tools、Vue Devtools
+
+---

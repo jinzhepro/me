@@ -6,6 +6,7 @@ import WorkExperience from "@/components/WorkExperience";
 import ProjectExperience from "@/components/ProjectExperience";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
+import Environment from "@/components/Environment";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -49,6 +50,9 @@ export default function Home() {
 
             {/* 教育背景 */}
             <Education />
+
+            {/* 工作环境 */}
+            <Environment />
           </div>
         </div>
 
