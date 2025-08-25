@@ -1,6 +1,12 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 /**
@@ -8,50 +14,43 @@ import { Mail, Phone, MapPin } from "lucide-react";
  * 展示个人联系信息和沟通方式
  */
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "邮箱",
-      value: "jinzhepro@qq.com"
-    },
-    {
-      icon: Phone,
-      label: "微信",
-      value: "jinzhepro"
-    },
-    {
-      icon: MapPin,
-      label: "位置",
-      value: "中国青岛"
-    }
-  ];
-
   return (
     <section id="contact" className="mt-8 animate-fade-in-up">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+      <Card className="card-hover">
+        <CardHeader className="pb-4">
+          <CardTitle className="flex items-center gap-2 text-lg">
             <Mail className="h-5 w-5" />
             联系方式
           </CardTitle>
-          <CardDescription>
-            如果您对我的经历感兴趣，欢迎随时联系我
-          </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {contactInfo.map((contact, index) => {
-              const IconComponent = contact.icon;
-              return (
-                <div key={index} className="flex items-center gap-3 p-4 border rounded-lg animate-fade-in-up">
-                  <IconComponent className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <h3 className="font-semibold">{contact.label}</h3>
-                  <p className="text-sm text-muted-foreground">{contact.value}</p>
-                  </div>
-                </div>
-              );
-            })}
+        <CardContent className="pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="flex items-center space-x-3">
+              <Mail className="h-5 w-5 text-muted-foreground" />
+              <div>
+                <p className="text-sm">邮箱</p>
+                <a
+                  href="mailto:jinzhepro@qq.com"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  jinzhepro@qq.com
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Phone className="h-5 w-5 text-muted-foreground" />
+              <div>
+                <p className="text-sm">微信</p>
+                <p className="text-sm text-muted-foreground">jinzhepro</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <MapPin className="h-5 w-5 text-muted-foreground" />
+              <div>
+                <p className="text-sm">位置</p>
+                <p className="text-sm text-muted-foreground">中国青岛</p>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>

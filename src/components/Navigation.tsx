@@ -1,7 +1,7 @@
 "use client";
 
 import { Code } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
+import MobileMenu from "./MobileMenu";
 
 /**
  * 导航栏组件
@@ -9,22 +9,49 @@ import ThemeToggle from "./ThemeToggle";
  */
 export default function Navigation() {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/50 dark:bg-gray-800/50 backdrop-blur supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-gray-800/30 border-gray-100 dark:border-gray-800 transition-all duration-300 gradient-animation">
-      <div className="container mx-auto px-4 py-4">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Code className="h-6 w-6 transition-transform duration-300 hover:scale-110" />
-            <span className="text-xl font-bold transition-colors duration-300">张晋哲</span>
+            <Code className="h-5 w-5" />
+            <span className="text-lg font-medium">
+              张晋哲
+            </span>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="#about" className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 hover:-translate-y-0.5">关于</a>
-              <a href="#experience" className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 hover:-translate-y-0.5">经历</a>
-              <a href="#projects" className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 hover:-translate-y-0.5">项目</a>
-              <a href="#skills" className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 hover:-translate-y-0.5">技能</a>
-              <a href="#contact" className="text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 hover:-translate-y-0.5">联系</a>
+            <div className="hidden md:flex items-center space-x-5">
+              <a
+                href="#about"
+                className="text-sm font-medium hover:text-primary transition-colors duration-200"
+              >
+                关于
+              </a>
+              <a
+                href="#experience"
+                className="text-sm font-medium hover:text-primary transition-colors duration-200"
+              >
+                经历
+              </a>
+              <a
+                href="#projects"
+                className="text-sm font-medium hover:text-primary transition-colors duration-200"
+              >
+                项目
+              </a>
+              <a
+                href="#skills"
+                className="text-sm font-medium hover:text-primary transition-colors duration-200"
+              >
+                技能
+              </a>
+              <a
+                href="#contact"
+                className="text-sm font-medium hover:text-primary transition-colors duration-200"
+              >
+                联系
+              </a>
             </div>
-            <ThemeToggle />
+            <MobileMenu />
           </div>
         </div>
       </div>

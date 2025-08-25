@@ -22,19 +22,19 @@ export default function Education() {
   ];
 
   return (
-    <Card className="animate-fade-in-up">
+    <Card className="card-hover">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <GraduationCap className="h-5 w-5" />
           教育背景
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3">
         {educations.map((education, index) => (
-          <div key={index} className="border-l-2 border-gray-200 pl-4 animate-fade-in-up">
-            <h3 className="font-semibold">{education.degree}</h3>
-            <p className="text-sm text-muted-foreground">{education.school}</p>
-                <p className="text-sm text-muted-foreground">{education.period}</p>
+          <div key={index} className="border-l-2 border-muted pl-4 py-1">
+            <h3 className="font-medium text-sm">{education.degree}</h3>
+            <p className="text-xs text-muted-foreground">{education.school}</p>
+            <p className="text-xs text-muted-foreground">{education.period}</p>
           </div>
         ))}
       </CardContent>

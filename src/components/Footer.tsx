@@ -5,22 +5,10 @@ import React from 'react';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-muted py-8 mt-16 transition-colors duration-300 animate-fade-in-up">
+    <footer className="bg-muted py-6 mt-12 transition-colors">
       <div className="container mx-auto px-4 text-center">
-        <p className="text-muted-foreground transition-colors duration-300">
-          © 2025 张晋哲. All rights reserved.
-        </p>
-        <p className="text-muted-foreground text-sm mt-2 transition-colors duration-300">
-          本网站由
-          <a 
-            href="https://trae.ai" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 underline ml-1 mr-1 transition-colors duration-300"
-          >
-            Trae AI
-          </a>
-          辅助开发
+        <p className="text-sm text-muted-foreground">
+          © 2025 张晋哲. 使用 <a href="https://trae.ai" className="text-primary hover:underline">Trae AI</a> 辅助开发.
         </p>
       </div>
     </footer>

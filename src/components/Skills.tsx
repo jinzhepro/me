@@ -16,72 +16,89 @@ export default function Skills() {
     { name: "JavaScript / TypeScript", level: 90 },
     { name: "HTML5 / CSS3", level: 85 },
     { name: "Sass / Tailwind CSS", level: 85 },
-    { name: "Expo", level: 80 }
+    { name: "Expo", level: 80 },
   ];
 
   const backendSkills = [
     { name: "Node.js", level: 80 },
     { name: "Express.js / Koa.js", level: 75 },
-    { name: "PostgreSQL / MongoDB", level: 75 }
+    { name: "PostgreSQL / MongoDB", level: 75 },
   ];
 
   const tools = [
-    "Git", "GitHub", "GitLab", "Trae", "WebStorm", 
-    "Docker", "Vercel", "Webpack", "Vite"
+    "Git",
+    "GitHub",
+    "GitLab",
+    "Trae",
+    "WebStorm",
+    "Docker",
+    "Vercel",
+    "Webpack",
+    "Vite",
   ];
 
   return (
     <section id="skills" className="animate-fade-in-up">
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             技能专长
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-5">
           {/* 前端技术 */}
-          <div className="animate-fade-in-up">
-            <h4 className="text-sm font-semibold mb-3">前端技术</h4>
+          <div>
+            <h4 className="text-sm font-medium mb-3">前端技术</h4>
             <div className="space-y-3">
               {frontendSkills.map((skill, index) => (
-                <div key={index} className="animate-fade-in-up">
+                <div key={index}>
                   <div className="flex justify-between mb-1">
                     <span className="text-sm">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <span className="text-sm text-muted-foreground">
+                      {skill.level}%
+                    </span>
                   </div>
-                  <Progress value={skill.level} className="h-2" />
+                  <Progress value={skill.level} className="h-1.5" />
                 </div>
               ))}
             </div>
           </div>
 
-          <Separator />
+          <div className="separator" />
 
           {/* 后端技术 */}
-          <div className="animate-fade-in-up">
-            <h4 className="text-sm font-semibold mb-3">后端技术</h4>
+          <div>
+            <h4 className="text-sm font-medium mb-3">后端技术</h4>
             <div className="space-y-3">
               {backendSkills.map((skill, index) => (
-                <div key={index} className="animate-fade-in-up">
+                <div key={index}>
                   <div className="flex justify-between mb-1">
                     <span className="text-sm">{skill.name}</span>
-                    <span className="text-sm text-gray-600">{skill.level}%</span>
+                    <span className="text-sm text-muted-foreground">
+                      {skill.level}%
+                    </span>
                   </div>
-                  <Progress value={skill.level} className="h-2" />
+                  <Progress value={skill.level} className="h-1.5" />
                 </div>
               ))}
             </div>
           </div>
 
-          <Separator />
+          <div className="separator" />
 
           {/* 开发工具 */}
-          <div className="animate-fade-in-up">
-            <h4 className="text-sm font-semibold mb-3">开发工具</h4>
+          <div>
+            <h4 className="text-sm font-medium mb-3">开发工具</h4>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
-                <Badge key={index} variant="outline" className="animate-fade-in-up">{tool}</Badge>
+                <Badge
+                  key={index}
+                  variant="outline"
+                  className="text-xs"
+                >
+                  {tool}
+                </Badge>
               ))}
             </div>
           </div>

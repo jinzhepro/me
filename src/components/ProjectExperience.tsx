@@ -39,25 +39,25 @@ export default function ProjectExperience() {
 
   return (
     <section id="projects" className="animate-fade-in-up">
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             项目经验
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-5">
           {projects.map((project, index) => (
-            <div key={index} className="border rounded-lg p-4 animate-fade-in-up">
+            <div key={index} className="p-4 rounded-lg bg-card border border-muted">
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold">{project.title}</h3>
+                <h3 className="font-medium">{project.title}</h3>
               </div>
               <p className="text-sm text-muted-foreground mb-3">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, idx) => (
-                  <Badge key={idx} variant="outline">{tech}</Badge>
+                  <Badge key={idx} variant="outline" className="text-xs">{tech}</Badge>
                 ))}
               </div>
             </div>

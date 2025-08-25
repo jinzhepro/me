@@ -9,6 +9,7 @@ import Education from "@/components/Education";
 import Environment from "@/components/Environment";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { useEffect } from "react";
 
 /**
@@ -86,6 +87,9 @@ export default function Home() {
 
       {/* 页脚 */}
       <Footer />
+      
+      {/* 回到顶部按钮 */}
+      <BackToTop />
     </div>
   );
 }

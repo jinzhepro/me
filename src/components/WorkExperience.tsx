@@ -58,7 +58,7 @@ export default function WorkExperience() {
 
   return (
     <section id="experience" className="animate-fade-in-up">
-      <Card>
+      <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Briefcase className="h-5 w-5" />
@@ -67,20 +67,20 @@ export default function WorkExperience() {
         </CardHeader>
         <CardContent className="space-y-6">
           {experiences.map((exp, index) => (
-            <div key={index} className="animate-fade-in-up">
-              <div className="border-l-2 border-gray-200 pl-4">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold">{exp.title}</h3>
-                  <Badge variant="secondary">{exp.period}</Badge>
+            <div key={index}>
+              <div className="border-l-2 border-muted pl-4 py-1">
+                <div className="flex items-start justify-between mb-1">
+                  <h3 className="font-medium">{exp.title}</h3>
+                  <Badge variant="secondary" className="text-xs">{exp.period}</Badge>
                 </div>
-                <p className="text-muted-foreground mb-2">{exp.company}</p>
+                <p className="text-muted-foreground text-sm mb-2">{exp.company}</p>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   {exp.responsibilities.map((responsibility, idx) => (
-                    <li key={idx}>• {responsibility}</li>
+                    <li key={idx} className="text-sm">• {responsibility}</li>
                   ))}
                 </ul>
               </div>
-              {index < experiences.length - 1 && <Separator className="mt-6" />}
+              {index < experiences.length - 1 && <div className="separator" />}
             </div>
           ))}
         </CardContent>
