@@ -22,7 +22,7 @@ export default function Education() {
   ];
 
   return (
-    <Card>
+    <Card className="animate-fade-in-up">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <GraduationCap className="h-5 w-5" />
@@ -31,7 +31,7 @@ export default function Education() {
       </CardHeader>
       <CardContent className="space-y-4">
         {educations.map((education, index) => (
-          <div key={index} className="border-l-2 border-gray-200 pl-4">
+          <div key={index} className="border-l-2 border-gray-200 pl-4 animate-fade-in-up">
             <h3 className="font-semibold">{education.degree}</h3>
             <p className="text-sm text-muted-foreground">{education.school}</p>
                 <p className="text-sm text-muted-foreground">{education.period}</p>

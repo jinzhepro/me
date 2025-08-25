@@ -57,7 +57,7 @@ export default function WorkExperience() {
   ];
 
   return (
-    <section id="experience">
+    <section id="experience" className="animate-fade-in-up">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -67,7 +67,7 @@ export default function WorkExperience() {
         </CardHeader>
         <CardContent className="space-y-6">
           {experiences.map((exp, index) => (
-            <div key={index}>
+            <div key={index} className="animate-fade-in-up">
               <div className="border-l-2 border-gray-200 pl-4">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="font-semibold">{exp.title}</h3>

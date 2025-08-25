@@ -31,7 +31,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills">
+    <section id="skills" className="animate-fade-in-up">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -41,11 +41,11 @@ export default function Skills() {
         </CardHeader>
         <CardContent className="space-y-6">
           {/* 前端技术 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">前端技术</h4>
             <div className="space-y-3">
               {frontendSkills.map((skill, index) => (
-                <div key={index}>
+                <div key={index} className="animate-fade-in-up">
                   <div className="flex justify-between mb-1">
                     <span className="text-sm">{skill.name}</span>
                     <span className="text-sm text-muted-foreground">{skill.level}%</span>
@@ -59,11 +59,11 @@ export default function Skills() {
           <Separator />
 
           {/* 后端技术 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">后端技术</h4>
             <div className="space-y-3">
               {backendSkills.map((skill, index) => (
-                <div key={index}>
+                <div key={index} className="animate-fade-in-up">
                   <div className="flex justify-between mb-1">
                     <span className="text-sm">{skill.name}</span>
                     <span className="text-sm text-gray-600">{skill.level}%</span>
@@ -77,11 +77,11 @@ export default function Skills() {
           <Separator />
 
           {/* 开发工具 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">开发工具</h4>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
-                <Badge key={index} variant="outline">{tool}</Badge>
+                <Badge key={index} variant="outline" className="animate-fade-in-up">{tool}</Badge>
               ))}
             </div>
           </div>

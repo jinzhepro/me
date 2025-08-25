@@ -33,7 +33,7 @@ export default function Environment() {
   ];
 
   return (
-    <section id="environment">
+    <section id="environment" className="animate-fade-in-up">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -43,11 +43,11 @@ export default function Environment() {
         </CardHeader>
         <CardContent className="space-y-6">
           {/* 硬件设备 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">硬件设备</h4>
             <div className="space-y-2">
               {hardwareDevices.map((device, index) => (
-                <div key={index} className="flex justify-between items-center">
+                <div key={index} className="flex justify-between items-center animate-fade-in-up">
                   <span className="text-sm font-medium">{device.name}:</span>
                   <span className="text-sm text-muted-foreground">{device.value}</span>
                 </div>
@@ -58,11 +58,11 @@ export default function Environment() {
           <Separator />
 
           {/* 开发工具 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">开发工具</h4>
             <div className="space-y-2">
               {developmentTools.map((tool, index) => (
-                <div key={index} className="flex justify-between items-center">
+                <div key={index} className="flex justify-between items-center animate-fade-in-up">
                   <span className="text-sm font-medium">{tool.name}:</span>
                   <span className="text-sm text-muted-foreground">{tool.value}</span>
                 </div>
@@ -73,11 +73,11 @@ export default function Environment() {
           <Separator />
 
           {/* 软件 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">软件</h4>
             <div className="space-y-2">
               {software.map((item, index) => (
-                <div key={index} className="flex justify-between items-center">
+                <div key={index} className="flex justify-between items-center animate-fade-in-up">
                   <span className="text-sm font-medium">{item.name}:</span>
                   <span className="text-sm text-muted-foreground">{item.value}</span>
                 </div>
@@ -88,11 +88,11 @@ export default function Environment() {
           <Separator />
 
           {/* 浏览器插件 */}
-          <div>
+          <div className="animate-fade-in-up">
             <h4 className="text-sm font-semibold mb-3">浏览器插件</h4>
             <div className="flex flex-wrap gap-2">
               {browserPlugins.map((plugin, index) => (
-                <Badge key={index} variant="secondary">{plugin}</Badge>
+                <Badge key={index} variant="secondary" className="animate-fade-in-up">{plugin}</Badge>
               ))}
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="mt-8">
+    <section id="contact" className="mt-8 animate-fade-in-up">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Contact() {
             {contactInfo.map((contact, index) => {
               const IconComponent = contact.icon;
               return (
-                <div key={index} className="flex items-center gap-3 p-4 border rounded-lg">
+                <div key={index} className="flex items-center gap-3 p-4 border rounded-lg animate-fade-in-up">
                   <IconComponent className="h-5 w-5 text-muted-foreground" />
                 <div>
                   <h3 className="font-semibold">{contact.label}</h3>

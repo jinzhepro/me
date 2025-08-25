@@ -38,7 +38,7 @@ export default function ProjectExperience() {
   ];
 
   return (
-    <section id="projects">
+    <section id="projects" className="animate-fade-in-up">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -48,7 +48,7 @@ export default function ProjectExperience() {
         </CardHeader>
         <CardContent className="space-y-6">
           {projects.map((project, index) => (
-            <div key={index} className="border rounded-lg p-4">
+            <div key={index} className="border rounded-lg p-4 animate-fade-in-up">
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-semibold">{project.title}</h3>
               </div>

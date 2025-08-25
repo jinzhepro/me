@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
  */
 export default function Navigation() {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-900/60 border-gray-200 dark:border-gray-700 transition-all duration-300">
+    <nav className="sticky top-0 z-50 w-full border-b bg-white/50 dark:bg-gray-800/50 backdrop-blur supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-gray-800/30 border-gray-100 dark:border-gray-800 transition-all duration-300 gradient-animation">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">

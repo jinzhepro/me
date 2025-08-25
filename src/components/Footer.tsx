@@ -5,7 +5,7 @@ import React from 'react';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-muted py-8 mt-16 transition-colors duration-300">
+    <footer className="bg-muted py-8 mt-16 transition-colors duration-300 animate-fade-in-up">
       <div className="container mx-auto px-4 text-center">
         <p className="text-muted-foreground transition-colors duration-300">
           © 2025 张晋哲. All rights reserved.
