@@ -29,12 +29,12 @@ export default function Skills() {
     "Git",
     "GitHub",
     "GitLab",
-    "Trae",
-    "WebStorm",
+    "VSCode",
     "Docker",
     "Vercel",
     "Webpack",
     "Vite",
+    "cline",
   ];
 
   return (
@@ -92,11 +92,7 @@ export default function Skills() {
             <h4 className="text-sm font-medium mb-3">开发工具</h4>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
-                <Badge
-                  key={index}
-                  variant="outline"
-                  className="text-xs"
-                >
+                <Badge key={index} variant="outline" className="text-xs">
                   {tool}
                 </Badge>
               ))}

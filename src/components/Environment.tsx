@@ -13,23 +13,27 @@ export default function Environment() {
   const hardwareDevices = [
     { name: "电脑", value: "Mac Mini M4 32G" },
     { name: "鼠标", value: "Logitech MX Master 3s" },
-    { name: "键盘", value: "Logitech K380" }
+    { name: "键盘", value: "Logitech K380" },
   ];
 
   const developmentTools = [
-    { name: "编辑器", value: "Trae" },
+    { name: "编辑器", value: "VSCode" },
     { name: "node版本管理", value: "Volta" },
-    { name: "环境部署", value: "Docker" }
+    { name: "环境部署", value: "Docker" },
+    { name: "AI工具", value: "cline" },
   ];
 
   const software = [
     { name: "剪切板工具", value: "Maccy" },
-    { name: "截图录屏工具", value: "Longshot" },
-    { name: "浏览器", value: "Edge" }
+    { name: "浏览器", value: "Edge" },
   ];
 
   const browserPlugins = [
-    "豆包", "ADGuard", "iCloud密码", "React Developer Tools", "Vue Devtools"
+    "豆包",
+    "ADGuard",
+    "iCloud密码",
+    "React Developer Tools",
+    "Vue Devtools",
   ];
 
   return (
@@ -49,7 +53,9 @@ export default function Environment() {
               {hardwareDevices.map((device, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <span className="text-sm">{device.name}:</span>
-                  <span className="text-sm text-muted-foreground">{device.value}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {device.value}
+                  </span>
                 </div>
               ))}
             </div>
@@ -64,7 +70,9 @@ export default function Environment() {
               {developmentTools.map((tool, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <span className="text-sm">{tool.name}:</span>
-                  <span className="text-sm text-muted-foreground">{tool.value}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {tool.value}
+                  </span>
                 </div>
               ))}
             </div>
@@ -79,7 +87,9 @@ export default function Environment() {
               {software.map((item, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <span className="text-sm">{item.name}:</span>
-                  <span className="text-sm text-muted-foreground">{item.value}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {item.value}
+                  </span>
                 </div>
               ))}
             </div>
@@ -92,7 +102,9 @@ export default function Environment() {
             <h4 className="text-sm font-medium mb-3">浏览器插件</h4>
             <div className="flex flex-wrap gap-2">
               {browserPlugins.map((plugin, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">{plugin}</Badge>
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {plugin}
+                </Badge>
               ))}
             </div>
           </div>
