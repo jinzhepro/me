@@ -41,43 +41,45 @@
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.12 0.01 260);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.11 0.01 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0.01 260);
+  --card-foreground: oklch(0.11 0.01 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.01 260);
-  --primary: oklch(0.65 0.15 240);
+  --popover-foreground: oklch(0.11 0.01 260);
+  --primary: oklch(0.61 0.18 240);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.94 0.01 260);
-  --secondary-foreground: oklch(0.12 0.01 260);
-  --muted: oklch(0.75 0.02 260);
-  --muted-foreground: oklch(0.5 0.01 260);
-  --accent: oklch(0.85 0.1 240);
+  --secondary: oklch(0.96 0.008 260);
+  --secondary-foreground: oklch(0.11 0.01 260);
+  --muted: oklch(0.97 0.006 260);
+  --muted-foreground: oklch(0.55 0.016 260);
+  --accent: oklch(0.84 0.12 240);
   --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.6 0.2 20);
-  --success: oklch(0.6 0.15 140);
-  --warning: oklch(0.8 0.1 80);
-  --info: oklch(0.65 0.1 240);
-  --border: oklch(0.92 0.01 260);
-  --input: oklch(0.92 0.01 260);
-  --ring: oklch(0.65 0.15 240);
-  --chart-1: oklch(0.7 0.15 25);
-  --chart-2: oklch(0.6 0.1 220);
-  --chart-3: oklch(0.8 0.1 130);
-  --chart-4: oklch(0.5 0.15 300);
-  --chart-5: oklch(0.7 0.1 30);
-  --sidebar: oklch(0.95 0.01 260);
-  --sidebar-foreground: oklch(0.12 0.01 260);
-  --sidebar-primary: oklch(0.65 0.15 240);
+  --accent-warm: oklch(0.72 0.18 50);
+  --accent-warm-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.58 0.22 20);
+  --success: oklch(0.58 0.18 140);
+  --warning: oklch(0.79 0.12 80);
+  --info: oklch(0.62 0.12 240);
+  --border: oklch(0.94 0.008 260);
+  --input: oklch(0.94 0.008 260);
+  --ring: oklch(0.61 0.18 240);
+  --chart-1: oklch(0.68 0.18 25);
+  --chart-2: oklch(0.58 0.12 220);
+  --chart-3: oklch(0.79 0.12 130);
+  --chart-4: oklch(0.48 0.18 300);
+  --chart-5: oklch(0.68 0.12 30);
+  --sidebar: oklch(0.97 0.008 260);
+  --sidebar-foreground: oklch(0.11 0.01 260);
+  --sidebar-primary: oklch(0.61 0.18 240);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.9 0.01 260);
-  --sidebar-accent-foreground: oklch(0.12 0.01 260);
-  --sidebar-border: oklch(0.92 0.01 260);
-  --sidebar-ring: oklch(0.65 0.15 240);
+  --sidebar-accent: oklch(0.93 0.008 260);
+  --sidebar-accent-foreground: oklch(0.11 0.01 260);
+  --sidebar-border: oklch(0.94 0.008 260);
+  --sidebar-ring: oklch(0.61 0.18 240);
   --gradient-primary: linear-gradient(
     135deg,
-    oklch(0.94 0.01 260) 0%,
+    oklch(0.97 0.008 260) 0%,
     oklch(1 0 0) 100%
   );
 }
@@ -216,6 +218,20 @@
     }
   }
 
+  /* 添加渐进式动画延迟 */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
   /* 添加卡片悬停效果 */
   .card-hover {
     transition: all 0.5s ease;
@@ -227,10 +243,60 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
+  /* 添加交互元素悬停效果 */
+  .interactive-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .interactive-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: oklch(0.05 0.02 260);
+  }
+
+  /* 添加技能进度条样式 */
+  .skill-progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: oklch(0.94 0.008 260);
+    overflow: hidden;
+  }
+
+  .skill-progress-bar {
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      oklch(0.61 0.18 240) 0%,
+      oklch(0.72 0.18 50) 100%
+    );
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+
+  /* 添加技术栈标签样式 */
+  .tech-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin: 0.25rem;
+    background-color: oklch(0.96 0.008 260);
+    color: oklch(0.11 0.01 260);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .tech-tag:hover {
+    background-color: oklch(0.72 0.18 50);
+    color: oklch(0.98 0 0);
+    transform: scale(1.05);
+  }
+
   /* 添加简洁的分隔线 */
   .separator {
     height: 1px;
-    background-color: oklch(0.92 0.01 260);
+    background-color: oklch(0.94 0.008 260);
     margin: 1.5rem 0;
   }
 

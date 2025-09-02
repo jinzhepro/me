@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
 import WorkExperience from "@/components/WorkExperience";
@@ -21,21 +22,24 @@ export default function Home() {
     // 为锚点链接添加平滑滚动
     const handleAnchorClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
-      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+      if (
+        target.tagName === "A" &&
+        target.getAttribute("href")?.startsWith("#")
+      ) {
         e.preventDefault();
-        const targetId = target.getAttribute('href')!.substring(1);
+        const targetId = target.getAttribute("href")!.substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           window.scrollTo({
             top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       }
     };
 
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
+    document.addEventListener("click", handleAnchorClick);
+    return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
   return (
@@ -46,48 +50,97 @@ export default function Home() {
       {/* 主要内容 */}
       <main className="container mx-auto px-4 py-8">
         {/* 个人信息卡片 */}
-        <section id="about">
+        <motion.section
+          id="about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <ProfileCard />
-        </section>
+        </motion.section>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 左侧列 */}
           <div className="lg:col-span-2 space-y-8">
             {/* 工作经历 */}
-            <section id="experience">
+            <motion.section
+              id="experience"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="animate-fade-in-up"
+            >
               <WorkExperience />
-            </section>
+            </motion.section>
 
             {/* 项目经验 */}
-            <section id="projects">
+            <motion.section
+              id="projects"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="animate-fade-in-up"
+            >
               <ProjectExperience />
-            </section>
+            </motion.section>
           </div>
 
           {/* 右侧列 */}
           <div className="space-y-8">
             {/* 技能 */}
-            <section id="skills">
+            <motion.section
+              id="skills"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="animate-fade-in-up"
+            >
               <Skills />
-            </section>
+            </motion.section>
 
             {/* 教育背景 */}
-            <Education />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="animate-fade-in-up"
+            >
+              <Education />
+            </motion.div>
 
             {/* 工作环境 */}
-            <Environment />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              className="animate-fade-in-up"
+            >
+              <Environment />
+            </motion.div>
           </div>
         </div>
 
         {/* 联系方式 */}
-        <section id="contact">
+        <motion.section
+          id="contact"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="animate-fade-in-up"
+        >
           <Contact />
-        </section>
+        </motion.section>
       </main>
 
       {/* 页脚 */}
-      <Footer />
-      
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.4 }}
+      >
+        <Footer />
+      </motion.footer>
+
       {/* 回到顶部按钮 */}
       <BackToTop />
     </div>

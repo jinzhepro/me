@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -11,81 +12,89 @@ import {
   MapPin,
   Download,
   BookOpen,
+  Code,
+  Trophy,
 } from "lucide-react";
 
 /**
  * 个人信息卡片组件
- * 展示个人基本信息、联系方式和社交链接
+ * 展示个人基本信息、联系方式、技能标签和社交链接
+ * 使用动画效果增强视觉吸引力
  */
 export default function ProfileCard() {
   return (
-    <Card className="mb-8 card-hover">
-      <CardContent className="pt-6">
-        <div className="flex flex-col md:flex-row items-start gap-6">
-          <Avatar className="w-24 h-24">
-            <AvatarImage src="/logo.JPG" alt="张晋哲" />
-            <AvatarFallback>张晋哲</AvatarFallback>
-          </Avatar>
-          <div className="flex-1">
-            <h1 className="text-2xl font-bold mb-2">
-              张晋哲
-            </h1>
-            <p className="text-lg text-muted-foreground mb-4">
-              全栈工程师
-            </p>
-            <p className="text-foreground mb-6 leading-relaxed">
-              拥有8年以上软件开发经验的全栈工程师，专注于前端技术栈和用户体验设计。
-              熟练掌握现代Web开发技术，致力于构建高质量、可维护的软件产品。
-            </p>
-            <div className="flex flex-wrap gap-4 mb-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <span>jinzhepro@qq.com</span>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <Card className="mb-8 card-hover overflow-hidden">
+        <CardContent className="pt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* 头像区域 */}
+            <motion.div
+              className="lg:col-span-3 flex justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="m-auto">
+                <Avatar className="w-32 h-32 border-4 border-background shadow-lg">
+                  <AvatarImage src="/logo.JPG" alt="张晋哲" />
+                  <AvatarFallback>张晋哲</AvatarFallback>
+                </Avatar>
+                {/* <div className="absolute -bottom-2 -right-2 bg-accent-warm text-accent-warm-foreground rounded-full p-2">
+                  <Trophy className="h-4 w-4" />
+                </div> */}
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>中国青岛</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4" />
-                <span>微信: jinzhepro</span>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="btn-simple"
+            </motion.div>
+
+            {/* 主要信息区域 */}
+            <div className="lg:col-span-9">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <a
-                  href="https://jinzhepro.github.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BookOpen className="h-4 w-4 mr-2" />
-                  博客
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="btn-simple"
-              >
-                <a
-                  href="https://github.com/jinzhepro"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-4 w-4 mr-2" />
-                  GitHub
-                </a>
-              </Button>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <div>
+                    <h1 className="text-3xl font-bold mb-1 bg-gradient-to-r from-primary to-accent-warm bg-clip-text text-transparent">
+                      张晋哲
+                    </h1>
+                    <p className="text-lg text-muted-foreground flex items-center gap-2">
+                      <Code className="h-4 w-4" />
+                      全栈工程师
+                    </p>
+                  </div>
+                  <div className="mt-2 sm:mt-0">
+                    <span className="tech-tag">8年+经验</span>
+                  </div>
+                </div>
+
+                <p className="text-foreground mb-6 leading-relaxed text-base">
+                  拥有8年以上软件开发经验的全栈工程师，专注于前端技术栈和用户体验设计。
+                  熟练掌握现代Web开发技术，致力于构建高质量、可维护的软件产品。
+                </p>
+
+                {/* 技能标签 */}
+                <div className="mb-6">
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">
+                    核心技能
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="tech-tag">React</span>
+                    <span className="tech-tag">Vue</span>
+                    <span className="tech-tag">TypeScript</span>
+                    <span className="tech-tag">Next.js</span>
+                    <span className="tech-tag">Node.js</span>
+                    <span className="tech-tag">UI/UX</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
