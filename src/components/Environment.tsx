@@ -48,6 +48,14 @@ export default function Environment() {
     { name: "Vue Devtools", icon: "💚", category: "开发工具" },
   ];
 
+  interface EnvironmentItem {
+    name: string;
+    value?: string;
+    icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
+    highlight?: boolean;
+    category?: string;
+  }
+
   const EnvironmentSection = ({
     title,
     icon: Icon,
@@ -55,8 +63,8 @@ export default function Environment() {
     delay = 0,
   }: {
     title: string;
-    icon: any;
-    items: any[];
+    icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
+    items: EnvironmentItem[];
     delay?: number;
   }) => (
     <motion.div

@@ -38,6 +38,12 @@ export default function Skills() {
     { name: "Cline", icon: "🤖" },
   ];
 
+  interface Skill {
+    name: string;
+    level: number; // 可选，因为 tools 中的项可能没有 level
+    icon: string;
+  }
+
   const getSkillLevel = (level: number) => {
     if (level >= 90)
       return { text: "精通", color: "text-accent-warm", icon: Star };
@@ -48,7 +54,7 @@ export default function Skills() {
     return { text: "了解", color: "text-muted-foreground", icon: Zap };
   };
 
-  const SkillBar = ({ skill, index }: { skill: any; index: number }) => {
+  const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
     const level = getSkillLevel(skill.level);
     const Icon = level.icon;
 
