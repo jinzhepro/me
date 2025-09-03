@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-8">
         {/* 主要内容区域 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 justify-center">
           {/* 快速导航 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -102,25 +102,6 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* 技术栈 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
-              <Code className="h-4 w-4 text-accent-warm" />
-              技术栈
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              <span className="tech-tag">React</span>
-              <span className="tech-tag">TypeScript</span>
-              <span className="tech-tag">Next.js</span>
-              <span className="tech-tag">Tailwind CSS</span>
-              <span className="tech-tag">Framer Motion</span>
-            </div>
-          </motion.div>
         </div>
 
         {/* 分隔线 */}
@@ -151,6 +132,15 @@ const Footer: React.FC = () => {
               className="text-primary hover:underline transition-colors"
             >
               Cline
+            </a>
+            {" + "}
+            <a
+              href="https://open.bigmodel.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline transition-colors"
+            >
+              GLM-4.5
             </a>
             辅助开发.
           </p>
