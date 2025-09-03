@@ -115,17 +115,6 @@ export default function ProjectExperience() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative p-6 rounded-xl bg-gradient-to-br from-card to-muted/30 border border-border hover:border-accent-warm/50 transition-all duration-300 hover:shadow-lg"
               >
-                {/* 项目状态标签 */}
-                <div className="absolute top-4 right-4">
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                      project.status
-                    )}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-
                 {/* 项目标题 */}
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold mb-2 group-hover:text-accent-warm transition-colors">
