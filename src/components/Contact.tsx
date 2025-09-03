@@ -95,8 +95,22 @@ export default function Contact() {
         }
     }
   };
+  interface ContactMethod {
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    label: string;
+    value: string;
+    action: string;
+    description: string;
+    highlight: boolean;
+  }
 
-  const ContactCard = ({ method, index }: { method: any; index: number }) => {
+  const ContactCard = ({
+    method,
+    index,
+  }: {
+    method: ContactMethod;
+    index: number;
+  }) => {
     const Icon = method.icon;
 
     return (
