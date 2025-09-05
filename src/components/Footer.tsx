@@ -24,12 +24,15 @@ const Footer: React.FC = () => {
     { name: "工作经历", href: "#experience", icon: Briefcase },
     { name: "项目经验", href: "#projects", icon: Code },
     { name: "技能专长", href: "#skills", icon: Zap },
-    { name: "联系方式", href: "#contact", icon: Mail },
+    { name: "社交媒体", href: "#social-media", icon: Globe },
   ];
 
   const socialLinks = [
     { name: "GitHub", href: "https://github.com/jinzhepro", icon: Github },
     { name: "博客", href: "https://jinzhepro.github.io/", icon: Globe },
+  ];
+
+  const contactLinks = [
     { name: "邮箱", href: "mailto:jinzhepro@qq.com", icon: Mail },
   ];
 
@@ -46,7 +49,7 @@ const Footer: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-8">
         {/* 主要内容区域 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-center">
           {/* 快速导航 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +68,7 @@ const Footer: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors interactive-item p-2 rounded"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 interactive-item p-2 rounded-lg hover:bg-accent/10 hover:shadow-sm hover:scale-105"
                 >
                   <link.icon className="h-3 w-3" />
                   {link.name}
@@ -94,7 +97,34 @@ const Footer: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors interactive-item p-2 rounded"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 interactive-item p-2 rounded-lg hover:bg-accent/10 hover:shadow-sm hover:scale-105"
+                >
+                  <link.icon className="h-3 w-3" />
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 联系方式 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+              <Mail className="h-4 w-4 text-accent-warm" />
+              联系方式
+            </h3>
+            <div className="space-y-2">
+              {contactLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 interactive-item p-2 rounded-lg hover:bg-accent/10 hover:shadow-sm hover:scale-105"
                 >
                   <link.icon className="h-3 w-3" />
                   {link.name}

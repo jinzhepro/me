@@ -8,7 +8,7 @@ import ProjectExperience from "@/components/ProjectExperience";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Environment from "@/components/Environment";
-import Contact from "@/components/Contact";
+import SocialMedia from "@/components/SocialMedia";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { useEffect } from "react";
@@ -120,15 +120,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 联系方式 */}
+        {/* 社交媒体 */}
         <motion.section
-          id="contact"
+          id="social-media"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
           className="animate-fade-in-up"
         >
-          <Contact />
+          <SocialMedia />
         </motion.section>
       </main>
 
