@@ -23,26 +23,69 @@ export default function MobileMenu() {
 
   return (
     <div className="md:hidden">
-      <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="切换菜单">
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={toggleMenu}
+        aria-label="切换菜单"
+      >
+        {isOpen ? (
+          <X className="h-6 w-6" aria-label="关闭菜单" />
+        ) : (
+          <Menu className="h-6 w-6" aria-label="打开菜单" />
+        )}
       </Button>
-      
+
       {isOpen && (
         <div className="absolute top-16 left-0 right-0 bg-background border-b p-4 z-50">
-          <div className="flex flex-col space-y-4">
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors duration-200" onClick={closeMenu}>
+          <div className="flex flex-col space-y-2">
+            <a
+              href="#about"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
               关于
             </a>
-            <a href="#experience" className="text-sm font-medium hover:text-primary transition-colors duration-200" onClick={closeMenu}>
+            <a
+              href="#experience"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
               经历
             </a>
-            <a href="#projects" className="text-sm font-medium hover:text-primary transition-colors duration-200" onClick={closeMenu}>
+            <a
+              href="#projects"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
               项目
             </a>
-            <a href="#skills" className="text-sm font-medium hover:text-primary transition-colors duration-200" onClick={closeMenu}>
+            <a
+              href="#skills"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
               技能
             </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors duration-200" onClick={closeMenu}>
+            <a
+              href="#education"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
+              教育背景
+            </a>
+            <a
+              href="#environment"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
+              工作环境
+            </a>
+            <a
+              href="#social-media"
+              className="mobile-menu-item text-sm font-medium"
+              onClick={closeMenu}
+            >
               联系
             </a>
           </div>

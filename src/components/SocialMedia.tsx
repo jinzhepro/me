@@ -8,32 +8,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Github, Globe, ExternalLink } from "lucide-react";
-
 /**
  * 社交媒体组件
  * 展示个人社交媒体和在线平台链接
  * 使用动画效果和增强的视觉设计提升用户体验
  */
+import { SocialMediaLink as SocialMediaLinkType } from "@/types/social";
+import socialData from "@/data/social.json";
+import { Github, Globe, ExternalLink } from "lucide-react";
+
 export default function SocialMedia() {
-  const socialMediaLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "jinzhepro",
-      action: "https://github.com/jinzhepro",
-      description: "开源项目和代码",
-      highlight: false,
-    },
-    {
-      icon: Globe,
-      label: "博客",
-      value: "jinzhepro.github.io",
-      action: "https://jinzhepro.github.io/",
-      description: "技术文章分享",
-      highlight: false,
-    },
-  ];
+  // 图标映射：将字符串映射到React组件
+  const iconMap = {
+    Github,
+    Globe,
+  };
+
+  const socialMediaLinks: SocialMediaLinkType[] =
+    socialData as SocialMediaLinkType[];
 
   const handleSocialAction = (action: string) => {
     if (action.startsWith("http")) {
@@ -41,30 +33,20 @@ export default function SocialMedia() {
     }
   };
 
-  interface SocialMediaLink {
-    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    label: string;
-    value: string;
-    action: string;
-    description: string;
-    highlight: boolean;
+  interface SocialMediaCardProps {
+    link: SocialMediaLinkType;
+    index: number;
   }
 
-  const SocialMediaCard = ({
-    link,
-    index,
-  }: {
-    link: SocialMediaLink;
-    index: number;
-  }) => {
-    const Icon = link.icon;
+  const SocialMediaCard = ({ link, index }: SocialMediaCardProps) => {
+    const Icon = iconMap[link.icon as keyof typeof iconMap];
 
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="group"
+        className="group social-card"
         onClick={() => handleSocialAction(link.action)}
       >
         <div
@@ -114,7 +96,7 @@ export default function SocialMedia() {
                   : "bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground"
               }`}
             >
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-3 w-3" aria-label="外部链接图标" />
             </button>
           </div>
         </div>
@@ -133,7 +115,10 @@ export default function SocialMedia() {
       <Card className="card-hover">
         <CardHeader className="pb-6">
           <CardTitle className="flex items-center gap-2 text-xl">
-            <Globe className="h-6 w-6 text-accent-warm" />
+            <Globe
+              className="h-6 w-6 text-accent-warm"
+              aria-label="社交媒体图标"
+            />
             社交媒体
           </CardTitle>
           <p className="text-muted-foreground">

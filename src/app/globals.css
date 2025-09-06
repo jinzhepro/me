@@ -52,7 +52,7 @@
   --secondary: oklch(0.96 0.008 260);
   --secondary-foreground: oklch(0.11 0.01 260);
   --muted: oklch(0.97 0.006 260);
-  --muted-foreground: oklch(0.55 0.016 260);
+  --muted-foreground: oklch(0.45 0.016 260);
   --accent: oklch(0.84 0.12 240);
   --accent-foreground: oklch(0.98 0 0);
   --accent-warm: oklch(0.72 0.18 50);
@@ -209,6 +209,7 @@
     animation: fade-in-up 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     opacity: 0;
     transform: translateY(10px);
+    will-change: transform, opacity;
   }
 
   @keyframes fade-in-up {
@@ -337,5 +338,39 @@
     outline: none;
     border-color: oklch(0.7 0.1 240);
     box-shadow: 0 0 0 3px oklch(0.9 0.05 240);
+  }
+
+  /* 移动端菜单项触摸目标标准 */
+  .mobile-menu-item {
+    min-height: 44px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-menu-item:hover {
+    background-color: oklch(0.96 0.008 260);
+  }
+
+  .mobile-menu-item:active {
+    background-color: oklch(0.92 0.008 260);
+  }
+
+  /* 社交媒体卡片微交互 */
+  .social-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .social-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .social-card:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 }

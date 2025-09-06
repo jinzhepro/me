@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "Github",
+    "label": "GitHub",
+    "value": "jinzhepro",
+    "action": "https://github.com/jinzhepro",
+    "description": "开源项目和代码",
+    "highlight": false
+  },
+  {
+    "icon": "Globe",
+    "label": "博客",
+    "value": "jinzhepro.github.io",
+    "action": "https://jinzhepro.github.io/",
+    "description": "技术文章分享",
+    "highlight": false
+  }
+]

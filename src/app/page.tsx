@@ -31,7 +31,7 @@ export default function Home() {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: targetElement.offsetTop - 120,
             behavior: "smooth",
           });
         }
@@ -67,7 +67,7 @@ export default function Home() {
               id="experience"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="animate-fade-in-up"
             >
               <WorkExperience />
@@ -78,7 +78,7 @@ export default function Home() {
               id="projects"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="animate-fade-in-up"
             >
               <ProjectExperience />
@@ -92,7 +92,7 @@ export default function Home() {
               id="skills"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
               className="animate-fade-in-up"
             >
               <Skills />
@@ -102,7 +102,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
               className="animate-fade-in-up"
             >
               <Education />
@@ -112,7 +112,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
               className="animate-fade-in-up"
             >
               <Environment />
@@ -125,7 +125,7 @@ export default function Home() {
           id="social-media"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 1.8 }}
           className="animate-fade-in-up"
         >
           <SocialMedia />
