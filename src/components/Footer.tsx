@@ -8,7 +8,6 @@ import {
   Heart,
   Code,
   Zap,
-  ArrowUp,
   User,
   Briefcase,
 } from "lucide-react";
@@ -35,10 +34,6 @@ const Footer: React.FC = () => {
   const contactLinks = [
     { name: "邮箱", href: "mailto:jinzhepro@qq.com", icon: Mail },
   ];
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <motion.footer

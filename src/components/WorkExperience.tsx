@@ -8,7 +8,6 @@ import {
   Calendar,
   Building,
   CheckCircle,
-  TrendingUp,
   Award,
 } from "lucide-react";
 

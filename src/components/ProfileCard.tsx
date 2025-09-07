@@ -1,20 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-  Download,
-  BookOpen,
-  Code,
-  Trophy,
-} from "lucide-react";
+import { Code } from "lucide-react";
 
 /**
  * 个人信息卡片组件

@@ -15,19 +15,6 @@ import projectData from "@/data/projects.json";
 export default function ProjectExperience() {
   const projects: Project[] = projectData as Project[];
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "已完成":
-        return "bg-green-100 text-green-800";
-      case "进行中":
-        return "bg-blue-100 text-blue-800";
-      case "规划中":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
-
   return (
     <motion.section
       id="projects"

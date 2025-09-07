@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  GraduationCap,
-  Calendar,
-  Award,
-  BookOpen,
-  Trophy,
-  Star,
-} from "lucide-react";
+import { GraduationCap, Calendar, BookOpen, Star } from "lucide-react";
 
 /**
  * 教育背景组件
@@ -35,19 +28,6 @@ export default function Education() {
       courses: ["程序设计", "Web开发", "数据库", "计算机网络"],
     },
   ];
-
-  const getLevelColor = (level: string) => {
-    switch (level) {
-      case "本科":
-        return "bg-blue-100 text-blue-800";
-      case "专科":
-        return "bg-green-100 text-green-800";
-      case "硕士":
-        return "bg-purple-100 text-purple-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
 
   return (
     <motion.div
