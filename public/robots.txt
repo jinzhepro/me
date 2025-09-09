@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://me.jnzhepro.cc/sitemap.xml
+Sitemap: https://me.jinzhepro.cc/sitemap.xml
 
 # 优化爬取
 Crawl-delay: 1
