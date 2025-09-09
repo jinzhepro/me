@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 /**
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     description: "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
     type: "website",
     locale: "zh_CN",
+    siteName: "张晋哲的个人简历",
   },
   twitter: {
     card: "summary_large_image",
@@ -33,12 +34,23 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+/**
+ * 视窗配置
+ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 /**
@@ -53,18 +65,23 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className="antialiased">
+        <noscript>
+          <div
+            style={{
+              padding: "20px",
+              textAlign: "center",
+              backgroundColor: "#fef3cd",
+            }}
+          >
+            请启用 JavaScript 以获得最佳浏览体验。
+          </div>
+        </noscript>
         {children}
       </body>
     </html>

@@ -11,6 +11,7 @@ import Environment from "@/components/Environment";
 import SocialMedia from "@/components/SocialMedia";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import JsonLd from "@/components/JsonLd";
 import { useEffect } from "react";
 
 /**
@@ -44,6 +45,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <JsonLd />
       {/* 导航栏 */}
       <Navigation />
 
