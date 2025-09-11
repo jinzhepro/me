@@ -42,21 +42,25 @@ me/
 ## 构建与运行
 
 1. **安装依赖**
+
    ```bash
    npm install
    ```
 
 2. **启动开发服务器**
+
    ```bash
    npm run dev
    ```
 
 3. **构建生产版本**
+
    ```bash
    npm run build
    ```
 
 4. **启动生产服务器**
+
    ```bash
    npm start
    ```
@@ -69,31 +73,37 @@ me/
 ## 主要功能模块
 
 1. **个人信息展示** (`ProfileCard.tsx`)
+
    - 头像和基本信息
    - 核心技能标签
    - 个人简介
 
 2. **导航系统** (`Navigation.tsx`, `MobileMenu.tsx`)
+
    - 响应式导航栏
    - 移动端菜单
    - 平滑滚动到锚点
 
 3. **工作经历** (`WorkExperience.tsx`)
+
    - 时间线布局展示职业历程
    - 职责和成就列表
    - 当前职位状态标识
 
 4. **技能展示** (`Skills.tsx`)
+
    - 前端、后端技术进度条
    - 开发工具标签云
    - 动画效果增强视觉体验
 
 5. **项目经验** (`ProjectExperience.tsx`)
+
    - 项目卡片展示
    - 技术栈标签
    - 项目链接
 
 6. **教育背景** (`Education.tsx`)
+
    - 学历信息展示
    - 成绩和荣誉
 
