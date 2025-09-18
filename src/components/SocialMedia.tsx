@@ -28,10 +28,9 @@ export default function SocialMedia() {
 
   interface SocialMediaCardProps {
     link: SocialMediaLinkType;
-    index: number;
   }
 
-  const SocialMediaCard = ({ link, index }: SocialMediaCardProps) => {
+  const SocialMediaCard = ({ link }: SocialMediaCardProps) => {
     const Icon = iconMap[link.icon as keyof typeof iconMap];
 
     return (
@@ -115,7 +114,7 @@ export default function SocialMedia() {
         <CardContent className="pt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {socialMediaLinks.map((link, index) => (
-              <SocialMediaCard key={index} link={link} index={index} />
+              <SocialMediaCard key={index} link={link} />
             ))}
           </div>
         </CardContent>

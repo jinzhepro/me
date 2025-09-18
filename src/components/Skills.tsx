@@ -52,7 +52,7 @@ export default function Skills() {
     return { text: "了解", color: "text-muted-foreground", icon: Zap };
   };
 
-  const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
+  const SkillBar = ({ skill }: { skill: Skill }) => {
     const level = getSkillLevel(skill.level);
     const Icon = level.icon;
 
@@ -100,7 +100,7 @@ export default function Skills() {
             </div>
             <div className="space-y-4">
               {frontendSkills.map((skill, index) => (
-                <SkillBar key={index} skill={skill} index={index} />
+                <SkillBar key={index} skill={skill} />
               ))}
             </div>
           </div>
@@ -117,11 +117,7 @@ export default function Skills() {
             </div>
             <div className="space-y-4">
               {backendSkills.map((skill, index) => (
-                <SkillBar
-                  key={index}
-                  skill={skill}
-                  index={index + frontendSkills.length}
-                />
+                <SkillBar key={index} skill={skill} />
               ))}
             </div>
           </div>

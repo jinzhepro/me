@@ -100,7 +100,7 @@ export function debounce<T extends (...args: unknown[]) => void>(
 /**
  * 节流函数，用于优化滚动事件性能
  */
-export function throttle<T extends (...args: any[]) => void>(
+export function throttle<T extends (...args: unknown[]) => void>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {

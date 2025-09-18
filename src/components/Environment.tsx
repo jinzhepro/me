@@ -135,7 +135,6 @@ export default function Environment() {
             title="硬件设备"
             icon={Cpu}
             items={hardwareDevices}
-            delay={0.1}
           />
 
           <Separator className="my-4" />
@@ -145,7 +144,6 @@ export default function Environment() {
             title="开发工具"
             icon={Code}
             items={developmentTools}
-            delay={0.3}
           />
 
           <Separator className="my-4" />
@@ -155,7 +153,6 @@ export default function Environment() {
             title="常用软件"
             icon={Settings}
             items={software}
-            delay={0.5}
           />
 
           <Separator className="my-4" />
