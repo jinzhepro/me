@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Calendar, TrendingUp, Award } from "lucide-react";
 
@@ -16,13 +15,10 @@ export default function ProjectExperience() {
   const projects: Project[] = projectData as Project[];
 
   return (
-    <motion.section
+    <section
       id="projects"
       aria-label="项目经验"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="animate-fade-in-up"
+      className="animate-fade-in-up animate-on-scroll"
     >
       <Card className="card-hover">
         <CardHeader>
@@ -37,11 +33,8 @@ export default function ProjectExperience() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative p-6 rounded-xl bg-gradient-to-br from-card to-muted/30 border border-border hover:border-accent-warm/50 transition-all duration-300 hover:shadow-lg"
               >
                 {/* 项目标题 */}
@@ -105,11 +98,11 @@ export default function ProjectExperience() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </CardContent>
       </Card>
-    </motion.section>
+    </section>
   );
 }

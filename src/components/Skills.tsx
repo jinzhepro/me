@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Code, Server, Wrench, Zap, Star, Shield } from "lucide-react";
@@ -58,12 +57,7 @@ export default function Skills() {
     const Icon = level.icon;
 
     return (
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="space-y-2"
-      >
+      <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-lg">{skill.icon}</span>
@@ -77,25 +71,17 @@ export default function Skills() {
           </div>
         </div>
         <div className="skill-progress">
-          <motion.div
+          <div
             className="skill-progress-bar"
-            initial={{ width: 0 }}
-            animate={{ width: `${skill.level}%` }}
-            transition={{ duration: 1, delay: index * 0.1 + 0.2 }}
+            style={{ width: `${skill.level}%` }}
           />
         </div>
-      </motion.div>
+      </div>
     );
   };
 
   return (
-    <motion.section
-      id="skills"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="animate-fade-in-up"
-    >
+    <section id="skills" className="animate-fade-in-up animate-on-scroll">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -105,11 +91,7 @@ export default function Skills() {
         </CardHeader>
         <CardContent className="space-y-6">
           {/* 前端技术 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Code className="h-4 w-4 text-primary" />
@@ -121,16 +103,12 @@ export default function Skills() {
                 <SkillBar key={index} skill={skill} index={index} />
               ))}
             </div>
-          </motion.div>
+          </div>
 
           <Separator className="my-4" />
 
           {/* 后端技术 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
+          <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="p-2 rounded-lg bg-accent-warm/10">
                 <Server className="h-4 w-4 text-accent-warm" />
@@ -146,16 +124,12 @@ export default function Skills() {
                 />
               ))}
             </div>
-          </motion.div>
+          </div>
 
           <Separator className="my-4" />
 
           {/* 开发工具 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
+          <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="p-2 rounded-lg bg-muted">
                 <Wrench className="h-4 w-4 text-muted-foreground" />
@@ -164,21 +138,15 @@ export default function Skills() {
             </div>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.7 + index * 0.05 }}
-                  className="tech-tag interactive-item"
-                >
+                <div key={index} className="tech-tag interactive-item">
                   <span className="mr-1">{tool.icon}</span>
                   {tool.name}
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </CardContent>
       </Card>
-    </motion.section>
+    </section>
   );
 }

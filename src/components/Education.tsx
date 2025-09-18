@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Calendar, BookOpen, Star } from "lucide-react";
 
@@ -30,12 +29,7 @@ export default function Education() {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="animate-fade-in-up"
-    >
+    <div className="animate-fade-in-up animate-on-scroll">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -45,13 +39,7 @@ export default function Education() {
         </CardHeader>
         <CardContent className="space-y-4">
           {educations.map((education, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group"
-            >
+            <div key={index} className="group">
               <div className="relative p-4 rounded-lg bg-gradient-to-r from-card to-muted/20 border border-border hover:border-accent-warm/30 transition-all duration-300 interactive-item">
                 {/* 主要信息 */}
                 <div className="mb-3">
@@ -71,10 +59,10 @@ export default function Education() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }

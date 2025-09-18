@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -33,13 +32,7 @@ export default function WorkExperience() {
   };
 
   return (
-    <motion.section
-      id="experience"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="animate-fade-in-up"
-    >
+    <section id="experience" className="animate-fade-in-up animate-on-scroll">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -52,13 +45,7 @@ export default function WorkExperience() {
         </CardHeader>
         <CardContent className="space-y-10">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
+            <div key={index} className="group">
               <div className="relative">
                 {/* 时间线 */}
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-warm to-transparent"></div>
@@ -131,18 +118,14 @@ export default function WorkExperience() {
               </div>
 
               {index < experiences.length - 1 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                >
+                <div>
                   <Separator className="my-4" />
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </CardContent>
       </Card>
-    </motion.section>
+    </section>
   );
 }

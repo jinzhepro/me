@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -60,18 +59,12 @@ export default function Environment() {
     title,
     icon: Icon,
     items,
-    delay = 0,
   }: {
     title: string;
     icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
     items: EnvironmentItem[];
-    delay?: number;
   }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-    >
+    <div>
       <div className="flex items-center gap-2 mb-3">
         <div className="p-2 rounded-lg bg-primary/10">
           <Icon className="h-4 w-4 text-primary" />
@@ -82,12 +75,9 @@ export default function Environment() {
         {items.map((item, index) => {
           const ItemIcon = item.icon;
           return (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: delay + index * 0.1 }}
-              className={`flex items-center justify-between p-2 rounded-lg transition-all duration-300 interactive-item`}
+              className="flex items-center justify-between p-2 rounded-lg transition-all duration-300 interactive-item"
             >
               <div className="flex items-center gap-2">
                 {ItemIcon && (
@@ -123,21 +113,15 @@ export default function Environment() {
                   </span>
                 )}
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
-    </motion.div>
+    </div>
   );
 
   return (
-    <motion.section
-      id="environment"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="animate-fade-in-up"
-    >
+    <section id="environment" className="animate-fade-in-up animate-on-scroll">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -177,11 +161,7 @@ export default function Environment() {
           <Separator className="my-4" />
 
           {/* 浏览器插件 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
+          <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 rounded-lg bg-muted">
                 <Puzzle className="h-4 w-4 text-muted-foreground" />
@@ -190,11 +170,8 @@ export default function Environment() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {browserPlugins.map((plugin, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
                   className="tech-tag interactive-item flex items-center justify-between h-10 group"
                 >
                   <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -206,12 +183,12 @@ export default function Environment() {
                   <span className="text-xs bg-muted px-2 py-1 rounded flex-shrink-0 ml-2 group-hover:text-foreground ">
                     {plugin.category}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </CardContent>
       </Card>
-    </motion.section>
+    </section>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 /**
  * 社交媒体组件
@@ -36,10 +35,7 @@ export default function SocialMedia() {
     const Icon = iconMap[link.icon as keyof typeof iconMap];
 
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
+      <div
         className="group social-card"
         onClick={() => handleSocialAction(link.action)}
       >
@@ -94,17 +90,14 @@ export default function SocialMedia() {
             </button>
           </div>
         </div>
-      </motion.div>
+      </div>
     );
   };
 
   return (
-    <motion.section
+    <section
       id="social-media"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="mt-8 animate-fade-in-up"
+      className="mt-8 animate-fade-in-up animate-on-scroll"
     >
       <Card className="card-hover">
         <CardHeader className="pb-6">
@@ -127,6 +120,6 @@ export default function SocialMedia() {
           </div>
         </CardContent>
       </Card>
-    </motion.section>
+    </section>
   );
 }

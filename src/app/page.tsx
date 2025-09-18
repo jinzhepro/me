@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
 import WorkExperience from "@/components/WorkExperience";
@@ -13,6 +12,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
 import { useEffect } from "react";
+import { initScrollAnimations, initPageAnimations } from "@/lib/animations";
 
 /**
  * 主页面组件 - 个人简历网站
@@ -39,8 +39,16 @@ export default function Home() {
       }
     };
 
+    // 初始化动画
+    initPageAnimations();
+    const scrollObserver = initScrollAnimations();
+
     document.addEventListener("click", handleAnchorClick);
-    return () => document.removeEventListener("click", handleAnchorClick);
+
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+      scrollObserver?.disconnect();
+    };
   }, []);
 
   return (
@@ -51,97 +59,66 @@ export default function Home() {
 
       {/* 主要内容 */}
       <main className="container mx-auto px-4 py-8">
-        {/* 个人信息卡片 */}
-        <motion.section
-          id="about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        {/* 个人信息卡片 - 立即显示 */}
+        <section id="about" className="animate-fade-in-up">
           <ProfileCard />
-        </motion.section>
+        </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 左侧列 */}
           <div className="lg:col-span-2 space-y-8">
-            {/* 工作经历 */}
-            <motion.section
+            {/* 工作经历 - 滚动触发 */}
+            <section
               id="experience"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up animate-on-scroll"
             >
               <WorkExperience />
-            </motion.section>
+            </section>
 
-            {/* 项目经验 */}
-            <motion.section
+            {/* 项目经验 - 滚动触发 */}
+            <section
               id="projects"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up animate-on-scroll"
             >
               <ProjectExperience />
-            </motion.section>
+            </section>
           </div>
 
           {/* 右侧列 */}
           <div className="space-y-8">
-            {/* 技能 */}
-            <motion.section
+            {/* 技能 - 滚动触发 */}
+            <section
               id="skills"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up animate-on-scroll"
             >
               <Skills />
-            </motion.section>
+            </section>
 
-            {/* 教育背景 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="animate-fade-in-up"
-            >
+            {/* 教育背景 - 滚动触发 */}
+            <div className="animate-fade-in-up animate-on-scroll">
               <Education />
-            </motion.div>
+            </div>
 
-            {/* 工作环境 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.5 }}
-              className="animate-fade-in-up"
-            >
+            {/* 工作环境 - 滚动触发 */}
+            <div className="animate-fade-in-up animate-on-scroll">
               <Environment />
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* 社交媒体 */}
-        <motion.section
+        {/* 社交媒体 - 滚动触发 */}
+        <section
           id="social-media"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-          className="animate-fade-in-up"
+          className="animate-fade-in-up animate-on-scroll"
         >
           <SocialMedia />
-        </motion.section>
+        </section>
       </main>
 
       {/* 页脚 */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.4 }}
-      >
+      <footer className="animate-fade-in-up animate-on-scroll">
         <Footer />
-      </motion.footer>
+      </footer>
 
       {/* 回到顶部按钮 */}
       <BackToTop />
