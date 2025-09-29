@@ -1,0 +1,25 @@
+{
+  "frontendSkills": [
+    { "name": "React / Vue.js / Next.js", "level": 90, "icon": "⚛️" },
+    { "name": "JavaScript / TypeScript", "level": 90, "icon": "📜" },
+    { "name": "HTML5 / CSS3", "level": 85, "icon": "🎨" },
+    { "name": "Sass / Tailwind CSS", "level": 85, "icon": "🎯" },
+    { "name": "Expo", "level": 80, "icon": "📱" }
+  ],
+  "backendSkills": [
+    { "name": "Node.js", "level": 80, "icon": "🟢" },
+    { "name": "Express.js / Koa.js", "level": 75, "icon": "🚂" },
+    { "name": "PostgreSQL / MongoDB", "level": 75, "icon": "🗄️" }
+  ],
+  "tools": [
+    { "name": "Git", "icon": "🔀" },
+    { "name": "GitHub", "icon": "🐙" },
+    { "name": "GitLab", "icon": "🦊" },
+    { "name": "VSCode", "icon": "💻" },
+    { "name": "Docker", "icon": "🐳" },
+    { "name": "Vercel", "icon": "▲" },
+    { "name": "Webpack", "icon": "📦" },
+    { "name": "Vite", "icon": "⚡" },
+    { "name": "Cline", "icon": "🤖" }
+  ]
+}

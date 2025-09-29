@@ -15,110 +15,108 @@ import {
   Star,
 } from "lucide-react";
 
+// 从JSON文件导入数据和类型
+import environmentData from "@/data/environment.json";
+import { EnvironmentData, EnvironmentItem } from "@/types/environment";
+
 /**
  * 工作环境组件
  * 展示个人工作环境和开发工具配置
  * 使用动画效果和增强的视觉设计提升用户体验
  */
 export default function Environment() {
-  const hardwareDevices = [
-    { name: "电脑", value: "Mac Mini M4 32G", icon: Cpu, highlight: true },
-    { name: "鼠标", value: "Logitech MX Master 3s", icon: Mouse },
-    { name: "键盘", value: "Logitech K380", icon: Keyboard },
-  ];
+  const {
+    hardwareDevices,
+    developmentTools,
+    software,
+    browserPlugins,
+    sections,
+  }: EnvironmentData = environmentData;
 
-  const developmentTools = [
-    { name: "编辑器", value: "VSCode", icon: Code, highlight: true },
-    { name: "node版本管理", value: "Volta", icon: Settings },
-    { name: "环境部署", value: "Docker", icon: Zap },
-    { name: "AI工具", value: "cline", icon: Star, highlight: true },
-  ];
+  // 图标映射：将字符串映射到React组件
+  const iconMap = {
+    Monitor,
+    Cpu,
+    Mouse,
+    Keyboard,
+    Code,
+    Settings,
+    Zap,
+    Globe,
+    Puzzle,
+    Star,
+  };
 
-  const software = [
-    { name: "剪切板工具", value: "Maccy", icon: Settings },
-    { name: "浏览器", value: "Edge", icon: Globe },
-  ];
-
-  const browserPlugins = [
-    { name: "豆包", icon: "🤖", category: "AI助手" },
-    { name: "ADGuard", icon: "🛡️", category: "安全防护" },
-    { name: "iCloud密码", icon: "🔐", category: "密码管理" },
-    { name: "React Developer Tools", icon: "⚛️", category: "开发工具" },
-    { name: "Vue Devtools", icon: "💚", category: "开发工具" },
-  ];
-
-  interface EnvironmentItem {
-    name: string;
-    value?: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
-    highlight?: boolean;
-    category?: string;
+  interface EnvironmentSectionProps {
+    title: string;
+    icon: string;
+    items: EnvironmentItem[];
   }
 
   const EnvironmentSection = ({
     title,
-    icon: Icon,
+    icon,
     items,
-  }: {
-    title: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
-    items: EnvironmentItem[];
-  }) => (
-    <div>
-      <div className="flex items-center gap-2 mb-3">
-        <div className="p-2 rounded-lg bg-primary/10">
-          <Icon className="h-4 w-4 text-primary" />
+  }: EnvironmentSectionProps) => {
+    const Icon = iconMap[icon as keyof typeof iconMap];
+    return (
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="p-2 rounded-lg bg-primary/10">
+            <Icon className="h-4 w-4 text-primary" />
+          </div>
+          <h4 className="text-sm font-semibold">{title}</h4>
         </div>
-        <h4 className="text-sm font-semibold">{title}</h4>
-      </div>
-      <div className="space-y-2">
-        {items.map((item, index) => {
-          const ItemIcon = item.icon;
-          return (
-            <div
-              key={index}
-              className="flex items-center justify-between p-2 rounded-lg transition-all duration-300 interactive-item"
-            >
-              <div className="flex items-center gap-2">
-                {ItemIcon && (
-                  <div className={`p-1 rounded`}>
-                    {typeof ItemIcon === "string" ? (
-                      <span className="text-sm">{ItemIcon}</span>
-                    ) : (
-                      <ItemIcon
-                        className={`h-3 w-3 ${
-                          item.highlight
-                            ? "text-accent-warm"
-                            : "text-muted-foreground"
-                        }`}
-                      />
-                    )}
-                  </div>
-                )}
-                <span className="text-sm font-medium">{item.name}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span
-                  className={`text-xs ${
-                    item.highlight
-                      ? "text-accent-warm font-medium"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.value}
-                </span>
-                {item.category && (
-                  <span className="text-xs bg-muted px-2 py-1 rounded">
-                    {item.category}
+        <div className="space-y-2">
+          {items.map((item, index) => {
+            const ItemIcon = iconMap[item.icon as keyof typeof iconMap];
+            return (
+              <div
+                key={index}
+                className="flex items-center justify-between p-2 rounded-lg transition-all duration-300 interactive-item"
+              >
+                <div className="flex items-center gap-2">
+                  {item.icon && (
+                    <div className={`p-1 rounded`}>
+                      {typeof item.icon === "string" &&
+                      !iconMap[item.icon as keyof typeof iconMap] ? (
+                        <span className="text-sm">{item.icon}</span>
+                      ) : (
+                        <ItemIcon
+                          className={`h-3 w-3 ${
+                            item.highlight
+                              ? "text-accent-warm"
+                              : "text-muted-foreground"
+                          }`}
+                        />
+                      )}
+                    </div>
+                  )}
+                  <span className="text-sm font-medium">{item.name}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`text-xs ${
+                      item.highlight
+                        ? "text-accent-warm font-medium"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {item.value}
                   </span>
-                )}
+                  {item.category && (
+                    <span className="text-xs bg-muted px-2 py-1 rounded">
+                      {item.category}
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <section id="environment" className="animate-fade-in-up animate-on-scroll">
@@ -130,30 +128,15 @@ export default function Environment() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* 硬件设备 */}
-          <EnvironmentSection
-            title="硬件设备"
-            icon={Cpu}
-            items={hardwareDevices}
-          />
-
-          <Separator className="my-4" />
-
-          {/* 开发工具 */}
-          <EnvironmentSection
-            title="开发工具"
-            icon={Code}
-            items={developmentTools}
-          />
-
-          <Separator className="my-4" />
-
-          {/* 软件 */}
-          <EnvironmentSection
-            title="常用软件"
-            icon={Settings}
-            items={software}
-          />
+          {/* 动态渲染环境部分 */}
+          {sections.map((section, index) => (
+            <EnvironmentSection
+              key={index}
+              title={section.title}
+              icon={section.icon}
+              items={section.items}
+            />
+          ))}
 
           <Separator className="my-4" />
 

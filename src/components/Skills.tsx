@@ -4,45 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Code, Server, Wrench, Zap, Star, Shield } from "lucide-react";
 
+// 从JSON文件导入数据和类型
+import skillsData from "@/data/skills.json";
+import { SkillsData, Skill } from "@/types/skills";
+
 /**
  * 技能专长组件
  * 展示个人技能水平和专业能力
  * 使用自定义进度条和动画效果增强视觉体验
  */
 export default function Skills() {
-  const frontendSkills = [
-    { name: "React / Vue.js / Next.js", level: 90, icon: "⚛️" },
-    { name: "JavaScript / TypeScript", level: 90, icon: "📜" },
-    { name: "HTML5 / CSS3", level: 85, icon: "🎨" },
-    { name: "Sass / Tailwind CSS", level: 85, icon: "🎯" },
-    { name: "Expo", level: 80, icon: "📱" },
-  ];
+  const { frontendSkills, backendSkills, tools }: SkillsData = skillsData;
 
-  const backendSkills = [
-    { name: "Node.js", level: 80, icon: "🟢" },
-    { name: "Express.js / Koa.js", level: 75, icon: "🚂" },
-    { name: "PostgreSQL / MongoDB", level: 75, icon: "🗄️" },
-  ];
-
-  const tools = [
-    { name: "Git", icon: "🔀" },
-    { name: "GitHub", icon: "🐙" },
-    { name: "GitLab", icon: "🦊" },
-    { name: "VSCode", icon: "💻" },
-    { name: "Docker", icon: "🐳" },
-    { name: "Vercel", icon: "▲" },
-    { name: "Webpack", icon: "📦" },
-    { name: "Vite", icon: "⚡" },
-    { name: "Cline", icon: "🤖" },
-  ];
-
-  interface Skill {
-    name: string;
-    level: number; // 可选，因为 tools 中的项可能没有 level
-    icon: string;
-  }
-
-  const getSkillLevel = (level: number) => {
+  const getSkillLevel = (level?: number) => {
+    if (!level) return { text: "", color: "text-muted-foreground", icon: Zap };
     if (level >= 90)
       return { text: "精通", color: "text-accent-warm", icon: Star };
     if (level >= 80)
@@ -65,7 +40,7 @@ export default function Skills() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">
-              {skill.level}%
+              {skill.level ? `${skill.level}%` : ""}
             </span>
             <Icon className={`h-3 w-3 ${level.color}`} />
           </div>
@@ -73,7 +48,7 @@ export default function Skills() {
         <div className="skill-progress">
           <div
             className="skill-progress-bar"
-            style={{ width: `${skill.level}%` }}
+            style={{ width: skill.level ? `${skill.level}%` : "0%" }}
           />
         </div>
       </div>

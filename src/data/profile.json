@@ -1,0 +1,14 @@
+{
+  "name": "张晋哲",
+  "title": "全栈工程师",
+  "experience": "8年+经验",
+  "description": "拥有8年以上软件开发经验的全栈工程师，专注于前端技术栈和用户体验设计。熟练掌握现代Web开发技术，致力于构建高质量、可维护的软件产品。",
+  "avatar": "/logo.JPG",
+  "avatarAlt": "张晋哲",
+  "skills": ["React", "Vue", "TypeScript", "Next.js", "Node.js", "UI/UX"],
+  "contact": {
+    "email": "jinzhepro@outlook.com",
+    "phone": "+86 138-0000-0000",
+    "location": "青岛, 中国"
+  }
+}

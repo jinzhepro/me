@@ -1,0 +1,81 @@
+{
+  "site": {
+    "title": "张晋哲 - 全栈工程师",
+    "description": "张晋哲个人简历网站 - 8年+经验的全栈工程师，专注于前端技术栈和用户体验设计",
+    "keywords": [
+      "全栈工程师",
+      "前端开发",
+      "React",
+      "Vue",
+      "TypeScript",
+      "简历",
+      "个人网站"
+    ],
+    "author": "张晋哲",
+    "url": "https://me.jinzhepro.cc",
+    "language": "zh-CN"
+  },
+  "seo": {
+    "titleTemplate": "%s | 张晋哲 - 全栈工程师",
+    "defaultTitle": "张晋哲 - 全栈工程师",
+    "defaultDescription": "8年+经验的全栈工程师，专注于前端技术栈和用户体验设计"
+  },
+  "metadata": {
+    "title": {
+      "default": "张晋哲 - 全栈开发工程师 | 在线简历",
+      "template": "%s | 张晋哲"
+    },
+    "description": "张晋哲的个人在线简历，全栈开发工程师，专注于React、Next.js、Node.js等现代Web技术栈",
+    "keywords": [
+      "张晋哲",
+      "全栈开发",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "简历",
+      "前端工程师"
+    ],
+    "authors": [{ "name": "张晋哲", "url": "https://me.jinzhepro.cc" }],
+    "creator": "张晋哲",
+    "openGraph": {
+      "title": "张晋哲 - 全栈开发工程师",
+      "description": "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
+      "type": "website",
+      "locale": "zh_CN",
+      "siteName": "张晋哲的个人简历",
+      "images": [
+        {
+          "url": "/og-image.jpg",
+          "width": 1200,
+          "height": 630,
+          "alt": "张晋哲 - 全栈开发工程师"
+        }
+      ]
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "张晋哲 - 全栈开发工程师",
+      "description": "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验"
+    },
+    "robots": {
+      "index": true,
+      "follow": true,
+      "googleBot": {
+        "index": true,
+        "follow": true,
+        "maxVideoPreview": -1,
+        "maxImagePreview": "large",
+        "maxSnippet": -1
+      }
+    }
+  },
+  "viewport": {
+    "width": "device-width",
+    "initialScale": 1,
+    "maximumScale": 1
+  },
+  "theme": {
+    "defaultTheme": "system",
+    "themes": ["light", "dark", "system"]
+  }
+}

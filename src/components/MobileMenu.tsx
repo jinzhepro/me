@@ -4,11 +4,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
+// 从JSON文件导入数据和类型
+import navigationData from "@/data/navigation.json";
+import { NavigationData } from "@/types/navigation";
+
 /**
  * 移动端菜单组件
  * 在小屏幕上显示汉堡菜单，点击后展开导航链接
  */
 export default function MobileMenu() {
+  const { mobileNavigationLinks }: NavigationData = navigationData;
   const [isOpen, setIsOpen] = useState(false);
 
   // 切换菜单开闭状态
@@ -39,55 +44,16 @@ export default function MobileMenu() {
       {isOpen && (
         <div className="absolute top-16 left-0 right-0 bg-background border-b p-4 z-50">
           <div className="flex flex-col space-y-2">
-            <a
-              href="#about"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              关于
-            </a>
-            <a
-              href="#experience"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              经历
-            </a>
-            <a
-              href="#projects"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              项目
-            </a>
-            <a
-              href="#skills"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              技能
-            </a>
-            <a
-              href="#education"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              教育背景
-            </a>
-            <a
-              href="#environment"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              工作环境
-            </a>
-            <a
-              href="#social-media"
-              className="mobile-menu-item text-sm font-medium"
-              onClick={closeMenu}
-            >
-              联系
-            </a>
+            {mobileNavigationLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className="mobile-menu-item text-sm font-medium"
+                onClick={closeMenu}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       )}

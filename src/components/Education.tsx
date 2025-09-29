@@ -3,30 +3,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Calendar, BookOpen, Star } from "lucide-react";
 
+// 从JSON文件导入数据和类型
+import educationData from "@/data/education.json";
+import { EducationData } from "@/types/education";
+
 /**
  * 教育背景组件
  * 展示个人教育经历和学历信息
  * 使用动画效果和增强的视觉设计提升用户体验
  */
 export default function Education() {
-  const educations = [
-    {
-      degree: "计算机科学与技术",
-      school: "北京理工大学",
-      period: "2018-2021",
-      level: "本科",
-      achievements: ["专业课程优秀", "项目实践丰富"],
-      courses: ["数据结构", "算法设计", "软件工程", "数据库系统"],
-    },
-    {
-      degree: "计算机应用技术",
-      school: "山东轻工职业学院",
-      period: "2014-2017",
-      level: "专科",
-      achievements: ["技能竞赛获奖", "优秀毕业生"],
-      courses: ["程序设计", "Web开发", "数据库", "计算机网络"],
-    },
-  ];
+  const { educations }: EducationData = educationData;
 
   return (
     <div className="animate-fade-in-up animate-on-scroll">

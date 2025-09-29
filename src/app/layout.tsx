@@ -1,56 +1,28 @@
 import type { Metadata, Viewport } from "next";
+import config from "@/data/config.json";
 import "./globals.css";
 
 /**
  * 页面元数据配置
  */
 export const metadata: Metadata = {
-  title: "张晋哲 - 全栈开发工程师 | 在线简历",
-  description:
-    "张晋哲的个人在线简历，全栈开发工程师，专注于React、Next.js、Node.js等现代Web技术栈",
-  keywords: [
-    "张晋哲",
-    "全栈开发",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "简历",
-    "前端工程师",
-  ],
-  authors: [{ name: "张晋哲" }],
-  creator: "张晋哲",
-  openGraph: {
-    title: "张晋哲 - 全栈开发工程师",
-    description: "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
-    type: "website",
-    locale: "zh_CN",
-    siteName: "张晋哲的个人简历",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "张晋哲 - 全栈开发工程师",
-    description: "专业的全栈开发工程师，拥有丰富的React和Node.js开发经验",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  title: config.metadata.title.default,
+  description: config.metadata.description,
+  keywords: config.metadata.keywords,
+  authors: config.metadata.authors,
+  creator: config.metadata.creator,
+  openGraph: config.metadata.openGraph,
+  twitter: config.metadata.twitter,
+  robots: config.metadata.robots,
 };
 
 /**
  * 视窗配置
  */
 export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
+  width: config.viewport.width,
+  initialScale: config.viewport.initialScale,
+  maximumScale: config.viewport.maximumScale,
 };
 
 /**
