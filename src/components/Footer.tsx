@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         href={link.href}
         target={isSocial ? "_blank" : undefined}
         rel={isSocial ? "noopener noreferrer" : undefined}
-        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 interactive-item p-2 rounded-lg hover:bg-accent/10 hover:shadow-sm hover:scale-105"
+        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 p-2 rounded-lg hover:bg-accent/10"
       >
         <Icon className="h-3 w-3" />
         {link.name}
