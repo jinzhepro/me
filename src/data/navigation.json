@@ -8,7 +8,7 @@
     { "name": "经历", "href": "#experience", "label": "工作经历" },
     { "name": "项目", "href": "#projects", "label": "项目经验" },
     { "name": "技能", "href": "#skills", "label": "技能专长" },
-    { "name": "联系", "href": "#contact", "label": "联系" }
+    { "name": "联系", "href": "#social-media", "label": "联系" }
   ],
   "mobileNavigationLinks": [
     { "name": "关于", "href": "#about", "label": "关于" },
