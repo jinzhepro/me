@@ -40,46 +40,46 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.11 0.01 260);
+  --foreground: oklch(0.15 0.015 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.11 0.01 260);
+  --card-foreground: oklch(0.15 0.015 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.11 0.01 260);
-  --primary: oklch(0.61 0.18 240);
+  --popover-foreground: oklch(0.15 0.015 260);
+  --primary: oklch(0.15 0.015 260);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.008 260);
-  --secondary-foreground: oklch(0.11 0.01 260);
-  --muted: oklch(0.97 0.006 260);
-  --muted-foreground: oklch(0.45 0.016 260);
-  --accent: oklch(0.84 0.12 240);
-  --accent-foreground: oklch(0.98 0 0);
-  --accent-warm: oklch(0.72 0.18 50);
-  --accent-warm-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.58 0.22 20);
-  --success: oklch(0.58 0.18 140);
-  --warning: oklch(0.79 0.12 80);
-  --info: oklch(0.62 0.12 240);
-  --border: oklch(0.94 0.008 260);
-  --input: oklch(0.94 0.008 260);
-  --ring: oklch(0.61 0.18 240);
-  --chart-1: oklch(0.68 0.18 25);
-  --chart-2: oklch(0.58 0.12 220);
-  --chart-3: oklch(0.79 0.12 130);
-  --chart-4: oklch(0.48 0.18 300);
-  --chart-5: oklch(0.68 0.12 30);
-  --sidebar: oklch(0.97 0.008 260);
-  --sidebar-foreground: oklch(0.11 0.01 260);
-  --sidebar-primary: oklch(0.61 0.18 240);
+  --secondary: oklch(0.99 0.005 260);
+  --secondary-foreground: oklch(0.15 0.015 260);
+  --muted: oklch(0.98 0.005 260);
+  --muted-foreground: oklch(0.5 0.015 260);
+  --accent: oklch(0.95 0.01 260);
+  --accent-foreground: oklch(0.15 0.015 260);
+  --accent-warm: oklch(0.95 0.01 50);
+  --accent-warm-foreground: oklch(0.15 0.015 260);
+  --destructive: oklch(0.6 0.02 20);
+  --success: oklch(0.6 0.02 140);
+  --warning: oklch(0.7 0.02 80);
+  --info: oklch(0.6 0.02 240);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.15 0.015 260);
+  --chart-1: oklch(0.7 0.02 25);
+  --chart-2: oklch(0.6 0.02 220);
+  --chart-3: oklch(0.7 0.02 130);
+  --chart-4: oklch(0.5 0.02 300);
+  --chart-5: oklch(0.7 0.02 30);
+  --sidebar: oklch(0.99 0.005 260);
+  --sidebar-foreground: oklch(0.15 0.015 260);
+  --sidebar-primary: oklch(0.15 0.015 260);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.93 0.008 260);
-  --sidebar-accent-foreground: oklch(0.11 0.01 260);
-  --sidebar-border: oklch(0.94 0.008 260);
-  --sidebar-ring: oklch(0.61 0.18 240);
+  --sidebar-accent: oklch(0.95 0.01 260);
+  --sidebar-accent-foreground: oklch(0.15 0.015 260);
+  --sidebar-border: oklch(0.9 0.01 260);
+  --sidebar-ring: oklch(0.15 0.015 260);
   --gradient-primary: linear-gradient(
     135deg,
-    oklch(0.97 0.008 260) 0%,
+    oklch(0.99 0.005 260) 0%,
     oklch(1 0 0) 100%
   );
 }
@@ -274,99 +274,75 @@
     animation-delay: 400ms;
   }
 
-  /* 增强卡片悬停效果 */
+  /* 简洁线条风格卡片悬停效果 */
   .card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+    background: var(--card);
   }
 
   .card-hover:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    border-color: oklch(0.61 0.18 240 / 0.2);
+    border-color: var(--foreground);
+    box-shadow: none;
   }
 
   .card-hover:active {
-    transform: translateY(-2px) scale(1.005);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--muted-foreground);
   }
 
-  /* 添加交互元素悬停效果 */
+  /* 简洁线条风格交互元素 */
   .interactive-item {
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
+    border-bottom: 1px solid transparent;
   }
 
   .interactive-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: oklch(0.05 0.02 260);
+    border-bottom-color: var(--foreground);
+    color: var(--foreground);
   }
 
-  /* 改进技能进度条样式 */
+  /* 简洁线条风格技能进度条 */
   .skill-progress {
-    height: 10px;
-    border-radius: 5px;
-    background-color: oklch(0.96 0.008 260);
+    height: 2px;
+    background-color: var(--border);
     overflow: hidden;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
   .skill-progress-bar {
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      oklch(0.61 0.18 240) 0%,
-      oklch(0.72 0.18 50) 80%,
-      oklch(0.84 0.12 240) 100%
-    );
-    border-radius: 5px;
-    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 0 10px rgba(97, 175, 239, 0.3);
+    background-color: var(--foreground);
+    transition: width 0.6s ease;
   }
 
-  /* 改进技术栈标签样式 */
+  /* 简洁线条风格技术栈标签 */
   .tech-tag {
     display: inline-flex;
     align-items: center;
-    padding: 0.375rem 0.875rem;
-    margin: 0.25rem;
-    background: linear-gradient(
-      145deg,
-      oklch(0.97 0.008 260),
-      oklch(0.94 0.008 260)
-    );
-    color: oklch(0.11 0.01 260);
-    border-radius: 12px;
+    padding: 0.25rem 0.75rem;
+    margin: 0.125rem;
+    background: var(--card);
+    color: var(--muted-foreground);
+    border-radius: var(--radius);
     font-size: 0.75rem;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid oklch(0.92 0.008 260);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
   }
 
   .tech-tag:hover {
-    background: linear-gradient(
-      145deg,
-      oklch(0.72 0.18 50),
-      oklch(0.68 0.18 25)
-    );
-    color: oklch(0.98 0 0);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 12px rgba(239, 108, 0, 0.2);
-    border-color: transparent;
+    color: var(--foreground);
+    border-color: var(--foreground);
   }
 
   .tech-tag:active {
-    transform: translateY(0) scale(1.02);
-    box-shadow: 0 3px 6px rgba(239, 108, 0, 0.15);
+    color: var(--muted-foreground);
   }
 
   /* 添加简洁的分隔线 */
   .separator {
     height: 1px;
-    background-color: oklch(0.94 0.008 260);
+    background-color: var(--border);
     margin: 1.5rem 0;
   }
 
@@ -383,98 +359,79 @@
     margin-top: 2.5rem;
   }
 
-  /* 改进按钮样式 */
+  /* 简洁线条风格按钮样式 */
   .btn-simple {
-    @apply px-5 py-2.5 rounded-lg text-sm font-medium transition-all;
-    background: linear-gradient(
-      145deg,
-      oklch(0.97 0.008 260),
-      oklch(0.94 0.008 260)
-    );
-    color: oklch(0.15 0.02 260);
-    border: 1px solid oklch(0.92 0.008 260);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    min-height: 44px;
+    @apply px-4 py-2 text-sm font-medium transition-all;
+    background: var(--card);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    min-height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
   .btn-simple:hover {
-    background: linear-gradient(
-      145deg,
-      oklch(0.94 0.008 260),
-      oklch(0.92 0.008 260)
-    );
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-color: oklch(0.61 0.18 240 / 0.3);
+    border-color: var(--foreground);
   }
 
   .btn-simple:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    border-color: var(--muted-foreground);
   }
 
   .btn-simple:focus-visible {
-    outline: 2px solid oklch(0.61 0.18 240);
-    outline-offset: 2px;
+    outline: 1px solid var(--foreground);
+    outline-offset: 1px;
   }
 
-  /* 添加简洁的输入框样式 */
+  /* 简洁线条风格输入框样式 */
   .input-simple {
-    @apply px-3 py-2 rounded-md text-sm transition-colors;
-    background-color: oklch(0.98 0 0);
-    color: oklch(0.15 0.02 260);
-    border: 1px solid oklch(0.9 0.01 260);
+    @apply px-3 py-2 text-sm transition-colors;
+    background-color: var(--card);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
   }
 
   .input-simple:focus {
     outline: none;
-    border-color: oklch(0.7 0.1 240);
-    box-shadow: 0 0 0 3px oklch(0.9 0.05 240);
+    border-color: var(--foreground);
   }
 
-  /* 增强移动端菜单项触摸目标 */
+  /* 简洁线条风格移动端菜单项 */
   .mobile-menu-item {
     min-height: 48px;
     padding: 14px 20px;
     display: flex;
     align-items: center;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 4px 0;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    margin: 2px 0;
     border: 1px solid transparent;
+    border-left: 2px solid transparent;
   }
 
   .mobile-menu-item:hover {
-    background-color: oklch(0.96 0.008 260);
-    transform: translateX(4px);
-    border-color: oklch(0.61 0.18 240 / 0.2);
+    border-left-color: var(--foreground);
   }
 
   .mobile-menu-item:active {
-    background-color: oklch(0.92 0.008 260);
-    transform: translateX(2px);
+    border-left-color: var(--muted-foreground);
   }
 
-  /* 增强社交媒体卡片效果 */
+  /* 简洁线条风格社交媒体卡片 */
   .social-card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid transparent;
-    background: linear-gradient(135deg, oklch(0.98 0 0), oklch(0.97 0.008 260));
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+    background: var(--card);
   }
 
   .social-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    border-color: oklch(0.61 0.18 240 / 0.3);
-    background: linear-gradient(135deg, oklch(1 0 0), oklch(0.98 0 0));
+    border-color: var(--foreground);
   }
 
   .social-card:active {
-    transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--muted-foreground);
   }
 
   /* 移动端响应式优化 */
@@ -514,8 +471,7 @@
 
     /* 移动端卡片悬停效果优化 */
     .card-hover:hover {
-      transform: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: var(--foreground);
     }
 
     /* 移动端网格布局优化 */
@@ -531,35 +487,33 @@
     .tech-tag:hover,
     .interactive-item:hover,
     .social-card:hover {
-      transform: none !important;
+      border-color: var(--border);
     }
 
     .btn-simple:hover,
     .mobile-menu-item:hover {
-      transform: none;
-      background-color: inherit;
+      border-color: var(--border);
     }
 
     /* 增加触摸反馈 */
     .btn-simple:active,
     .mobile-menu-item:active {
-      background-color: oklch(0.94 0.008 260);
-      transform: scale(0.98);
+      border-color: var(--muted-foreground);
     }
   }
 
   /* 高对比度模式支持 */
   @media (prefers-contrast: high) {
     .btn-simple {
-      border: 2px solid oklch(0.1 0.02 260);
+      border: 2px solid var(--foreground);
     }
 
     .card-hover {
-      border: 1px solid oklch(0.1 0.02 260);
+      border: 2px solid var(--foreground);
     }
 
     .tech-tag {
-      border: 1px solid oklch(0.1 0.02 260);
+      border: 2px solid var(--foreground);
     }
   }
 

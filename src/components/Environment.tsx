@@ -77,7 +77,7 @@ export default function Environment() {
               >
                 <div className="flex items-center gap-2">
                   {item.icon && (
-                    <div className={`p-1 rounded`}>
+                    <div className={`p-1 rounded-lg`}>
                       {typeof item.icon === "string" &&
                       !iconMap[item.icon as keyof typeof iconMap] ? (
                         <span className="text-sm">{item.icon}</span>
@@ -105,7 +105,7 @@ export default function Environment() {
                     {item.value}
                   </span>
                   {item.category && (
-                    <span className="text-xs bg-muted px-2 py-1 rounded">
+                    <span className="text-xs bg-muted px-2 py-1 rounded-lg">
                       {item.category}
                     </span>
                   )}
@@ -160,7 +160,7 @@ export default function Environment() {
                       {plugin.name}
                     </span>
                   </div>
-                  <span className="text-xs bg-muted px-2 py-1 rounded flex-shrink-0 ml-2 group-hover:text-foreground ">
+                  <span className="text-xs bg-muted px-2 py-1 rounded-lg flex-shrink-0 ml-2 group-hover:text-foreground ">
                     {plugin.category}
                   </span>
                 </div>

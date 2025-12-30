@@ -66,7 +66,7 @@ export default function SocialMedia() {
               </div>
             </div>
             {link.highlight && (
-              <div className="h-2 w-2 bg-accent-warm rounded-full animate-pulse"></div>
+              <div className="h-2 w-2 bg-accent-warm rounded-lg animate-pulse"></div>
             )}
           </div>
 
@@ -79,7 +79,7 @@ export default function SocialMedia() {
               {link.value}
             </span>
             <button
-              className={`p-1 rounded transition-all duration-200 ${
+              className={`p-1 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 ${
                 link.highlight
                   ? "bg-accent-warm/20 hover:bg-accent-warm/30 text-accent-warm hover:text-accent-warm-foreground"
                   : "bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground"

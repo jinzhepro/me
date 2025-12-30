@@ -35,7 +35,7 @@ export default function ProjectExperience() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-xl bg-gradient-to-br from-card to-muted/30 border border-border hover:border-accent-warm/50 transition-all duration-300 hover:shadow-lg"
+                className="group relative p-6 rounded-lg bg-gradient-to-br from-card to-muted/30 border border-border hover:border-accent-warm/50 transition-all duration-300 hover:shadow-lg"
               >
                 {/* 项目标题 */}
                 <div className="mb-4">
@@ -66,7 +66,7 @@ export default function ProjectExperience() {
                     {project.achievements.map((achievement, idx) => (
                       <span
                         key={idx}
-                        className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                        className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-lg"
                       >
                         {achievement}
                       </span>

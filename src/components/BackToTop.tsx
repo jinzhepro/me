@@ -29,7 +29,7 @@ export default function BackToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -37,7 +37,7 @@ export default function BackToTop() {
     <>
       {isVisible && (
         <Button
-          className="fixed bottom-8 right-8 h-10 w-10 rounded-full p-0 shadow-lg z-50"
+          className="fixed bottom-8 right-8 h-10 w-10 rounded-lg p-0 shadow-lg z-50"
           onClick={scrollToTop}
           aria-label="回到顶部"
         >

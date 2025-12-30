@@ -60,7 +60,7 @@ export default function WorkExperience() {
                           {exp.title}
                         </h3>
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
+                          className={`px-2 py-1 rounded-lg text-xs font-medium ${getStatusColor(
                             exp.status
                           )}`}
                         >
