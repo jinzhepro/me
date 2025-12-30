@@ -122,7 +122,6 @@ const Footer: React.FC = () => {
                 {index < copyright.links.length - 1 && " + "}
               </span>
             ))}
-            辅助开发.
           </p>
           <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1">
             <Heart className="h-3 w-3 text-red-500" />

@@ -18,12 +18,8 @@
     { "name": "邮箱", "href": "mailto:jinzhepro@qq.com", "icon": "Mail" }
   ],
   "copyright": {
-    "text": "© 2025 张晋哲. 使用",
-    "links": [
-      { "name": "VSCode", "href": "https://code.visualstudio.com/" },
-      { "name": "RooCode", "href": "https://roocode.com" },
-      { "name": "GLM-4.6", "href": "https://bigmodel.cn/" }
-    ]
+    "text": "© 2025 张晋哲",
+    "links": []
   },
   "footerMessage": "用心构建每一个项目"
 }
