@@ -25,13 +25,7 @@ import { EnvironmentData, EnvironmentItem } from "@/types/environment";
  * 使用动画效果和增强的视觉设计提升用户体验
  */
 export default function Environment() {
-  const {
-    hardwareDevices,
-    developmentTools,
-    software,
-    browserPlugins,
-    sections,
-  }: EnvironmentData = environmentData;
+  const { browserPlugins, sections }: EnvironmentData = environmentData;
 
   // 图标映射：将字符串映射到React组件
   const iconMap = {

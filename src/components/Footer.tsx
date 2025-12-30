@@ -13,7 +13,7 @@ import {
 
 // 从JSON文件导入数据和类型
 import footerData from "@/data/footer.json";
-import { FooterData } from "@/types/footer";
+import { FooterData, FooterLink } from "@/types/footer";
 
 /**
  * 页脚组件
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 
   // 渲染链接项的函数
   const renderLinkItem = (
-    link: any,
+    link: FooterLink,
     index: number,
     isSocial: boolean = false
   ) => {
