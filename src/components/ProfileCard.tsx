@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Code } from "lucide-react";
+import { Code, Mail } from "lucide-react";
 
 // 从JSON文件导入数据和类型
 import profileData from "@/data/profile.json";
@@ -22,6 +22,7 @@ export default function ProfileCard() {
     avatar,
     avatarAlt,
     skills,
+    contact,
   }: ProfileData = profileData;
 
   return (
@@ -63,6 +64,20 @@ export default function ProfileCard() {
                 <p className="text-foreground mb-6 leading-relaxed text-base">
                   {description}
                 </p>
+
+                {/* 联系方式 */}
+                <div className="mb-6">
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">
+                    联系方式
+                  </h3>
+                  <a
+                    href="mailto:jinzhepro@qq.com"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Mail className="h-4 w-4" />
+                    jinzhepro@qq.com
+                  </a>
+                </div>
 
                 {/* 技能标签 */}
                 <div className="mb-6">

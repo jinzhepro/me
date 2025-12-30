@@ -8,7 +8,6 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Environment from "@/components/Environment";
 import SocialMedia from "@/components/SocialMedia";
-import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
 import { useEffect } from "react";
@@ -115,9 +114,13 @@ export default function Home() {
         </section>
       </main>
 
-      {/* 页脚 */}
-      <footer className="animate-fade-in-up animate-on-scroll">
-        <Footer />
+      {/* 简洁版权信息 */}
+      <footer className="border-t border-border mt-12 py-6">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            © 2025 张晋哲 · 用心构建每一个项目
+          </p>
+        </div>
       </footer>
 
       {/* 回到顶部按钮 */}

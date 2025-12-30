@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         href={link.href}
         target={isSocial ? "_blank" : undefined}
         rel={isSocial ? "noopener noreferrer" : undefined}
-        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 p-2 rounded-lg hover:bg-accent/10"
+        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 p-1.5 rounded-lg hover:bg-accent/10"
       >
         <Icon className="h-3 w-3" />
         {link.name}
@@ -63,12 +63,12 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gradient-to-b from-muted to-muted/80 border-t border-border mt-12">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6">
         {/* 主要内容区域 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6 justify-center">
           {/* 快速导航 */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
               <Zap className="h-4 w-4 text-accent-warm" />
               快速导航
             </h3>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
 
           {/* 社交媒体 */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
               <Globe className="h-4 w-4 text-primary" />
               社交媒体
             </h3>
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
 
           {/* 联系方式 */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
               <Mail className="h-4 w-4 text-accent-warm" />
               联系方式
             </h3>
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* 分隔线 */}
-        <div className="separator mb-6" />
+        <div className="separator mb-4" />
 
         {/* 版权信息 */}
         <div className="text-center">
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
               </span>
             ))}
           </p>
-          <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1">
+          <p className="text-xs text-muted-foreground mt-0.5 flex items-center justify-center gap-1">
             <Heart className="h-3 w-3 text-red-500" />
             {footerMessage}
           </p>

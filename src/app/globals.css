@@ -64,6 +64,10 @@
   --border: oklch(0.9 0.01 260);
   --input: oklch(0.9 0.01 260);
   --ring: oklch(0.15 0.015 260);
+  --border-hover: oklch(0.85 0.015 260);
+  --border-active: oklch(0.8 0.02 260);
+  --border-subtle: oklch(0.94 0.008 260);
+  --border-strong: oklch(0.8 0.02 260);
   --chart-1: oklch(0.7 0.02 25);
   --chart-2: oklch(0.6 0.02 220);
   --chart-3: oklch(0.7 0.02 130);
@@ -277,28 +281,29 @@
   /* 简洁线条风格卡片悬停效果 */
   .card-hover {
     transition: all 0.2s ease;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-subtle);
     background: var(--card);
+    border-radius: var(--radius-md);
   }
 
   .card-hover:hover {
-    border-color: var(--foreground);
-    box-shadow: none;
+    border-color: var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   .card-hover:active {
-    border-color: var(--muted-foreground);
+    border-color: var(--border-active);
   }
 
   /* 简洁线条风格交互元素 */
   .interactive-item {
     transition: all 0.2s ease;
     cursor: pointer;
-    border-bottom: 1px solid transparent;
+    border-bottom: 0.5px solid transparent;
   }
 
   .interactive-item:hover {
-    border-bottom-color: var(--foreground);
+    border-bottom-color: var(--border);
     color: var(--foreground);
   }
 
@@ -323,20 +328,20 @@
     margin: 0.125rem;
     background: var(--card);
     color: var(--muted-foreground);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     font-size: 0.75rem;
     font-weight: 400;
     transition: all 0.2s ease;
-    border: 1px solid var(--border);
+    border: 0.5px solid var(--border-subtle);
   }
 
   .tech-tag:hover {
     color: var(--foreground);
-    border-color: var(--foreground);
+    border-color: var(--border);
   }
 
   .tech-tag:active {
-    color: var(--muted-foreground);
+    border-color: var(--border-active);
   }
 
   /* 添加简洁的分隔线 */
@@ -364,23 +369,25 @@
     @apply px-4 py-2 text-sm font-medium transition-all;
     background: var(--card);
     color: var(--foreground);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     min-height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius-md);
   }
 
   .btn-simple:hover {
-    border-color: var(--foreground);
+    border-color: var(--border-strong);
+    background-color: oklch(0.97 0.005 260);
   }
 
   .btn-simple:active {
-    border-color: var(--muted-foreground);
+    border-color: var(--border-active);
   }
 
   .btn-simple:focus-visible {
-    outline: 1px solid var(--foreground);
+    outline: 2px solid var(--foreground);
     outline-offset: 1px;
   }
 
@@ -389,8 +396,13 @@
     @apply px-3 py-2 text-sm transition-colors;
     background-color: var(--card);
     color: var(--foreground);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .input-simple:focus {
+    outline: none;
+    border-color: var(--border-strong);
   }
 
   .input-simple:focus {
@@ -404,34 +416,36 @@
     padding: 14px 20px;
     display: flex;
     align-items: center;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     transition: all 0.2s ease;
     margin: 2px 0;
-    border: 1px solid transparent;
-    border-left: 2px solid transparent;
+    border: 0.5px solid transparent;
+    border-left: 1.5px solid transparent;
   }
 
   .mobile-menu-item:hover {
-    border-left-color: var(--foreground);
+    border-left-color: var(--border);
   }
 
   .mobile-menu-item:active {
-    border-left-color: var(--muted-foreground);
+    border-left-color: var(--border-active);
   }
 
   /* 简洁线条风格社交媒体卡片 */
   .social-card {
     transition: all 0.2s ease;
-    border: 1px solid var(--border);
+    border: 0.5px solid var(--border-subtle);
     background: var(--card);
+    border-radius: var(--radius-md);
   }
 
   .social-card:hover {
-    border-color: var(--foreground);
+    border-color: var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   .social-card:active {
-    border-color: var(--muted-foreground);
+    border-color: var(--border-active);
   }
 
   /* 移动端响应式优化 */
@@ -498,22 +512,34 @@
     /* 增加触摸反馈 */
     .btn-simple:active,
     .mobile-menu-item:active {
-      border-color: var(--muted-foreground);
+      border-color: var(--border-active);
     }
   }
 
   /* 高对比度模式支持 */
   @media (prefers-contrast: high) {
     .btn-simple {
-      border: 2px solid var(--foreground);
+      border: 2px solid var(--border-strong);
     }
 
     .card-hover {
-      border: 2px solid var(--foreground);
+      border: 2px solid var(--border);
     }
 
     .tech-tag {
-      border: 2px solid var(--foreground);
+      border: 1.5px solid var(--border);
+    }
+
+    .social-card {
+      border: 1.5px solid var(--border);
+    }
+
+    .input-simple {
+      border: 2px solid var(--border-strong);
+    }
+
+    .interactive-item {
+      border-bottom-width: 1.5px;
     }
   }
 
