@@ -1,24 +1,4 @@
 {
-  "hardwareDevices": [
-    {
-      "name": "电脑",
-      "value": "Mac Mini M4 32G",
-      "icon": "Cpu",
-      "highlight": true
-    },
-    { "name": "鼠标", "value": "Logitech MX Master 3s", "icon": "Mouse" },
-    { "name": "键盘", "value": "Logitech K380", "icon": "Keyboard" }
-  ],
-  "developmentTools": [
-    { "name": "编辑器", "value": "VSCode", "icon": "Code", "highlight": true },
-    { "name": "node版本管理", "value": "Volta", "icon": "Settings" },
-    { "name": "环境部署", "value": "Docker", "icon": "Zap" },
-    { "name": "AI工具", "value": "cline", "icon": "Star", "highlight": true }
-  ],
-  "software": [
-    { "name": "剪切板工具", "value": "Maccy", "icon": "Settings" },
-    { "name": "浏览器", "value": "Edge", "icon": "Globe" }
-  ],
   "browserPlugins": [
     { "name": "豆包", "icon": "🤖", "category": "AI助手" },
     { "name": "ADGuard", "icon": "🛡️", "category": "安全防护" },
