@@ -32,7 +32,7 @@ export default function WorkExperience() {
   };
 
   return (
-    <section id="experience" className="animate-fade-in-up animate-on-scroll">
+    <section className="animate-fade-in-up" suppressHydrationWarning>
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

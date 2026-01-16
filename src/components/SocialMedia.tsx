@@ -96,7 +96,8 @@ export default function SocialMedia() {
   return (
     <section
       id="social-media"
-      className="mt-8 animate-fade-in-up animate-on-scroll"
+      className="mt-8 animate-fade-in-up"
+      suppressHydrationWarning
     >
       <Card className="card-hover">
         <CardHeader className="pb-6">

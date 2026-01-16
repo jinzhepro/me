@@ -5,6 +5,7 @@
 
 /**
  * 初始化滚动触发动画观察器
+ * 使用延迟初始化确保在 hydration 完成后再执行
  */
 export function initScrollAnimations() {
   if (typeof window === "undefined") return;
@@ -19,18 +20,23 @@ export function initScrollAnimations() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        // 可选：动画完成后取消观察以减少性能开销
-        // observer.unobserve(entry.target);
-      } else {
-        // 可选：离开视口时移除可见状态
-        // entry.target.classList.remove('visible');
       }
     });
   }, observerOptions);
 
-  // 观察所有带有 animate-on-scroll 类的元素
-  const elements = document.querySelectorAll(".animate-on-scroll");
-  elements.forEach((el) => observer.observe(el));
+  const initObserver = () => {
+    const elements = document.querySelectorAll(".animate-on-scroll:not(.observed)");
+    elements.forEach((el) => {
+      el.classList.add("observed");
+      observer.observe(el);
+    });
+  };
+
+  if (document.readyState === "complete") {
+    initObserver();
+  } else {
+    window.addEventListener("load", initObserver, { once: true });
+  }
 
   return observer;
 }

@@ -238,13 +238,15 @@
     animation-delay: 0.3s;
   }
 
-  /* 滚动触发动画 */
-  .animate-on-scroll {
+  /* 滚动触发动画 - 基础状态 */
+  .animate-on-scroll,
+  .animate-on-scroll.observed {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* 滚动触发动画 - 可见状态 */
   .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);

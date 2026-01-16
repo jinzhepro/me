@@ -16,9 +16,9 @@ export default function ProjectExperience() {
 
   return (
     <section
-      id="projects"
       aria-label="项目经验"
-      className="animate-fade-in-up animate-on-scroll"
+      className="animate-fade-in-up"
+      suppressHydrationWarning
     >
       <Card className="card-hover">
         <CardHeader>

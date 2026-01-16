@@ -1,17 +1,71 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
-import WorkExperience from "@/components/WorkExperience";
-import ProjectExperience from "@/components/ProjectExperience";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
-import Environment from "@/components/Environment";
-import SocialMedia from "@/components/SocialMedia";
-import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
 import { useEffect } from "react";
 import { initScrollAnimations, initPageAnimations } from "@/lib/animations";
+
+const WorkExperience = dynamic(
+  () => import("@/components/WorkExperience"),
+  {
+    loading: () => (
+      <div className="animate-pulse">
+        <div className="h-64 bg-muted rounded-lg mb-4" />
+        <div className="h-48 bg-muted rounded-lg" />
+      </div>
+    ),
+  }
+);
+
+const ProjectExperience = dynamic(
+  () => import("@/components/ProjectExperience"),
+  {
+    loading: () => (
+      <div className="animate-pulse">
+        <div className="h-64 bg-muted rounded-lg mb-4" />
+        <div className="h-48 bg-muted rounded-lg" />
+      </div>
+    ),
+  }
+);
+
+const Skills = dynamic(() => import("@/components/Skills"), {
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-48 bg-muted rounded-lg" />
+    </div>
+  ),
+});
+
+const Education = dynamic(() => import("@/components/Education"), {
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-48 bg-muted rounded-lg" />
+    </div>
+  ),
+});
+
+const Environment = dynamic(() => import("@/components/Environment"), {
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-64 bg-muted rounded-lg" />
+    </div>
+  ),
+});
+
+const SocialMedia = dynamic(() => import("@/components/SocialMedia"), {
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-32 bg-muted rounded-lg" />
+    </div>
+  ),
+});
+
+const BackToTop = dynamic(() => import("@/components/BackToTop"), {
+  loading: () => null,
+});
 
 /**
  * 主页面组件 - 个人简历网站
@@ -70,6 +124,7 @@ export default function Home() {
             <section
               id="experience"
               className="animate-fade-in-up animate-on-scroll"
+              suppressHydrationWarning
             >
               <WorkExperience />
             </section>
@@ -78,6 +133,7 @@ export default function Home() {
             <section
               id="projects"
               className="animate-fade-in-up animate-on-scroll"
+              suppressHydrationWarning
             >
               <ProjectExperience />
             </section>
@@ -89,17 +145,18 @@ export default function Home() {
             <section
               id="skills"
               className="animate-fade-in-up animate-on-scroll"
+              suppressHydrationWarning
             >
               <Skills />
             </section>
 
             {/* 教育背景 - 滚动触发 */}
-            <div className="animate-fade-in-up animate-on-scroll">
+            <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
               <Education />
             </div>
 
             {/* 工作环境 - 滚动触发 */}
-            <div className="animate-fade-in-up animate-on-scroll">
+            <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
               <Environment />
             </div>
           </div>
@@ -109,6 +166,7 @@ export default function Home() {
         <section
           id="social-media"
           className="animate-fade-in-up animate-on-scroll"
+          suppressHydrationWarning
         >
           <SocialMedia />
         </section>
