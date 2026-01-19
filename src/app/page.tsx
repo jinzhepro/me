@@ -11,8 +11,9 @@ const WorkExperience = dynamic(
   () => import("@/components/WorkExperience"),
   {
     loading: () => (
-      <div className="animate-pulse">
-        <div className="h-64 bg-muted rounded-lg mb-4" />
+      <div className="space-y-4 animate-pulse">
+        <div className="h-8 bg-muted rounded w-1/4 mb-6" />
+        <div className="h-48 bg-muted rounded-lg" />
         <div className="h-48 bg-muted rounded-lg" />
       </div>
     ),
@@ -23,9 +24,12 @@ const ProjectExperience = dynamic(
   () => import("@/components/ProjectExperience"),
   {
     loading: () => (
-      <div className="animate-pulse">
-        <div className="h-64 bg-muted rounded-lg mb-4" />
-        <div className="h-48 bg-muted rounded-lg" />
+      <div className="space-y-4 animate-pulse">
+        <div className="h-8 bg-muted rounded w-1/4 mb-6" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="h-64 bg-muted rounded-lg" />
+          <div className="h-64 bg-muted rounded-lg" />
+        </div>
       </div>
     ),
   }
@@ -33,23 +37,26 @@ const ProjectExperience = dynamic(
 
 const Skills = dynamic(() => import("@/components/Skills"), {
   loading: () => (
-    <div className="animate-pulse">
-      <div className="h-48 bg-muted rounded-lg" />
+    <div className="space-y-4 animate-pulse">
+      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
+      <div className="h-80 bg-muted rounded-lg" />
     </div>
   ),
 });
 
 const Education = dynamic(() => import("@/components/Education"), {
   loading: () => (
-    <div className="animate-pulse">
-      <div className="h-48 bg-muted rounded-lg" />
+    <div className="space-y-4 animate-pulse">
+      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
+      <div className="h-40 bg-muted rounded-lg" />
     </div>
   ),
 });
 
 const Environment = dynamic(() => import("@/components/Environment"), {
   loading: () => (
-    <div className="animate-pulse">
+    <div className="space-y-4 animate-pulse">
+      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
       <div className="h-64 bg-muted rounded-lg" />
     </div>
   ),
@@ -57,8 +64,12 @@ const Environment = dynamic(() => import("@/components/Environment"), {
 
 const SocialMedia = dynamic(() => import("@/components/SocialMedia"), {
   loading: () => (
-    <div className="animate-pulse">
-      <div className="h-32 bg-muted rounded-lg" />
+    <div className="space-y-4 animate-pulse">
+      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="h-32 bg-muted rounded-lg" />
+        <div className="h-32 bg-muted rounded-lg" />
+      </div>
     </div>
   ),
 });

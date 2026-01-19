@@ -8,13 +8,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
  */
 import { SocialMediaLink as SocialMediaLinkType } from "@/types/social";
 import socialData from "@/data/social.json";
-import { Github, Globe, ExternalLink } from "lucide-react";
+import { Github, Globe, Linkedin, Mail, MessageCircle, PenTool, BookOpen, Code2 } from "lucide-react";
 
 export default function SocialMedia() {
   // 图标映射：将字符串映射到React组件
   const iconMap = {
     Github,
     Globe,
+    Linkedin,
+    Mail,
+    MessageCircle, // 微信
+    PenTool,       // 掘金
+    BookOpen,      // 知乎
+    Code2,         // CSDN
   };
 
   const socialMediaLinks: SocialMediaLinkType[] =
@@ -31,11 +37,11 @@ export default function SocialMedia() {
   }
 
   const SocialMediaCard = ({ link }: SocialMediaCardProps) => {
-    const Icon = iconMap[link.icon as keyof typeof iconMap];
+    const Icon = iconMap[link.icon as keyof typeof iconMap] || Globe;
 
     return (
       <div
-        className="group social-card"
+        className="group social-card cursor-pointer"
         onClick={() => handleSocialAction(link.action)}
       >
         <div
@@ -48,10 +54,10 @@ export default function SocialMedia() {
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center gap-3">
               <div
-                className={`p-2 rounded-lg ${
+                className={`p-2 rounded-lg transition-colors ${
                   link.highlight
                     ? "bg-accent-warm/20 text-accent-warm"
-                    : "bg-muted text-muted-foreground"
+                    : "bg-muted text-muted-foreground group-hover:bg-muted/80"
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -66,13 +72,13 @@ export default function SocialMedia() {
               </div>
             </div>
             {link.highlight && (
-              <div className="h-2 w-2 bg-accent-warm rounded-lg animate-pulse"></div>
+              <div className="h-2 w-2 bg-accent-warm rounded-lg animate-pulse" />
             )}
           </div>
 
           <div className="flex items-center justify-between">
             <span
-              className={`text-sm font-medium ${
+              className={`text-sm font-medium group-hover:text-accent-warm transition-colors ${
                 link.highlight ? "text-accent-warm" : "text-foreground"
               }`}
             >
@@ -85,7 +91,21 @@ export default function SocialMedia() {
                   : "bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground"
               }`}
             >
-              <ExternalLink className="h-3 w-3" aria-label="外部链接图标" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
             </button>
           </div>
         </div>

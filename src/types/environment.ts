@@ -16,9 +16,10 @@ export interface EnvironmentSection {
 }
 
 export interface EnvironmentData {
-  hardwareDevices: EnvironmentItem[];
-  developmentTools: EnvironmentItem[];
-  software: EnvironmentItem[];
-  browserPlugins: EnvironmentItem[];
+  browserPlugins: {
+    name: string;
+    icon: string;
+    category: string;
+  }[];
   sections: EnvironmentSection[];
 }

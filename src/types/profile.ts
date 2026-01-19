@@ -13,5 +13,8 @@ export interface ProfileData {
     email: string;
     phone: string;
     location: string;
+    github?: string;
+    linkedin?: string;
+    website?: string;
   };
 }
