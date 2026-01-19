@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import config from "@/data/config.json";
 import "./globals.css";
+import HeartClickEffect from "@/components/HeartClickEffect";
 
 /**
  * 页面元数据配置
@@ -54,6 +55,7 @@ export default function RootLayout({
             请启用 JavaScript 以获得最佳浏览体验。
           </div>
         </noscript>
+        <HeartClickEffect />
         {children}
       </body>
     </html>

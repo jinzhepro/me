@@ -657,5 +657,35 @@
       opacity: 1;
       transform: none;
     }
+
+    /* 禁用心形点击效果 */
+    .heart-float {
+      display: none !important;
+    }
+  }
+}
+
+/* 心形点击效果动画 - 优雅的漂浮淡出动画 */
+.heart-float {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  user-select: none;
+  animation: heart-float-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes heart-float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px) translateX(calc(var(--drift-x, 0px) * 0.3)) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) translateX(var(--drift-x, 0px)) scale(0.8);
   }
 }
