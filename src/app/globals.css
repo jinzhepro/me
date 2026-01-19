@@ -318,6 +318,7 @@
     border: 1px solid var(--border-subtle);
     background: var(--card);
     border-radius: var(--radius-lg);
+    cursor: pointer;
   }
 
   .card-hover:hover {
