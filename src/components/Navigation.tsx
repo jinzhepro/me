@@ -40,7 +40,7 @@ export default function Navigation() {
   }, [navigationLinks]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -57,7 +57,7 @@ export default function Navigation() {
                   <a
                     key={index}
                     href={link.href}
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                    className={`relative px-3.5 py-2 text-sm font-medium transition-all duration-300 ${
                       isActive
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"
@@ -66,11 +66,7 @@ export default function Navigation() {
                     {link.name}
                     {/* Active状态指示器 */}
                     {isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent-warm rounded-full animate-pulse" />
-                    )}
-                    {/* 悬停效果 */}
-                    {!isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-foreground/30 rounded-full transition-all duration-200 group-hover:w-full" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-accent-warm rounded-full" />
                     )}
                   </a>
                 );
@@ -80,7 +76,7 @@ export default function Navigation() {
             {/* 移动端快速拨号按钮 */}
             <a
               href={`tel:${profileData.contact.phone}`}
-              className="md:hidden p-2 rounded-lg bg-accent-warm/10 text-accent-warm hover:bg-accent-warm/20 transition-colors"
+              className="md:hidden p-2 rounded-lg bg-secondary text-accent-warm hover:bg-secondary/80 transition-colors"
               aria-label="快速拨号"
             >
               <Phone className="h-5 w-5" />

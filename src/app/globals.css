@@ -1,3 +1,6 @@
+/* Google Fonts - Elegant typography pairing */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -40,51 +43,68 @@
 }
 
 :root {
-  --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.15 0.015 260);
+  --radius: 0.75rem;
+
+  /* Modern Refined Color Palette */
+  /* Warm off-white background */
+  --background: oklch(0.985 0.005 40);
+  /* Deep charcoal text */
+  --foreground: oklch(0.25 0.02 30);
+  /* Soft cream card background */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.015 260);
+  /* Card text color */
+  --card-foreground: oklch(0.25 0.02 30);
+  /* Popover colors */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.015 260);
-  --primary: oklch(0.15 0.015 260);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.99 0.005 260);
-  --secondary-foreground: oklch(0.15 0.015 260);
-  --muted: oklch(0.98 0.005 260);
-  --muted-foreground: oklch(0.5 0.015 260);
-  --accent: oklch(0.95 0.01 260);
-  --accent-foreground: oklch(0.15 0.015 260);
-  --accent-warm: oklch(0.95 0.01 50);
-  --accent-warm-foreground: oklch(0.15 0.015 260);
+  --popover-foreground: oklch(0.25 0.02 30);
+  /* Primary - refined copper/bronze */
+  --primary: oklch(0.45 0.06 35);
+  --primary-foreground: oklch(0.98 0.01 30);
+  /* Secondary - soft beige */
+  --secondary: oklch(0.96 0.01 45);
+  --secondary-foreground: oklch(0.35 0.025 30);
+  /* Muted colors */
+  --muted: oklch(0.945 0.008 45);
+  --muted-foreground: oklch(0.5 0.015 35);
+  /* Accent - warm terracotta */
+  --accent: oklch(0.65 0.08 25);
+  --accent-foreground: oklch(0.98 0.01 30);
+  /* Warm accent variant */
+  --accent-warm: oklch(0.72 0.07 45);
+  --accent-warm-foreground: oklch(0.98 0.01 30);
+  /* Status colors */
   --destructive: oklch(0.6 0.02 20);
-  --success: oklch(0.6 0.02 140);
-  --warning: oklch(0.7 0.02 80);
-  --info: oklch(0.6 0.02 240);
-  --border: oklch(0.9 0.01 260);
-  --input: oklch(0.9 0.01 260);
-  --ring: oklch(0.15 0.015 260);
-  --border-hover: oklch(0.85 0.015 260);
-  --border-active: oklch(0.8 0.02 260);
-  --border-subtle: oklch(0.94 0.008 260);
-  --border-strong: oklch(0.8 0.02 260);
-  --chart-1: oklch(0.7 0.02 25);
-  --chart-2: oklch(0.6 0.02 220);
-  --chart-3: oklch(0.7 0.02 130);
-  --chart-4: oklch(0.5 0.02 300);
-  --chart-5: oklch(0.7 0.02 30);
-  --sidebar: oklch(0.99 0.005 260);
-  --sidebar-foreground: oklch(0.15 0.015 260);
-  --sidebar-primary: oklch(0.15 0.015 260);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.95 0.01 260);
-  --sidebar-accent-foreground: oklch(0.15 0.015 260);
-  --sidebar-border: oklch(0.9 0.01 260);
-  --sidebar-ring: oklch(0.15 0.015 260);
+  --success: oklch(0.58 0.08 150);
+  --warning: oklch(0.75 0.08 70);
+  --info: oklch(0.6 0.06 240);
+  /* Border colors - subtle and refined */
+  --border: oklch(0.86 0.012 40);
+  --input: oklch(0.86 0.012 40);
+  --ring: oklch(0.45 0.06 35);
+  --border-hover: oklch(0.75 0.02 40);
+  --border-active: oklch(0.65 0.025 40);
+  --border-subtle: oklch(0.93 0.008 45);
+  --border-strong: oklch(0.65 0.025 40);
+  /* Chart colors */
+  --chart-1: oklch(0.6 0.08 25);
+  --chart-2: oklch(0.5 0.08 220);
+  --chart-3: oklch(0.65 0.08 130);
+  --chart-4: oklch(0.45 0.08 300);
+  --chart-5: oklch(0.6 0.08 30);
+  /* Sidebar colors */
+  --sidebar: oklch(0.97 0.008 45);
+  --sidebar-foreground: oklch(0.25 0.02 30);
+  --sidebar-primary: oklch(0.45 0.06 35);
+  --sidebar-primary-foreground: oklch(0.98 0.01 30);
+  --sidebar-accent: oklch(0.93 0.012 40);
+  --sidebar-accent-foreground: oklch(0.35 0.025 30);
+  --sidebar-border: oklch(0.88 0.01 45);
+  --sidebar-ring: oklch(0.45 0.06 35);
+  /* Subtle gradient for premium feel */
   --gradient-primary: linear-gradient(
     135deg,
-    oklch(0.99 0.005 260) 0%,
-    oklch(1 0 0) 100%
+    oklch(0.98 0.005 40) 0%,
+    oklch(0.96 0.008 45) 100%
   );
 }
 
@@ -94,58 +114,70 @@
     transition: background-color, border-color, color, fill,
       stroke 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
   }
+
   body {
     @apply bg-background text-foreground;
+    /* Elegant typography pairing: Playfair Display for headings, Inter for body */
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
     line-height: 1.6;
-    background-color: oklch(0.98 0 0);
+    /* Warm off-white background with subtle texture feel */
+    background-color: oklch(0.985 0.005 40);
   }
 
-  /* 标题样式 */
+  /* 标题样式 - 使用 Playfair Display 字体增添优雅感 */
   h1,
   .h1 {
-    font-size: 2.25rem; /* 36px */
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.5rem;
     line-height: 1.2;
     font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
   }
 
   h2,
   .h2 {
-    font-size: 1.75rem; /* 28px */
-    line-height: 1.2;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    line-height: 1.25;
     font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
   }
 
   h3,
   .h3 {
-    font-size: 1.375rem; /* 22px */
-    line-height: 1.2;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+    line-height: 1.3;
     font-weight: 600;
+    color: var(--foreground);
   }
 
   h4,
   .h4 {
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.2;
-    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--foreground);
   }
 
   /* 文本样式 */
   .text-sm {
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.4;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
 
   .text-base {
-    font-size: 1rem; /* 16px */
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .text-lg {
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
   }
 
   /* 响应式容器 */
@@ -196,9 +228,9 @@
     scroll-behavior: smooth;
   }
 
-  /* 添加淡入动画 */
+  /* 基础淡入动画 - 更柔和的曲线 */
   .animate-fade-in {
-    animation: fade-in 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: fade-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
   }
 
@@ -208,11 +240,11 @@
     }
   }
 
-  /* 改进淡入向上动画 */
+  /* 改进淡入向上动画 - 优雅的入场效果 */
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fade-in-up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
     will-change: transform, opacity;
   }
 
@@ -225,7 +257,7 @@
 
   /* ProfileCard立即显示动画 */
   #about.animate-fade-in-up {
-    animation-delay: 0.1s !important;
+    animation-delay: 0.15s !important;
   }
 
   /* 滚动触发组件的默认状态 */
@@ -233,17 +265,17 @@
     animation-delay: 0s;
   }
 
-  /* 滚动触发时应用的动画 */
+  /* 滚动触发时应用的动画 - 更流畅的效果 */
   .animate-on-scroll.visible {
-    animation-delay: 0.3s;
+    animation-delay: 0.2s;
   }
 
   /* 滚动触发动画 - 基础状态 */
   .animate-on-scroll,
   .animate-on-scroll.observed {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(32px);
+    transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   /* 滚动触发动画 - 可见状态 */
@@ -252,11 +284,11 @@
     transform: translateY(0);
   }
 
-  /* 缩放淡入动画 */
+  /* 缩放淡入动画 - 柔和的缩放效果 */
   .animate-scale-in {
-    animation: scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: scale-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 
   @keyframes scale-in {
@@ -280,24 +312,24 @@
     animation-delay: 400ms;
   }
 
-  /* 简洁线条风格卡片悬停效果 */
+  /* 优雅卡片悬停效果 - 柔和阴影和微妙提升 */
   .card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     border: 1px solid var(--border-subtle);
     background: var(--card);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
   }
 
   .card-hover:hover {
     border-color: var(--border);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
   }
 
   .card-hover:active {
     border-color: var(--border-active);
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   }
 
   /* 简洁线条风格交互元素 */
@@ -326,25 +358,27 @@
     transition: width 0.6s ease;
   }
 
-  /* 简洁线条风格技术栈标签 */
+  /* 优雅技术栈标签 - 柔和边框和悬停效果 */
   .tech-tag {
     position: relative;
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
-    margin: 0.125rem;
+    padding: 0.375rem 0.875rem;
+    margin: 0.25rem;
     background: var(--card);
     color: var(--muted-foreground);
     border-radius: var(--radius-lg);
     font-size: 0.75rem;
-    font-weight: 400;
-    transition: all 0.2s ease;
-    border: 0.5px solid var(--border-subtle);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid var(--border-subtle);
   }
 
   .tech-tag:hover {
     color: var(--foreground);
     border-color: var(--border);
+    background-color: var(--secondary);
   }
 
   .tech-tag:active {
@@ -371,31 +405,35 @@
     margin-top: 2.5rem;
   }
 
-  /* 简洁线条风格按钮样式 */
+  /* 优雅按钮样式 - 精致边框和柔和悬停 */
   .btn-simple {
-    @apply px-4 py-2 text-sm font-medium transition-all;
+    @apply px-5 py-2.5 text-sm font-medium transition-all;
     background: var(--card);
     color: var(--foreground);
     border: 1.5px solid var(--border);
-    min-height: 40px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
+    letter-spacing: 0.01em;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .btn-simple:hover {
     border-color: var(--border-strong);
-    background-color: oklch(0.97 0.005 260);
+    background-color: var(--secondary);
+    transform: translateY(-1px);
   }
 
   .btn-simple:active {
     border-color: var(--border-active);
+    transform: translateY(0);
   }
 
   .btn-simple:focus-visible {
-    outline: 2px solid var(--foreground);
-    outline-offset: 1px;
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 
   /* 简洁线条风格输入框样式 */
@@ -480,6 +518,11 @@
     h2,
     .h2 {
       font-size: 1.5rem;
+    }
+
+    h3,
+    .h3 {
+      font-size: 1.25rem;
     }
 
     /* 移动端按钮触摸目标 */

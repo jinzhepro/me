@@ -10,7 +10,6 @@ import { SkillsData } from "@/types/skills";
 /**
  * 技能专长组件
  * 展示个人技能水平和专业能力
- * 使用自定义进度条和动画效果增强视觉体验
  */
 export default function Skills() {
   const { frontendSkills, backendSkills, tools }: SkillsData = skillsData;
@@ -19,7 +18,7 @@ export default function Skills() {
     <section className="animate-fade-in-up">
       <Card className="card-hover">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-3">
             <Code className="h-5 w-5 text-accent-warm" />
             技能专长
           </CardTitle>
@@ -27,11 +26,11 @@ export default function Skills() {
         <CardContent className="space-y-6">
           {/* 前端技术 */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-secondary">
                 <Code className="h-4 w-4 text-primary" />
               </div>
-              <h4 className="text-sm font-semibold">前端技术</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-wider">前端技术</h4>
             </div>
             <div className="space-y-4">
               {frontendSkills.map((skill, index) => (
@@ -44,11 +43,11 @@ export default function Skills() {
 
           {/* 后端技术 */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 rounded-lg bg-accent-warm/10">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-secondary">
                 <Server className="h-4 w-4 text-accent-warm" />
               </div>
-              <h4 className="text-sm font-semibold">后端技术</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-wider">后端技术</h4>
             </div>
             <div className="space-y-4">
               {backendSkills.map((skill, index) => (
@@ -61,11 +60,11 @@ export default function Skills() {
 
           {/* 开发工具 */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-muted">
                 <Wrench className="h-4 w-4 text-muted-foreground" />
               </div>
-              <h4 className="text-sm font-semibold">开发工具</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-wider">开发工具</h4>
             </div>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
