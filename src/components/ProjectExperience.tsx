@@ -18,7 +18,6 @@ export default function ProjectExperience() {
     <section
       aria-label="项目经验"
       className="animate-fade-in-up"
-      suppressHydrationWarning
     >
       <Card className="card-hover">
         <CardHeader>

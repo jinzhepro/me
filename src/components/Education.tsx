@@ -16,7 +16,7 @@ export default function Education() {
   const { educations }: EducationData = educationData;
 
   return (
-    <div className="animate-fade-in-up" suppressHydrationWarning>
+    <div className="animate-fade-in-up">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+
 export default function Error({
   reset,
 }: {
@@ -13,12 +15,9 @@ export default function Error({
           出现了一些问题
         </h2>
         <p className="text-gray-600 mb-6">抱歉，页面加载时遇到了错误</p>
-        <button
-          onClick={reset}
-          className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-        >
+        <Button onClick={reset} variant="default">
           重试
-        </button>
+        </Button>
       </div>
     </div>
   );

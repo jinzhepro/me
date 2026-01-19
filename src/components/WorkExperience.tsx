@@ -9,30 +9,20 @@ import {
   CheckCircle,
   Award,
 } from "lucide-react";
+import { WorkExperience as WorkExperienceType } from "@/types/work";
+import workData from "@/data/work.json";
+import { getStatusColor } from "@/lib/statusColor";
 
 /**
  * 工作经历组件
  * 展示个人工作经历和职业发展历程
  * 使用动画效果和增强的视觉设计提升用户体验
  */
-import { WorkExperience as WorkExperienceType } from "@/types/work";
-import workData from "@/data/work.json";
-
 export default function WorkExperience() {
   const experiences: WorkExperienceType[] = workData as WorkExperienceType[];
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "当前职位":
-        return "bg-green-100 text-green-800";
-      case "已离职":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
 
   return (
-    <section className="animate-fade-in-up" suppressHydrationWarning>
+    <section className="animate-fade-in-up">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

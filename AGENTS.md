@@ -63,6 +63,7 @@ import { cn } from "@/lib/utils";
 - **JSDoc comments** for component documentation (Chinese comments used)
 - **Destructuring** data from JSON files with explicit typing
 - Use `class-variance-authority` for variant components (button, card, etc.)
+- Keep components focused and small; extract sub-components when needed
 
 ### Naming Conventions
 | Pattern | Style | Example |
@@ -92,6 +93,7 @@ import { cn } from "@/lib/utils";
 - Use optional chaining: `data?.property`
 - Use nullish coalescing: `value ?? defaultValue`
 - Empty catch blocks are forbidden: always handle or log errors
+- For async operations, handle errors explicitly or let them propagate to error boundary
 
 ### File Structure
 ```
@@ -99,8 +101,9 @@ src/
 ├── app/              # Next.js App Router pages
 ├── components/
 │   ├── ui/          # shadcn/ui base components
-│   └── *.tsx        # Feature components (ProfileCard, Skills, etc.)
+│   ├── *.tsx        # Feature components (ProfileCard, Skills, etc.)
 ├── data/            # JSON data files
+├── hooks/           # Custom React hooks
 ├── lib/             # Utilities (utils.ts, animations.ts)
 └── types/           # TypeScript type definitions
 ```
@@ -110,14 +113,28 @@ src/
 - Use CSS classes for simple transitions (`.animate-fade-in-up`, `.animate-on-scroll`)
 - Initialize scroll animations via `IntersectionObserver` in `src/lib/animations.ts`
 - Always respect `prefers-reduced-motion`
+- Extract animation logic to hooks when reused (e.g., `usePageAnimations`)
 
 ### Key Utilities
 - `cn(...inputs)` - Merge Tailwind classes safely (from `@/lib/utils`)
 - `initScrollAnimations()` - Set up scroll-triggered animations
 - `smoothScrollTo(id, offset)` - Smooth scroll to section
 
+### Dynamic Loading Pattern
+When lazy-loading components, use `DynamicSection` wrapper with skeleton templates:
+```tsx
+import DynamicSection, { Skeletons } from "@/components/DynamicSection";
+
+<DynamicSection
+  importFn={() => import("@/components/Skills")}
+  skeleton={Skeletons.skills}
+/>
+```
+
 ## Workflow Notes
 - This is a **personal resume website** - changes should be minimal and focused
 - All content is data-driven (JSON files) - prefer editing data over code
 - Frontend visual changes should be delegated to frontend-ui-ux-engineer agent
 - Run `npm run lint` before committing changes
+- Build must pass (`npm run build`) before considering work complete
+- When refactoring, maintain backward compatibility for data structures

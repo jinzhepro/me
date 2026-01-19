@@ -4,116 +4,16 @@ import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
 import JsonLd from "@/components/JsonLd";
-import { useEffect } from "react";
-import { initScrollAnimations, initPageAnimations } from "@/lib/animations";
-
-const WorkExperience = dynamic(
-  () => import("@/components/WorkExperience"),
-  {
-    loading: () => (
-      <div className="space-y-4 animate-pulse">
-        <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-        <div className="h-48 bg-muted rounded-lg" />
-        <div className="h-48 bg-muted rounded-lg" />
-      </div>
-    ),
-  }
-);
-
-const ProjectExperience = dynamic(
-  () => import("@/components/ProjectExperience"),
-  {
-    loading: () => (
-      <div className="space-y-4 animate-pulse">
-        <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="h-64 bg-muted rounded-lg" />
-          <div className="h-64 bg-muted rounded-lg" />
-        </div>
-      </div>
-    ),
-  }
-);
-
-const Skills = dynamic(() => import("@/components/Skills"), {
-  loading: () => (
-    <div className="space-y-4 animate-pulse">
-      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-      <div className="h-80 bg-muted rounded-lg" />
-    </div>
-  ),
-});
-
-const Education = dynamic(() => import("@/components/Education"), {
-  loading: () => (
-    <div className="space-y-4 animate-pulse">
-      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-      <div className="h-40 bg-muted rounded-lg" />
-    </div>
-  ),
-});
-
-const Environment = dynamic(() => import("@/components/Environment"), {
-  loading: () => (
-    <div className="space-y-4 animate-pulse">
-      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-      <div className="h-64 bg-muted rounded-lg" />
-    </div>
-  ),
-});
-
-const SocialMedia = dynamic(() => import("@/components/SocialMedia"), {
-  loading: () => (
-    <div className="space-y-4 animate-pulse">
-      <div className="h-8 bg-muted rounded w-1/4 mb-6" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="h-32 bg-muted rounded-lg" />
-        <div className="h-32 bg-muted rounded-lg" />
-      </div>
-    </div>
-  ),
-});
-
-const BackToTop = dynamic(() => import("@/components/BackToTop"), {
-  loading: () => null,
-});
+import DynamicSection, { Skeletons } from "@/components/DynamicSection";
+import { usePageAnimations } from "@/hooks/usePageAnimations";
 
 /**
  * 主页面组件 - 个人简历网站
  * 使用shadcn/ui组件库，采用黑白灰配色方案
  */
 export default function Home() {
-  useEffect(() => {
-    // 为锚点链接添加平滑滚动
-    const handleAnchorClick = (e: Event) => {
-      const target = e.target as HTMLAnchorElement;
-      if (
-        target.tagName === "A" &&
-        target.getAttribute("href")?.startsWith("#")
-      ) {
-        e.preventDefault();
-        const targetId = target.getAttribute("href")!.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 120,
-            behavior: "smooth",
-          });
-        }
-      }
-    };
-
-    // 初始化动画
-    initPageAnimations();
-    const scrollObserver = initScrollAnimations();
-
-    document.addEventListener("click", handleAnchorClick);
-
-    return () => {
-      document.removeEventListener("click", handleAnchorClick);
-      scrollObserver?.disconnect();
-    };
-  }, []);
+  // 初始化动画
+  usePageAnimations();
 
   return (
     <div className="min-h-screen">
@@ -137,7 +37,10 @@ export default function Home() {
               className="animate-fade-in-up animate-on-scroll"
               suppressHydrationWarning
             >
-              <WorkExperience />
+              <DynamicSection
+                importFn={() => import("@/components/WorkExperience")}
+                skeleton={Skeletons.list}
+              />
             </section>
 
             {/* 项目经验 - 滚动触发 */}
@@ -146,7 +49,10 @@ export default function Home() {
               className="animate-fade-in-up animate-on-scroll"
               suppressHydrationWarning
             >
-              <ProjectExperience />
+              <DynamicSection
+                importFn={() => import("@/components/ProjectExperience")}
+                skeleton={Skeletons.grid}
+              />
             </section>
           </div>
 
@@ -158,17 +64,26 @@ export default function Home() {
               className="animate-fade-in-up animate-on-scroll"
               suppressHydrationWarning
             >
-              <Skills />
+              <DynamicSection
+                importFn={() => import("@/components/Skills")}
+                skeleton={Skeletons.skills}
+              />
             </section>
 
             {/* 教育背景 - 滚动触发 */}
             <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
-              <Education />
+              <DynamicSection
+                importFn={() => import("@/components/Education")}
+                skeleton={Skeletons.card}
+              />
             </div>
 
             {/* 工作环境 - 滚动触发 */}
             <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
-              <Environment />
+              <DynamicSection
+                importFn={() => import("@/components/Environment")}
+                skeleton={Skeletons.card}
+              />
             </div>
           </div>
         </div>
@@ -179,7 +94,10 @@ export default function Home() {
           className="animate-fade-in-up animate-on-scroll"
           suppressHydrationWarning
         >
-          <SocialMedia />
+          <DynamicSection
+            importFn={() => import("@/components/SocialMedia")}
+            skeleton={Skeletons.socialCards}
+          />
         </section>
       </main>
 
@@ -193,7 +111,10 @@ export default function Home() {
       </footer>
 
       {/* 回到顶部按钮 */}
-      <BackToTop />
+      <DynamicSection
+        importFn={() => import("@/components/BackToTop")}
+        skeleton={null}
+      />
     </div>
   );
 }

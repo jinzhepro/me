@@ -117,7 +117,6 @@ export default function SocialMedia() {
     <section
       id="social-media"
       className="mt-8 animate-fade-in-up"
-      suppressHydrationWarning
     >
       <Card className="card-hover">
         <CardHeader className="pb-6">

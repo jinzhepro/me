@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Code, Mail, MapPin, Globe, Github, Linkedin } from "lucide-react";
+import { Code, Mail } from "lucide-react";
 
 // 从JSON文件导入数据和类型
 import profileData from "@/data/profile.json";
@@ -10,7 +10,7 @@ import { ProfileData } from "@/types/profile";
 
 /**
  * 个人信息卡片组件
- * 展示个人基本信息、联系方式、技能标签和社交链接
+ * 展示个人基本信息、联系方式和技能标签
  * 使用动画效果增强视觉吸引力
  */
 export default function ProfileCard() {
@@ -67,64 +67,14 @@ export default function ProfileCard() {
                   <h3 className="text-sm font-semibold text-muted-foreground mb-3">
                     联系方式
                   </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {/* 邮箱 */}
+                  <div className="flex items-center gap-3">
                     <a
                       href={`mailto:${contact.email}`}
                       className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
                     >
                       <Mail className="h-4 w-4 group-hover:text-accent-warm transition-colors" />
-                      <span className="truncate">邮箱</span>
+                      <span>{contact.email}</span>
                     </a>
-                    {/* 电话 */}
-                    <a
-                      href={`tel:${contact.phone}`}
-                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                    >
-                      <MapPin className="h-4 w-4 group-hover:text-accent-warm transition-colors" />
-                      <span className="truncate">电话</span>
-                    </a>
-                    {/* GitHub */}
-                    {contact.github && (
-                      <a
-                        href={contact.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                      >
-                        <Github className="h-4 w-4 group-hover:text-accent-warm transition-colors" />
-                        <span className="truncate">GitHub</span>
-                      </a>
-                    )}
-                    {/* LinkedIn */}
-                    {contact.linkedin && (
-                      <a
-                        href={contact.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                      >
-                        <Linkedin className="h-4 w-4 group-hover:text-accent-warm transition-colors" />
-                        <span className="truncate">LinkedIn</span>
-                      </a>
-                    )}
-                    {/* 位置 */}
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      <span className="truncate">{contact.location}</span>
-                    </div>
-                    {/* 个人网站 */}
-                    {contact.website && (
-                      <a
-                        href={contact.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                      >
-                        <Globe className="h-4 w-4 group-hover:text-accent-warm transition-colors" />
-                        <span className="truncate">博客</span>
-                      </a>
-                    )}
                   </div>
                 </div>
 

@@ -113,7 +113,7 @@ export default function Environment() {
   };
 
   return (
-    <section className="animate-fade-in-up" suppressHydrationWarning>
+    <section className="animate-fade-in-up">
       <Card className="card-hover">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
