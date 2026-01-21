@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Code, Mail } from "lucide-react";
+import { Typewriter } from "@/components/Typewriter";
 
 // 从JSON文件导入数据和类型
 import profileData from "@/data/profile.json";
@@ -47,7 +48,7 @@ export default function ProfileCard() {
                     <h1 className="text-3xl font-bold mb-2">{name}</h1>
                     <p className="text-lg text-muted-foreground flex items-center gap-2">
                       <Code className="h-4 w-4" />
-                      {title}
+                      <Typewriter text={title} speed={100} />
                     </p>
                   </div>
                   <div className="mt-3 sm:mt-0">
