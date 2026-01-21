@@ -45,7 +45,7 @@
 :root {
   --radius: 0.75rem;
 
-  /* Modern Refined Color Palette */
+  /* Modern Refined Color Palette - Light Mode */
   /* Warm off-white background */
   --background: oklch(0.985 0.005 40);
   /* Deep charcoal text */
@@ -108,6 +108,70 @@
   );
 }
 
+/* Dark Mode Color Palette */
+.dark {
+  /* Deep charcoal background - elegant dark theme */
+  --background: oklch(0.18 0.015 30);
+  /* Soft off-white text for readability */
+  --foreground: oklch(0.92 0.008 50);
+  /* Slightly lighter card background */
+  --card: oklch(0.22 0.015 30);
+  /* Card text color */
+  --card-foreground: oklch(0.92 0.008 50);
+  /* Popover colors */
+  --popover: oklch(0.22 0.015 30);
+  --popover-foreground: oklch(0.92 0.008 50);
+  /* Primary - brighter copper/bronze for dark mode */
+  --primary: oklch(0.55 0.08 35);
+  --primary-foreground: oklch(0.15 0.01 30);
+  /* Secondary - warm gray */
+  --secondary: oklch(0.28 0.018 35);
+  --secondary-foreground: oklch(0.85 0.012 50);
+  /* Muted colors */
+  --muted: oklch(0.25 0.015 35);
+  --muted-foreground: oklch(0.65 0.02 45);
+  /* Accent - warm terracotta (slightly brighter) */
+  --accent: oklch(0.7 0.09 25);
+  --accent-foreground: oklch(0.15 0.01 30);
+  /* Warm accent variant */
+  --accent-warm: oklch(0.75 0.08 45);
+  --accent-warm-foreground: oklch(0.15 0.01 30);
+  /* Status colors - adjusted for dark mode */
+  --destructive: oklch(0.65 0.03 20);
+  --success: oklch(0.6 0.1 150);
+  --warning: oklch(0.8 0.1 70);
+  --info: oklch(0.65 0.08 240);
+  /* Border colors - lighter for dark mode visibility */
+  --border: oklch(0.35 0.02 35);
+  --input: oklch(0.35 0.02 35);
+  --ring: oklch(0.55 0.08 35);
+  --border-hover: oklch(0.45 0.025 40);
+  --border-active: oklch(0.5 0.03 40);
+  --border-subtle: oklch(0.3 0.015 35);
+  --border-strong: oklch(0.45 0.025 40);
+  /* Chart colors - adjusted for dark mode */
+  --chart-1: oklch(0.65 0.09 25);
+  --chart-2: oklch(0.55 0.09 220);
+  --chart-3: oklch(0.7 0.09 130);
+  --chart-4: oklch(0.5 0.09 300);
+  --chart-5: oklch(0.65 0.09 30);
+  /* Sidebar colors */
+  --sidebar: oklch(0.2 0.012 30);
+  --sidebar-foreground: oklch(0.9 0.008 50);
+  --sidebar-primary: oklch(0.55 0.08 35);
+  --sidebar-primary-foreground: oklch(0.15 0.01 30);
+  --sidebar-accent: oklch(0.3 0.018 35);
+  --sidebar-accent-foreground: oklch(0.85 0.012 50);
+  --sidebar-border: oklch(0.35 0.02 35);
+  --sidebar-ring: oklch(0.55 0.08 35);
+  /* Gradient for dark mode */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.22 0.015 30) 0%,
+    oklch(0.18 0.015 30) 100%
+  );
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/30;
@@ -122,8 +186,6 @@
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
     line-height: 1.6;
-    /* Warm off-white background with subtle texture feel */
-    background-color: oklch(0.985 0.005 40);
   }
 
   /* 标题样式 - 使用 Playfair Display 字体增添优雅感 */

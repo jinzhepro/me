@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 // 从JSON文件导入数据和类型
 import navigationData from "@/data/navigation.json";
@@ -51,7 +52,7 @@ export default function MobileMenu() {
         />
       )}
 
-      {/* 菜单内容 */}
+        {/* 菜单内容 */}
       <div
         className={`absolute top-14 right-0 w-64 bg-background border-b shadow-xl z-50 overflow-hidden transition-all duration-300 ease-out ${
           isOpen
@@ -60,6 +61,13 @@ export default function MobileMenu() {
         }`}
       >
         <div className="p-4 space-y-1">
+          {/* 移动端主题切换 */}
+          <div className="flex items-center justify-between py-2 px-3">
+            <span className="text-sm font-medium">主题</span>
+            <ThemeToggle />
+          </div>
+          <div className="border-t border-border my-2" />
+
           {mobileNavigationLinks.map((link, index) => (
             <a
               key={index}

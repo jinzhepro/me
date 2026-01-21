@@ -2,6 +2,7 @@
 
 import { Code, Phone } from "lucide-react";
 import MobileMenu from "./MobileMenu";
+import { ThemeToggle } from "./ThemeToggle";
 import { useState, useEffect } from "react";
 
 // 从JSON文件导入数据和类型
@@ -72,6 +73,9 @@ export default function Navigation() {
                 );
               })}
             </div>
+
+            {/* 主题切换按钮 */}
+            <ThemeToggle />
 
             {/* 移动端快速拨号按钮 */}
             <a
