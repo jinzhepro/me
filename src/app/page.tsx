@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
 import JsonLd from "@/components/JsonLd";

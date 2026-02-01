@@ -7,6 +7,7 @@ import HeartClickEffect from "@/components/HeartClickEffect";
  * 页面元数据配置
  */
 export const metadata: Metadata = {
+  metadataBase: new URL(config.site.url),
   title: config.metadata.title.default,
   description: config.metadata.description,
   keywords: config.metadata.keywords,
