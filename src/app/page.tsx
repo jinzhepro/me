@@ -32,12 +32,18 @@ export default function Home() {
           {/* 左侧列 */}
           <div className="lg:col-span-2 space-y-8">
             {/* 工作经历 - 滚动触发 */}
-            <section id="experience" className="animate-fade-in-up animate-on-scroll">
+            <section
+              id="experience"
+              className="animate-fade-in-up animate-on-scroll"
+            >
               <WorkExperience />
             </section>
 
             {/* 项目经验 - 滚动触发 */}
-            <section id="projects" className="animate-fade-in-up animate-on-scroll">
+            <section
+              id="projects"
+              className="animate-fade-in-up animate-on-scroll"
+            >
               <ProjectExperience />
             </section>
           </div>
@@ -45,7 +51,10 @@ export default function Home() {
           {/* 右侧列 */}
           <div className="space-y-8">
             {/* 技能 - 滚动触发 */}
-            <section id="skills" className="animate-fade-in-up animate-on-scroll">
+            <section
+              id="skills"
+              className="animate-fade-in-up animate-on-scroll"
+            >
               <Skills />
             </section>
 
@@ -62,7 +71,10 @@ export default function Home() {
         </div>
 
         {/* 社交媒体 - 滚动触发 */}
-        <section id="social-media" className="animate-fade-in-up animate-on-scroll">
+        <section
+          id="social-media"
+          className="animate-fade-in-up animate-on-scroll"
+        >
           <SocialMedia />
         </section>
       </main>
@@ -75,7 +87,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-
     </div>
   );
 }
