@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Calendar, TrendingUp, Award } from "lucide-react";
 

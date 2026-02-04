@@ -9,6 +9,13 @@
  */
 export function initScrollAnimations() {
   if (typeof window === "undefined") return;
+  if (prefersReducedMotion()) {
+    const reducedElements = document.querySelectorAll(".animate-on-scroll");
+    reducedElements.forEach((el) => {
+      el.classList.add("visible");
+    });
+    return;
+  }
 
   const observerOptions: IntersectionObserverInit = {
     root: null,
@@ -20,6 +27,7 @@ export function initScrollAnimations() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
@@ -46,6 +54,7 @@ export function initScrollAnimations() {
  */
 export function initPageAnimations() {
   if (typeof window === "undefined") return;
+  if (prefersReducedMotion()) return;
 
   // 页面加载时的淡入效果
   const mainContent = document.querySelector("main");

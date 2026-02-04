@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Zap, Star, Shield } from "lucide-react";
 import { Skill } from "@/types/skills";
 
@@ -24,23 +21,12 @@ function getSkillLevel(level?: number) {
  * 展示单个技能的水平和进度
  */
 export default function SkillBar({ skill }: SkillBarProps) {
-  const [mounted, setMounted] = useState(false);
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const level = getSkillLevel(skill.level);
   const Icon = level.icon;
-  const isHovered = mounted && hoveredSkill === skill.name;
 
   return (
     <div
-      className="space-y-2"
-      onMouseEnter={() => setHoveredSkill(skill.name)}
-      onMouseLeave={() => setHoveredSkill(null)}
-      suppressHydrationWarning
+      className="group relative space-y-2"
     >
       {/* 技能信息 */}
       <div className="flex items-center justify-between">
@@ -59,13 +45,7 @@ export default function SkillBar({ skill }: SkillBarProps) {
       {/* 进度条容器 */}
       <div className="skill-progress">
         {/* 悬停高亮效果 - 客户端专属 */}
-        {mounted && (
-          <div
-            className={`absolute inset-0 bg-foreground/5 transition-opacity duration-200 ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        )}
+        <div className="absolute inset-0 bg-foreground/5 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
 
         {/* 进度条 */}
         <div
@@ -75,8 +55,8 @@ export default function SkillBar({ skill }: SkillBarProps) {
       </div>
 
       {/* 悬停时的详细描述 - 客户端专属 */}
-      {mounted && isHovered && level.text && (
-        <div className="absolute top-full left-0 mt-1 z-10 animate-fade-in">
+      {level.text && (
+        <div className="absolute top-full left-0 mt-1 z-10 opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none">
           <span className="text-xs text-muted-foreground bg-background border border-border px-2 py-1 rounded-md shadow-sm">
             {level.text}
           </span>

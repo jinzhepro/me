@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 /**
  * 社交媒体组件
@@ -26,12 +24,6 @@ export default function SocialMedia() {
   const socialMediaLinks: SocialMediaLinkType[] =
     socialData as SocialMediaLinkType[];
 
-  const handleSocialAction = (action: string) => {
-    if (action.startsWith("http")) {
-      window.open(action, "_blank");
-    }
-  };
-
   interface SocialMediaCardProps {
     link: SocialMediaLinkType;
   }
@@ -40,9 +32,12 @@ export default function SocialMedia() {
     const Icon = iconMap[link.icon as keyof typeof iconMap] || Globe;
 
     return (
-      <div
-        className="group social-card cursor-pointer"
-        onClick={() => handleSocialAction(link.action)}
+      <a
+        className="group social-card block"
+        href={link.action}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={link.label}
       >
         <div
           className={`p-4 rounded-lg border transition-all duration-300 interactive-item ${
@@ -84,12 +79,13 @@ export default function SocialMedia() {
             >
               {link.value}
             </span>
-            <button
-              className={`p-1 rounded-lg transition-all duration-200 focus:outline-none focus:ring-0 ${
+            <span
+              className={`p-1 rounded-lg transition-all duration-200 ${
                 link.highlight
-                  ? "bg-accent-warm/20 hover:bg-accent-warm/30 text-accent-warm hover:text-accent-warm-foreground"
-                  : "bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground"
+                  ? "bg-accent-warm/20 text-accent-warm"
+                  : "bg-muted/50 text-muted-foreground"
               }`}
+              aria-hidden
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,18 +102,15 @@ export default function SocialMedia() {
                 <polyline points="15 3 21 3 21 9" />
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
-            </button>
+            </span>
           </div>
         </div>
-      </div>
+      </a>
     );
   };
 
   return (
-    <section
-      id="social-media"
-      className="mt-8 animate-fade-in-up"
-    >
+    <section id="social-media" className="mt-8 animate-fade-in-up">
       <Card className="card-hover">
         <CardHeader className="pb-6">
           <CardTitle className="flex items-center gap-2 text-xl">

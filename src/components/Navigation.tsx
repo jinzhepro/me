@@ -20,24 +20,39 @@ export default function Navigation() {
 
   // 监听滚动，更新active状态
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navigationLinks.map((link) => link.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
+    const sectionIds = navigationLinks.map((link) => link.href.substring(1));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
+    if (sections.length === 0) {
+      return;
+    }
+
+    setActiveSection(sectionIds[0] ?? "about");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries[0]) {
+          setActiveSection(visibleEntries[0].target.id);
         }
+      },
+      {
+        root: null,
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75],
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
   }, [navigationLinks]);
 
   return (

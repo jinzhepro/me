@@ -18,9 +18,15 @@ export function Typewriter({ text, speed = 80, className = "" }: TypewriterProps
   const isDeletingRef = useRef(false);
   const indexRef = useRef(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    if (reduceMotion) {
+      setDisplayedText(text);
+      return;
+    }
+
+    let timeout: NodeJS.Timeout | undefined;
 
     const type = () => {
       if (!isDeletingRef.current) {
@@ -50,17 +56,33 @@ export function Typewriter({ text, speed = 80, className = "" }: TypewriterProps
 
     timeout = setTimeout(type, 500);
 
-    return () => clearTimeout(timeout);
-  }, [text, speed]);
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [text, speed, reduceMotion]);
 
   // 闪烁光标效果
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) {
+      setReduceMotion(true);
+      return;
+    }
+
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 530);
 
     return () => clearInterval(cursorInterval);
   }, []);
+
+  if (reduceMotion) {
+    return <span className={className}>{text}</span>;
+  }
 
   return (
     <span className={className}>

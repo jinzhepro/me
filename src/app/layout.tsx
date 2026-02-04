@@ -1,7 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import config from "@/data/config.json";
 import "./globals.css";
-import HeartClickEffect from "@/components/HeartClickEffect";
+import DeferredInteractions from "@/components/DeferredInteractions";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 /**
  * 页面元数据配置
@@ -43,7 +56,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="antialiased">
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <div data-top-sentinel className="sr-only" aria-hidden />
         <noscript>
           <div
             style={{
@@ -55,8 +69,8 @@ export default function RootLayout({
             请启用 JavaScript 以获得最佳浏览体验。
           </div>
         </noscript>
-        <HeartClickEffect />
         {children}
+        <DeferredInteractions />
       </body>
     </html>
   );

@@ -1,9 +1,7 @@
-"use client";
-
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Code, Mail } from "lucide-react";
-import { Typewriter } from "@/components/Typewriter";
+import TypewriterClient from "@/components/TypewriterClient";
 
 // 从JSON文件导入数据和类型
 import profileData from "@/data/profile.json";
@@ -33,10 +31,17 @@ export default function ProfileCard() {
             {/* 头像区域 */}
             <div className="lg:col-span-3 flex justify-center">
               <div className="m-auto">
-                <Avatar className="w-36 h-36 border-4 border-background shadow-lg">
-                  <AvatarImage src={avatar} alt={avatarAlt} />
-                  <AvatarFallback>{name}</AvatarFallback>
-                </Avatar>
+                <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-background shadow-lg">
+                  <Image
+                    src={avatar}
+                    alt={avatarAlt}
+                    width={144}
+                    height={144}
+                    priority
+                    sizes="(max-width: 768px) 144px, 144px"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
 
@@ -48,7 +53,7 @@ export default function ProfileCard() {
                     <h1 className="text-3xl font-bold mb-2">{name}</h1>
                     <p className="text-lg text-muted-foreground flex items-center gap-2">
                       <Code className="h-4 w-4" />
-                      <Typewriter text={title} speed={100} />
+                      <TypewriterClient text={title} speed={100} />
                     </p>
                   </div>
                   <div className="mt-3 sm:mt-0">

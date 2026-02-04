@@ -1,23 +1,23 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import ProfileCard from "@/components/ProfileCard";
 import JsonLd from "@/components/JsonLd";
-import DynamicSection, { Skeletons } from "@/components/DynamicSection";
-import { usePageAnimations } from "@/hooks/usePageAnimations";
+import PageEffects from "@/components/PageEffects";
+import WorkExperience from "@/components/WorkExperience";
+import ProjectExperience from "@/components/ProjectExperience";
+import Skills from "@/components/Skills";
+import Education from "@/components/Education";
+import Environment from "@/components/Environment";
+import SocialMedia from "@/components/SocialMedia";
 
 /**
  * 主页面组件 - 个人简历网站
  * 使用shadcn/ui组件库，采用黑白灰配色方案
  */
 export default function Home() {
-  // 初始化动画
-  usePageAnimations();
-
   return (
     <div className="min-h-screen">
       <JsonLd />
+      <PageEffects />
       {/* 导航栏 */}
       <Navigation />
 
@@ -32,72 +32,38 @@ export default function Home() {
           {/* 左侧列 */}
           <div className="lg:col-span-2 space-y-8">
             {/* 工作经历 - 滚动触发 */}
-            <section
-              id="experience"
-              className="animate-fade-in-up animate-on-scroll"
-              suppressHydrationWarning
-            >
-              <DynamicSection
-                importFn={() => import("@/components/WorkExperience")}
-                skeleton={Skeletons.list}
-              />
+            <section id="experience" className="animate-fade-in-up animate-on-scroll">
+              <WorkExperience />
             </section>
 
             {/* 项目经验 - 滚动触发 */}
-            <section
-              id="projects"
-              className="animate-fade-in-up animate-on-scroll"
-              suppressHydrationWarning
-            >
-              <DynamicSection
-                importFn={() => import("@/components/ProjectExperience")}
-                skeleton={Skeletons.grid}
-              />
+            <section id="projects" className="animate-fade-in-up animate-on-scroll">
+              <ProjectExperience />
             </section>
           </div>
 
           {/* 右侧列 */}
           <div className="space-y-8">
             {/* 技能 - 滚动触发 */}
-            <section
-              id="skills"
-              className="animate-fade-in-up animate-on-scroll"
-              suppressHydrationWarning
-            >
-              <DynamicSection
-                importFn={() => import("@/components/Skills")}
-                skeleton={Skeletons.skills}
-              />
+            <section id="skills" className="animate-fade-in-up animate-on-scroll">
+              <Skills />
             </section>
 
             {/* 教育背景 - 滚动触发 */}
-            <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
-              <DynamicSection
-                importFn={() => import("@/components/Education")}
-                skeleton={Skeletons.card}
-              />
+            <div className="animate-fade-in-up animate-on-scroll">
+              <Education />
             </div>
 
             {/* 工作环境 - 滚动触发 */}
-            <div className="animate-fade-in-up animate-on-scroll" suppressHydrationWarning>
-              <DynamicSection
-                importFn={() => import("@/components/Environment")}
-                skeleton={Skeletons.card}
-              />
+            <div className="animate-fade-in-up animate-on-scroll">
+              <Environment />
             </div>
           </div>
         </div>
 
         {/* 社交媒体 - 滚动触发 */}
-        <section
-          id="social-media"
-          className="animate-fade-in-up animate-on-scroll"
-          suppressHydrationWarning
-        >
-          <DynamicSection
-            importFn={() => import("@/components/SocialMedia")}
-            skeleton={Skeletons.socialCards}
-          />
+        <section id="social-media" className="animate-fade-in-up animate-on-scroll">
+          <SocialMedia />
         </section>
       </main>
 
@@ -110,11 +76,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* 回到顶部按钮 */}
-      <DynamicSection
-        importFn={() => import("@/components/BackToTop")}
-        skeleton={null}
-      />
     </div>
   );
 }
